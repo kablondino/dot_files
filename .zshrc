@@ -10,7 +10,7 @@ setopt appendhistory autocd notify
 bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/kabv/.zshrc'
+zstyle :compinstall filename '$HOME.zshrc'
 
 autoload -Uz compinit
 compinit
@@ -36,7 +36,7 @@ alias sl='sl -e'
 alias tmux='tmux -2'
 
 # Directory and file colors
-test -r .dircolors && eval "$(dircolors .dircolors)"
+test -r .dircolors && eval "$(dircolors $HOME/.dircolors)"
 
 neofetch
 echo -n "Current Shell: "; echo -n "ZSH "; echo $ZSH_VERSION
