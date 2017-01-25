@@ -25,12 +25,13 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 
 " END VUNDLE
+call vundle#end()
 
 set number
 colorscheme koehler
 "colorscheme herald
 syntax on
-filetype on
+filetype plugin indent on
 set tabstop=4 softtabstop=0 noexpandtab shiftwidth=4
 
 set showmatch
