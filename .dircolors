@@ -1,0 +1,143 @@
+# Configuration file for dircolors, a utility to help you set the
+# LS_COLORS environment variable used by GNU ls with the --color option.
+# The keywords COLOR, OPTIONS, and EIGHTBIT (honored by the
+# slackware version of dircolors) are recognized but ignored.
+# Below, there should be one TERM entry for each termtype that is colorizable
+TERM linux
+TERM linux-c
+TERM mach-color
+TERM console
+TERM con132x25
+TERM con132x30
+TERM con132x43
+TERM con132x60
+TERM con80x25
+TERM con80x28
+TERM con80x30
+TERM con80x43
+TERM con80x50
+TERM con80x60
+TERM cygwin
+TERM dtterm
+TERM putty
+TERM xterm
+TERM xterm-color
+TERM xterm-debian
+TERM rxvt
+TERM screen
+TERM screen-bce
+TERM screen-w
+TERM vt100
+TERM Eterm
+
+# This next one is my custom term:
+TERM xterm-256color
+
+# Below are the color init strings for the basic file types. A color init
+# string consists of one or more of the following numeric codes:
+# Attribute codes:
+# 00=none 01=bold 03=italic 04=underscore 05=blink 07=reverse 08=concealed
+# Text color codes:
+# 30=black 31=red 32=green 33=yellow 34=blue 35=magenta 36=cyan 37=white
+# Background color codes:
+# 40=black 41=red 42=green 43=yellow 44=blue 45=magenta 46=cyan 47=white
+
+NORMAL 00 # global default, although everything should be something.
+FILE 00 # normal file
+DIR 01;38;5;055 # directory
+LINK 01;36 # symbolic link. (If you set this to 'target' instead of a
+ # numerical value, the color is as for the file pointed to.)
+FIFO 40;33 # pipe
+SOCK 01;35 # socket
+DOOR 01;35 # door
+BLK 40;33;01 # block device driver
+CHR 40;33;01 # character device driver
+ORPHAN 40;31;01 # symlink to nonexistent file
+SETUID 37;41 # file that is setuid (u+s)
+SETGID 30;43 # file that is setgid (g+s)
+STICKY_OTHER_WRITABLE 30;42 # dir that is sticky and other-writable (+t,o+w)
+OTHER_WRITABLE 34;42 # dir that is other-writable (o+w) and not sticky
+STICKY 37;44 # dir with the sticky bit set (+t) and not other-writable
+
+# List any file extensions like '.gz' or '.tar' that you would like ls
+# to colorize below. Put the extension, a space, and the color init string.
+# (and any comments you want to add after a '#')
+# If you use DOS-style suffixes, you may want to uncomment the following:
+#.cmd 01;32 # executables (bright green)
+#.exe 01;32
+#.com 01;32
+#.btm 01;32
+#.bat 01;32
+.tar 07;31 # archives or compressed (bright red)
+.tgz 07;31
+.arj 07;31
+.taz 07;31
+.lzh 07;31
+.zip 07;31
+.z 07;31
+.Z 07;31
+.gz 07;31
+.bz2 07;31
+.deb 07;31
+.rpm 07;31
+.jar 07;31
+# image formats
+.jpg 38;5;35
+.jpeg 38;5;35
+.gif 38;5;35
+.bmp 01;35
+.pbm 01;35
+.pgm 01;35
+.ppm 01;35
+.tga 01;35
+.xbm 01;35
+.xpm 01;35
+.tif 01;35
+.tiff 01;35
+.png 38;5;35
+.mov 01;35
+.mpg 38;5;34
+.mpeg 38;5;34
+.avi 38;5;34
+.mkv 38;5;34
+.fli 01;35
+.gl 01;35
+.dl 01;35
+.xcf 01;35
+.xwd 01;35
+# audio formats
+.flac 38;5;29
+.mp3 38;5;29
+.mpc 38;5;29
+.ogg 01;35
+.wav 38;5;29
+# Other formats
+.m 04;33
+.mat 00;33
+
+# Programming Languages
+.f 04;38;5;039
+.f~ 04;38;5;039
+.source 04;38;5;039
+.py 04;38;5;227
+.cpp 04;38;5;027
+.cc 04;38;5;027
+.c++ 04;38;5;027
+.rb 04;38;5;160
+
+.tex 04;38;5;057
+.bib 03;38;5;053
+.md 04;38;5;116
+
+# Misc
+.gpi 04;38;5;104
+.pdf 01;31
+.html 04;38;5;214
+.log 03;38;5;090
+.vimrc 38;5;70;48;5;236
+.conf 38;5;70;48;5;236
+.zshrc 38;5;70;48;5;236
+.bashrc 38;5;70;48;5;236
+
+# This is for files with execute permission:
+EXEC 01;38;5;046 #!!!! <------ CHANGE?
