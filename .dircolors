@@ -115,7 +115,7 @@ STICKY 37;44 # dir with the sticky bit set (+t) and not other-writable
 .m 04;33
 .mat 00;33
 
-# Programming Languages
+# Programming Languages (Source code)
 .f 04;38;5;039
 .f~ 04;38;5;039
 .source 04;38;5;039
