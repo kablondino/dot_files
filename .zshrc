@@ -69,7 +69,7 @@ RPROMPT="${return_code}"
 
 # Aliases
 alias ls='ls --color=auto'
-alias ll='ls -l'
+alias ll='ls -lh'
 alias la='ls -A'
 alias sl='sl -e'
 alias tmux='tmux -2'
