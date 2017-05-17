@@ -9,3 +9,6 @@ Configuration files for all the things.
 6. .dircolors
 7. i3.config
 8. .i3status.conf
+9. Terminal config for italics and 256 color
+
+	+ Included instructions for enabling terminal for italics.
