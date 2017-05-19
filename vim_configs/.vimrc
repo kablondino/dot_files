@@ -66,3 +66,13 @@ set listchars=tab:▸·,trail:·,eol:¬,nbsp:%
 " Syntax for odd file types
 autocmd BufNewFile,BufRead *.source set filetype=fortran
 autocmd BufNewFile,BufRead *.sage set filetype=python
+
+" Autocomplete pairing of braces and parentheses
+inoremap {      {}<Left>
+inoremap {<CR>  {<CR>}<Esc>O
+inoremap {{     {
+inoremap {}     {}
+inoremap (      ()<Left>
+inoremap (<CR>  (<CR>)<Esc>0
+inoremap ((     (
+inoremap ()     ()
