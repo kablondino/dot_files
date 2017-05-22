@@ -50,7 +50,7 @@ set tabstop=4 softtabstop=0 noexpandtab shiftwidth=4
 set laststatus=2
 set statusline=%f\ =\ Filetype:\ %y
 
-" AIRLINE CONFIG
+" Use powerline fonts for vim-airline
 let g:airline_powerline_fonts = 1
 
 set showmatch
@@ -66,6 +66,10 @@ set listchars=tab:▸·,trail:·,eol:¬,nbsp:%
 " Syntax for odd file types
 autocmd BufNewFile,BufRead *.source set filetype=fortran
 autocmd BufNewFile,BufRead *.sage set filetype=python
+
+" Turn off line cursor and turn on spell check, linebreak for some files
+autocmd BufEnter *.md,*.txt setlocal spell spelllang=en linebreak nocursorline nocursorcolumn
+
 
 " Autocomplete pairing of braces and parentheses
 inoremap {      {}<Left>

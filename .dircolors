@@ -123,6 +123,7 @@ STICKY 37;44 # dir with the sticky bit set (+t) and not other-writable
 .cpp 04;38;5;027
 .cc 04;38;5;027
 .c++ 04;38;5;027
+.c 04;38;5;027
 .rb 04;38;5;160
 
 .tex 04;38;5;057
