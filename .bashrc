@@ -64,9 +64,9 @@ fi
 #unset color_prompt force_color_prompt
 
 if [ "$color_prompt" = yes ]; then
-  PS1="\[\e[36m\]\t\[\e[m\] \[\e[1;31m\]\u\[\e[m\]\[\e[1;35m\]∈\[\e[1;33m\]$(hostname -f)\[\e[m\] \W/ \[\e[1;32m\]▶\[\e[m\] "
+  PS1="\[\e[36m\]\t\[\e[m\] \[\e[1;31m\]\u\[\e[m\]\[\e[1;35m\]∈\[\e[1;33m\]$(hostname)\[\e[m\] \W/ \[\e[1;32m\]▶\[\e[m\] "
 else
-  PS1="\[\e[36m\]\t\[\e[m\] \[\e[1;31m\]\u\[\e[m\]\[\e[1;35m\]∈\[\e[1;33m\]$(hostname -f)\[\e[m\] \W/ \[\e[1;32m\]▶\[\e[m\] "
+  PS1="\[\e[36m\]\t\[\e[m\] \[\e[1;31m\]\u\[\e[m\]\[\e[1;35m\]∈\[\e[1;33m\]$(hostname)\[\e[m\] \W/ \[\e[1;32m\]▶\[\e[m\] "
 fi
 unset color_prompt force_color_prompt
 

@@ -40,6 +40,8 @@ syntax on
 colorscheme swagdino
 hi Normal guifg=#C6C6C6 ctermfg=251 ctermbg=NONE cterm=NONE
 hi Comment guifg=#875F00 ctermfg=94 ctermbg=NONE cterm=italic
+set t_ZH=[3m
+set t_ZR=[23m
 
 " Tab length
 set tabstop=4 softtabstop=0 noexpandtab shiftwidth=4

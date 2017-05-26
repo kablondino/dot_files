@@ -24,7 +24,6 @@ export VISUAL=$(which vim)
 # Set the TERM so that italics and color are available, even in TMUX
 export TERM=xterm-256color
 
-
 # ------------ Set up some variables for prompt --------------
 
 local PR_USER PR_USER_OP PR_PROMPT PR_HOST
