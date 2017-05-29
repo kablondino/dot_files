@@ -22,7 +22,7 @@ export EDITOR=$(which vim)
 export VISUAL=$(which vim)
 
 # Set the TERM so that italics and color are available, even in TMUX
-export TERM=xterm-256color
+export TERM=xterm-256color-italic
 
 # ------------ Set up some variables for prompt --------------
 
