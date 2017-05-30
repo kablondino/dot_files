@@ -81,7 +81,10 @@ alias common_room_pi='ssh pi@25.33.244.15'
 alias hpc-iter='ssh -X blondik@hpc-login4.iter.org'
 
 # TEMPORARY for Stellarator Master Class
-alias mcviewer='/home/kabv/Documents/Masters/Quartile\ 7/Stellarator\ Master\ Class/mcviewer64'
+#alias mcviewer='/home/kabv/Documents/Masters/Quartile\ 7/Stellarator\ Master\ Class/mcviewer64'
+
+# Graduation Project directory
+alias grad_proj='cd ~/Documents/Masters/Graduation_Project/ && git status'
 
 # Directory and file colors
 test -r .dircolors && eval "$(dircolors $HOME/.dircolors)"
