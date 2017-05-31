@@ -38,8 +38,8 @@ syntax on
 
 " COLORSCHEME SPECIFIC OPTIONS
 colorscheme swagdino
-hi Normal guifg=#C6C6C6 ctermfg=251 ctermbg=NONE cterm=NONE
-hi Comment guifg=#875F00 ctermfg=94 ctermbg=NONE cterm=italic
+hi Normal guifg=#C6C6C6 ctermfg=253 ctermbg=NONE cterm=NONE
+hi Comment guifg=#875F00 guibg=NONE guisp=NONE gui=italic ctermfg=94 ctermbg=NONE cterm=italic
 set t_ZH=[3m
 set t_ZR=[23m
 
