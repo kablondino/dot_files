@@ -12,6 +12,8 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'vim-airline/vim-airline'
 
+Plugin 'nelstrom/vim-markdown-folding'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 " VUNDLE SETUP END
@@ -20,7 +22,6 @@ filetype plugin indent on    " required
 
 " Line number shenanigans
 set number
-"set numberwidth=2
 set relativenumber
 set cursorline
 autocmd BufWinEnter * if getfsize(expand(@%)) < 10000 | set cursorcolumn | set cursorline | else | set nocursorcolumn | set nocursorline | endif
@@ -71,7 +72,7 @@ autocmd BufNewFile,BufRead *.sage set filetype=python
 
 " Turn off line cursor and turn on spell check, linebreak for some files
 autocmd BufEnter *.md,*.txt setlocal spell spelllang=en linebreak nocursorline nocursorcolumn
-
+autocmd BufEnter *.tex setlocal linebreak nocursorline nocursorcolumn
 
 " Autocomplete pairing of braces and parentheses
 inoremap {      {}<Left>

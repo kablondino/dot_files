@@ -22,7 +22,7 @@ export EDITOR=$(which vim)
 export VISUAL=$(which vim)
 
 # Set the TERM so that italics and color are available, even in TMUX
-export TERM=xterm-256color-italic
+export TERM=xterm-256color
 
 # ------------ Set up some variables for prompt --------------
 
@@ -72,7 +72,7 @@ alias ll='ls -lh'
 alias la='ls -A'
 alias sl='sl -e'
 alias tmux='tmux -2'
-alias my_i3lock='i3lock -c 000000 -d -n'
+#alias my_i3lock='i3lock -c 000000 -d -n'
 
 # The Common Room Raspberry Pi
 alias common_room_pi='ssh pi@25.33.244.15'
