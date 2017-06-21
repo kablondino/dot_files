@@ -31,7 +31,7 @@ TERM vt100
 TERM Eterm
 
 # This next one is my custom term:
-TERM xterm-256color-italic
+TERM xterm-256color
 
 # Below are the color init strings for the basic file types. A color init
 # string consists of one or more of the following numeric codes:
