@@ -14,7 +14,7 @@ let g:colors_name = "swagdino"
 "hi TabLineSel -- no settings --
 "hi CTagsMember -- no settings --
 "hi CTagsGlobalConstant -- no settings --
-hi Normal guifg=#C6C6C6 guibg=#272822 guisp=#272822 gui=NONE ctermfg=253 ctermbg=NONE cterm=NONE
+hi Normal guifg=#C6C6C6 guibg=#272822 guisp=#272822 gui=NONE ctermfg=15 ctermbg=NONE cterm=NONE
 "hi CTagsImport -- no settings --
 "hi CTagsGlobalVariable -- no settings --
 "hi SpellRare -- no settings --
@@ -22,11 +22,11 @@ hi Normal guifg=#C6C6C6 guibg=#272822 guisp=#272822 gui=NONE ctermfg=253 ctermbg
 "hi Union -- no settings --
 "hi TabLineFill -- no settings --
 "hi EnumerationName -- no settings --
-"hi SpellCap -- no settings --
+hi SpellCap ctermfg=253 ctermbg=93
 "hi SpellLocal -- no settings --
 "hi DefinedName -- no settings --
 "hi LocalVariable -- no settings --
-"hi SpellBad -- no settings --
+hi SpellBad ctermfg=253 ctermbg=160
 "hi CTagsClass -- no settings --
 "hi TabLine -- no settings --
 "hi clear -- no settings --
@@ -36,7 +36,7 @@ hi SignColumn guifg=#A6E22E guibg=#232526 guisp=#232526 gui=NONE ctermfg=112 cte
 hi SpecialComment guifg=#465457 guibg=NONE guisp=NONE gui=bold ctermfg=240 ctermbg=NONE cterm=bold
 hi Typedef guifg=#66D9EF guibg=NONE guisp=NONE gui=NONE ctermfg=81 ctermbg=NONE cterm=NONE
 hi Title guifg=#ef5939 guibg=NONE guisp=NONE gui=NONE ctermfg=209 ctermbg=NONE cterm=NONE
-hi Folded guifg=#465457 guibg=#000000 guisp=#000000 gui=NONE ctermfg=240 ctermbg=NONE cterm=NONE
+hi Folded guifg=#465457 guibg=#000000 guisp=#000000 gui=NONE ctermfg=243 ctermbg=NONE cterm=NONE
 hi PreCondit guifg=#A6E22E guibg=NONE guisp=NONE gui=bold ctermfg=112 ctermbg=NONE cterm=bold
 hi Include guifg=#A6E22E guibg=NONE guisp=NONE gui=NONE ctermfg=112 ctermbg=NONE cterm=NONE
 hi StatusLineNC guifg=#DFFFDF guibg=#3A3A3A guisp=#080808 gui=NONE ctermfg=194 ctermbg=237 cterm=NONE
@@ -52,7 +52,8 @@ hi Conditional guifg=#F92672 guibg=NONE guisp=NONE gui=bold ctermfg=197 ctermbg=
 hi StorageClass guifg=#FD971F guibg=NONE guisp=NONE gui=italic ctermfg=208 ctermbg=NONE cterm=NONE
 hi Todo guifg=#FFFFFF guibg=#272822 guisp=#272822 gui=bold ctermfg=15 ctermbg=235 cterm=bold
 hi Special guifg=#66D9EF guibg=#272822 guisp=#272822 gui=italic ctermfg=81 ctermbg=235 cterm=NONE
-hi LineNr guifg=#D75F00 guibg=#121212 guisp=#3B3A32 gui=NONE ctermfg=166 ctermbg=234 cterm=NONE
+hi LineNr guifg=#D75F00 guibg=#121212 guisp=#3B3A32 gui=NONE ctermfg=167 ctermbg=232 cterm=NONE
+hi CursorLineNr guifg=#b3ff00 guibg=NONE guisp=NONE gui=bold ctermfg=16 ctermbg=154 cterm=bold,italic
 hi StatusLine guifg=#3A3A3A guibg=#DFFFDF guisp=#F8F8F2 gui=NONE ctermfg=237 ctermbg=194 cterm=NONE
 hi Label guifg=#E6DB74 guibg=NONE guisp=NONE gui=NONE ctermfg=185 ctermbg=NONE cterm=NONE
 hi PMenuSel guifg=NONE guibg=#808080 guisp=#808080 gui=NONE ctermfg=NONE ctermbg=8 cterm=NONE
@@ -148,4 +149,3 @@ hi htmltagname guifg=#ffcbff guibg=NONE guisp=NONE gui=NONE ctermfg=225 ctermbg=
 hi javascriptstrings guifg=#ffcbff guibg=NONE guisp=NONE gui=NONE ctermfg=225 ctermbg=NONE cterm=NONE
 hi htmlstring guifg=#ffcbff guibg=NONE guisp=NONE gui=NONE ctermfg=225 ctermbg=NONE cterm=NONE
 hi phpstringsingle guifg=#ffcbff guibg=NONE guisp=NONE gui=NONE ctermfg=225 ctermbg=NONE cterm=NONE
-hi CursorLineNr guifg=#b3ff00 guibg=NONE guisp=NONE gui=bold ctermfg=154 ctermbg=NONE cterm=bold,italic
