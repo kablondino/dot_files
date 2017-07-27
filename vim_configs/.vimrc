@@ -20,6 +20,8 @@ call vundle#end()            " required
 
 filetype plugin indent on    " required
 
+set encoding=utf-8
+
 " Line number shenanigans
 set number
 set relativenumber
@@ -71,15 +73,15 @@ autocmd BufNewFile,BufRead *.source set filetype=fortran
 autocmd BufNewFile,BufRead *.sage set filetype=python
 
 " Turn off line cursor and turn on spell check, linebreak for some files
-autocmd BufEnter *.md,*.txt setlocal spell spelllang=en linebreak nocursorline nocursorcolumn
+autocmd BufEnter *.md setlocal spell spelllang=en linebreak nocursorline nocursorcolumn
 autocmd BufEnter *.tex setlocal linebreak nocursorline nocursorcolumn
 
 " Autocomplete pairing of braces and parentheses
-inoremap {      {}<Left>
-inoremap {<CR>  {<CR>}<Esc>O
-inoremap {{     {
-inoremap {}     {}
-inoremap (      ()<Left>
-inoremap (<CR>  (<CR>)<Esc>0
-inoremap ((     (
-inoremap ()     ()
+"inoremap {      {}<Left>
+"inoremap {<CR>  {<CR>}<Esc>O
+"inoremap {{     {
+"inoremap {}     {}
+"inoremap (      ()<Left>
+"inoremap (<CR>  (<CR>)<Esc>0
+"inoremap ((     (
+"inoremap ()     ()

@@ -66,13 +66,14 @@ PROMPT="╭─${display_time} ${user_host}:${current_dir}
 ╰─$PR_PROMPT"
 RPROMPT="${return_code}"
 
-# Aliases
+
+## Aliases
 alias ls='ls --color=auto'
 alias ll='ls -lh'
 alias la='ls -A'
 alias sl='sl -e'
 alias tmux='tmux -2'
-#alias my_i3lock='i3lock -c 000000 -d -n'
+alias less='less -R'
 
 # The Common Room Raspberry Pi
 alias common_room_pi='ssh pi@25.33.244.15'
@@ -80,14 +81,27 @@ alias common_room_pi='ssh pi@25.33.244.15'
 # ITER HPC
 alias hpc-iter='ssh -X blondik@hpc-login4.iter.org'
 
-# TEMPORARY for Stellarator Master Class
-#alias mcviewer='/home/kabv/Documents/Masters/Quartile\ 7/Stellarator\ Master\ Class/mcviewer64'
-
 # Graduation Project directory
 alias grad_proj='cd ~/Documents/Masters/Graduation_Project/ && git status'
 
+
+# FUNCTIONS!
+# urlencode some text
+function urlencode {
+	print "${${(j: :)@}//(#b)(?)/%$[[##16]##${match[1]}]}"
+}
+
+# open a web browser on google for a query
+function google {
+	xdg-open "https://www.google.com/search?q=`urlencode "${(j: :)@}"`"
+}
+
+# print a separator banner as wide as the terminal
+function hr {
+	print ${(1:COLUMNS::=:)}
+}
 # Directory and file colors
 test -r .dircolors && eval "$(dircolors $HOME/.dircolors)"
 
-neofetch
+#neofetch
 echo -n "Current Shell: "; echo -n "ZSH "; echo $ZSH_VERSION
