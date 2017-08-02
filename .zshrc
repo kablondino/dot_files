@@ -72,6 +72,7 @@ alias ls='ls --color=auto'
 alias ll='ls -lh'
 alias la='ls -A'
 alias sl='sl -e'
+alias quit='exit'
 alias tmux='tmux -2'
 alias less='less -R'
 
@@ -97,9 +98,9 @@ function google {
 }
 
 # print a separator banner as wide as the terminal
-function hr {
-	print ${(1:COLUMNS::=:)}
-}
+#function hr {
+#	print ${(1:COLUMNS::=:)}
+#}
 # Directory and file colors
 test -r .dircolors && eval "$(dircolors $HOME/.dircolors)"
 

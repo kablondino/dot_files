@@ -6,11 +6,10 @@ urxvt-256color*foreground: #cccccc
 urxvt-256color*font: xft:DejaVu Sans Mono for Powerline:size=12:pixelsize=13:antialias=true:hinting=true:style=Book
 urxvt-256color*letterSpace: -0.5
 
-urxvt-256color*background: rgba:0000/0000/0000/cccc
-
 urxvt-256color*borderLess: false
 urxvt-256color*depth: 32
 urxvt-256color*urlLauncher: chromium
+urxvt-256color*background: rgba:0000/0000/0000/cccc
 
 urxvt-256color.scrollBar: true
 urxvt-256color.scrollBar_right: true
