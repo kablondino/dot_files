@@ -14,6 +14,9 @@ Plugin 'vim-airline/vim-airline'
 
 Plugin 'nelstrom/vim-markdown-folding'
 
+Plugin 'matze/vim-tex-fold'
+" Plugin 'lervag/vimtex'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 " VUNDLE SETUP END
@@ -62,9 +65,14 @@ set showmatch
 set mouse=a
 
 set list
-set listchars=tab:▸·,trail:·,eol:¬,nbsp:%
+if has('multi_byte') && &encoding ==# 'utf-8'
+	let &listchars = 'tab:▸·,trail:·,eol:¬,extends:❯,precedes:❮,nbsp:±'
+else
+	let &listchars = 'tab:> ,trail:.,eol:|,extends:>,precedes:<,nbsp%'
+endif
 " UNICODE for symbols:
 " ▶▷▸▹►▻ (The right small triangle) U+25B5 through U+25BB
+" ❪❫❬❭❮❯❰❱ (Angled brackets) U+276A through U+2772
 " · (The middle dot) U+00B7
 " ¬ (The not symbol) U+00AC
 
