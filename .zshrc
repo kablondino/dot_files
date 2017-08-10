@@ -105,4 +105,6 @@ function google {
 test -r .dircolors && eval "$(dircolors $HOME/.dircolors)"
 
 #neofetch
+fortune
 echo -n "Current Shell: "; echo -n "ZSH "; echo $ZSH_VERSION
+
