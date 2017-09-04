@@ -76,6 +76,9 @@ alias quit='exit'
 alias tmux='tmux -2'
 alias less='less -R'
 
+# MATHEMATICA
+alias mathematica='~/MATHEMATICA/Executables/mathematica &'
+
 # The Common Room Raspberry Pi
 alias common_room_pi='ssh pi@25.33.244.15'
 
@@ -102,7 +105,7 @@ function google {
 #	print ${(1:COLUMNS::=:)}
 #}
 # Directory and file colors
-test -r .dircolors && eval "$(dircolors $HOME/.dircolors)"
+test -r ~/.dircolors && eval "$(dircolors $HOME/.dircolors)"
 
 #neofetch
 fortune
