@@ -1,3 +1,0 @@
-tmux|tmux terminal multiplexer,
-	sitm=\E[3m, ritm=\E[23m,
-	use=screen,
