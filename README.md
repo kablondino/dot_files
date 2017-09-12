@@ -16,6 +16,6 @@ Configuration files for all the things.
 	+ $Mod + Ctrl + Shift + Alt:	Hibernate
 
 8. .i3status.conf
-9. Terminal config for italics and 256 color
+9. ~~Terminal config for italics and 256 color~~ REMOVED
 
-	+ Included instructions for enabling terminal for italics.
+	+ ~~Included instructions for enabling terminal for italics.~~
