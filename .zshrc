@@ -62,7 +62,7 @@ promptinit
 #∈ ∂ ℤ∫ ℍ ∇
 
 # TWO LINE PROMPT
-PROMPT="${display_time} ${user_host} at ${current_dir}
+PROMPT="${display_time} ${user_host}↣${current_dir}
 ╰─$PR_PROMPT"
 RPROMPT="${return_code}"
 
@@ -77,7 +77,7 @@ alias tmux='tmux -2'
 alias less='less -R'
 
 # ANACONDA
-export PATH="/home/kabv/anaconda3/bin:$PATH"
+export PATH="/home/kabv/anaconda2/bin:$PATH"
 
 # The Common Room Raspberry Pi
 alias common_room_pi='ssh pi@25.33.244.15'
