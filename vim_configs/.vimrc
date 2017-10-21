@@ -10,7 +10,8 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'vim-airline/vim-airline'
+"Plugin 'vim-airline/vim-airline'
+Plugin 'itchyny/lightline.vim'
 
 Plugin 'nelstrom/vim-markdown-folding'
 
@@ -59,7 +60,7 @@ set laststatus=2
 set statusline=%f\ =\ Filetype:\ %y
 
 " Use powerline fonts for vim-airline
-let g:airline_powerline_fonts = 1
+"let g:airline_powerline_fonts = 1
 
 set showmatch
 set mouse=a
