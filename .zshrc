@@ -62,7 +62,7 @@ promptinit
 #∈ ∂ ℤ∫ ℍ ∇
 
 # TWO LINE PROMPT
-PROMPT=" ${display_time} ${user_host}↣${current_dir}
+PROMPT="${display_time} ${user_host}↣${current_dir}
 ╰─$PR_PROMPT"
 RPROMPT="${return_code}"
 
@@ -88,13 +88,16 @@ alias hpc-iter='ssh -X blondik@hpc-login4.iter.org'
 # Graduation Project directory
 alias grad_proj='cd ~/Documents/Masters/Graduation_Project/ && git status'
 
+# MATLAB
+alias MATLAB='~/MATLAB/bin/matlab'
+
+
+## FUNCTIONS!
 # Delete each line in a file that starts with a NON-number(digit) character
 function data_clean() {
 	grep "^[0-9]" $1 > $2
 }
 
-
-# FUNCTIONS!
 # urlencode some text
 function urlencode {
 	print "${${(j: :)@}//(#b)(?)/%$[[##16]##${match[1]}]}"
