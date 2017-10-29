@@ -42,9 +42,14 @@ TERM xterm-256color
 # Background color codes:
 # 40=black 41=red 42=green 43=yellow 44=blue 45=magenta 46=cyan 47=white
 
+# Text 256 color coding:
+# # 38;5;COLOR_NUMBER
+# # Background 256 color coding:
+# # 48;5;COLOR_NUMBER
+
 NORMAL 00 # global default, although everything should be something.
 FILE 00 # normal file
-DIR 01;38;5;055 # directory
+DIR 01;38;5;057 # directory
 LINK 01;36 # symbolic link. (If you set this to 'target' instead of a
  # numerical value, the color is as for the file pointed to.)
 FIFO 40;33 # pipe
@@ -115,6 +120,7 @@ STICKY 37;44 # dir with the sticky bit set (+t) and not other-writable
 # Programming Languages (Source code)
 .f 04;38;5;039
 .f~ 04;38;5;039
+.f90 04;38;5;039
 .source 04;38;5;039
 .py 04;38;5;227
 .sage 04;38;5;227
