@@ -85,6 +85,9 @@ alias common_room_pi='ssh pi@25.33.244.15'
 # ITER HPC
 alias hpc-iter='ssh -X blondik@hpc-login4.iter.org'
 
+# DigitalOcean "Droplet" Login
+alias digitalocean='ssh -X kabv@95.85.18.5'
+
 # Graduation Project directory
 alias grad_proj='cd ~/Documents/Masters/Graduation_Project/ && git status'
 
