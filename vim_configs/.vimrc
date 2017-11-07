@@ -2,15 +2,14 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " VUNDLE SETUP START
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/Vundle.vim " Default path
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
+" Alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-"Plugin 'vim-airline/vim-airline'
 Plugin 'itchyny/lightline.vim'
 
 Plugin 'nelstrom/vim-markdown-folding'
@@ -26,20 +25,24 @@ filetype plugin indent on    " required
 
 set encoding=utf-8
 
-" Line number shenanigans
+" Line number configurations
 set number
-set relativenumber
+" Set nummbers on losing and gaining window focus
+autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
+
+" Toggle RELATIVE line numbers on and off with Ctrl-L (upper or lower case)
+function! g:NumberToggle()
+	if &relativenumber == 0
+		set relativenumber
+	else
+		set norelativenumber
+	endif
+endfunction
+nnoremap <silent><C-L> :call g:NumberToggle()<cr>
+
 set cursorline
 autocmd BufWinEnter * if getfsize(expand(@%)) < 10000 | set cursorcolumn | set cursorline | else | set nocursorcolumn | set nocursorline | endif
-
-" Set nummbers on losing and gaining window focus
-" DOES NOT CURRENTLY WORK WITH GNOME-TERMINAL
-"autocmd FocusLost * set nonumber
-"autocmd FocusGained * set relativenumber
-
-" Set relative number on and off on insert
-autocmd InsertEnter * set norelativenumber
-autocmd InsertLeave * set relativenumber
 
 syntax on
 
@@ -47,6 +50,7 @@ syntax on
 colorscheme swagdino
 hi Normal guifg=#C6C6C6 ctermfg=253 ctermbg=NONE cterm=NONE
 hi Comment guifg=#875F00 guibg=NONE guisp=NONE gui=italic ctermfg=94 ctermbg=NONE cterm=italic
+hi CursorLineNr guifg=#000000 guibg=#afff00 guisp=NONE gui=bold,italic ctermfg=0 ctermbg=154 cterm=bold,italic
 set t_ZH=[3m
 set t_ZR=[23m
 
@@ -91,3 +95,4 @@ autocmd BufEnter *.tex setlocal linebreak nocursorline nocursorcolumn
 "inoremap (<CR>  (<CR>)<Esc>0
 "inoremap ((     (
 "inoremap ()     ()
+
