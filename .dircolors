@@ -130,10 +130,12 @@ STICKY 37;44 # dir with the sticky bit set (+t) and not other-writable
 .c 04;38;5;027
 .rb 04;38;5;160
 .m 04;38;5;202
+.js 04;38;5;82
 
 .tex 04;38;5;057
 .bib 03;38;5;053
 .md 04;38;5;116
+.markdown 04;38;5;116
 
 # Data files
 .dat 38;5;000;48;5;255
@@ -142,7 +144,7 @@ STICKY 37;44 # dir with the sticky bit set (+t) and not other-writable
 # Misc
 .gpi 04;38;5;104
 .pdf 01;31
-.html 04;38;5;214
+.html 38;5;214
 .log 03;38;5;090
 .vimrc 38;5;70;48;5;236
 .conf 38;5;70;48;5;236

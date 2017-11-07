@@ -50,7 +50,7 @@ local return_code="%(?..%F{red}%? ↵%f)"
 
 local display_time="%{[00;38;5;196m%}%*"
 local user_host="${PR_USER}%B%F{cyan}∈%b${PR_HOST}"
-local current_dir="%B%{[01;38;5;055m%}%~/%{[0m%}%b"
+local current_dir="%B%{[01;38;5;057m%}%~/%{[0m%}%b"
 
 # Prompt customization
 autoload -Uz promptinit
