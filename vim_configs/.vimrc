@@ -15,13 +15,20 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'nelstrom/vim-markdown-folding'
 
 Plugin 'matze/vim-tex-fold'
-" Plugin 'lervag/vimtex'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 " VUNDLE SETUP END
 
 filetype plugin indent on    " required
+
+" COLORSCHEME SPECIFIC OPTIONS
+set bg=dark
+"colorscheme swagdino
+colorscheme swagdino_pencil
+"hi Normal guifg=#C6C6C6 ctermfg=254 ctermbg=NONE cterm=NONE
+"hi Comment guifg=#875F00 guibg=NONE guisp=NONE gui=italic ctermfg=94 ctermbg=NONE cterm=italic
+"hi CursorLineNr guifg=#000000 guibg=#afff00 guisp=NONE gui=bold,italic ctermfg=232 ctermbg=154 cterm=bold,italic
 
 set encoding=utf-8
 
@@ -46,11 +53,6 @@ autocmd BufWinEnter * if getfsize(expand(@%)) < 10000 | set cursorcolumn | set c
 
 syntax on
 
-" COLORSCHEME SPECIFIC OPTIONS
-colorscheme swagdino
-hi Normal guifg=#C6C6C6 ctermfg=253 ctermbg=NONE cterm=NONE
-hi Comment guifg=#875F00 guibg=NONE guisp=NONE gui=italic ctermfg=94 ctermbg=NONE cterm=italic
-hi CursorLineNr guifg=#000000 guibg=#afff00 guisp=NONE gui=bold,italic ctermfg=0 ctermbg=154 cterm=bold,italic
 set t_ZH=[3m
 set t_ZR=[23m
 
@@ -66,6 +68,7 @@ set statusline=%f\ =\ Filetype:\ %y
 set showmatch
 set mouse=a
 
+" Sets list characters (\t, \n, etc.)
 set list
 if has('multi_byte') && &encoding ==# 'utf-8'
 	let &listchars = 'tab:▸·,trail:·,eol:¬,extends:❯,precedes:❮,nbsp:±'
@@ -80,7 +83,7 @@ endif
 
 " Syntax for odd file types
 autocmd BufNewFile,BufRead *.source set filetype=fortran
-autocmd BufNewFile,BufRead *.sage set filetype=python
+autocmd BufNewFile,BufRead *.sage,*.spyx,*.pyx set filetype=python
 
 " Turn off line cursor and turn on spell check, linebreak for some files
 autocmd BufEnter *.md setlocal spell spelllang=en linebreak nocursorline nocursorcolumn

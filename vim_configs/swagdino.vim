@@ -10,11 +10,13 @@ endif
 
 set t_Co=256
 let g:colors_name = "swagdino"
+set t_ZH=[3m
+set t_ZR=[23m
 
 "hi TabLineSel -- no settings --
 "hi CTagsMember -- no settings --
 "hi CTagsGlobalConstant -- no settings --
-hi Normal guifg=#C6C6C6 guibg=#272822 guisp=#272822 gui=NONE ctermfg=15 ctermbg=NONE cterm=NONE
+hi Normal guifg=#C6C6C6 guibg=#272822 guisp=#272822 gui=NONE ctermfg=253 ctermbg=NONE cterm=NONE
 "hi CTagsImport -- no settings --
 "hi CTagsGlobalVariable -- no settings --
 "hi SpellRare -- no settings --
