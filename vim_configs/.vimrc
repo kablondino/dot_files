@@ -59,9 +59,6 @@ set tabstop=4 softtabstop=0 noexpandtab shiftwidth=4
 set laststatus=2
 set statusline=%f\ =\ Filetype:\ %y
 
-" Use powerline fonts for vim-airline
-"let g:airline_powerline_fonts = 1
-
 set showmatch
 set mouse=a
 
