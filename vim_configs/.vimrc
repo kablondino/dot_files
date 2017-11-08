@@ -12,6 +12,8 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'itchyny/lightline.vim'
 
+Plugin 'luochen1990/rainbow'
+
 Plugin 'nelstrom/vim-markdown-folding'
 
 Plugin 'matze/vim-tex-fold'
@@ -24,11 +26,13 @@ filetype plugin indent on    " required
 
 " COLORSCHEME SPECIFIC OPTIONS
 set bg=dark
-"colorscheme swagdino
 colorscheme swagdino_pencil
+"colorscheme swagdino
 "hi Normal guifg=#C6C6C6 ctermfg=254 ctermbg=NONE cterm=NONE
 "hi Comment guifg=#875F00 guibg=NONE guisp=NONE gui=italic ctermfg=94 ctermbg=NONE cterm=italic
 "hi CursorLineNr guifg=#000000 guibg=#afff00 guisp=NONE gui=bold,italic ctermfg=232 ctermbg=154 cterm=bold,italic
+autocmd BufRead,BufNewFile * syn match parens /[(){}\[\]]/ | hi parens ctermfg=9
+autocmd BufRead,BufNewFile * syn match MyOperators /[\+\-\=\/]/ | hi MyOperators ctermfg=219
 
 set encoding=utf-8
 
