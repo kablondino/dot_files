@@ -24,15 +24,25 @@ call vundle#end()            " required
 
 filetype plugin indent on    " required
 
+
 " COLORSCHEME SPECIFIC OPTIONS
 set bg=dark
 colorscheme swagdino_pencil
+
+" For the original color
 "colorscheme swagdino
 "hi Normal guifg=#C6C6C6 ctermfg=254 ctermbg=NONE cterm=NONE
 "hi Comment guifg=#875F00 guibg=NONE guisp=NONE gui=italic ctermfg=94 ctermbg=NONE cterm=italic
 "hi CursorLineNr guifg=#000000 guibg=#afff00 guisp=NONE gui=bold,italic ctermfg=232 ctermbg=154 cterm=bold,italic
+
+" Solarized
+"colorscheme solarized
+"let g:solarized_termcolors=256
+
+" Specific colors for paretheses and math operators
 autocmd BufRead,BufNewFile * syn match parens /[(){}\[\]]/ | hi parens ctermfg=9
 autocmd BufRead,BufNewFile * syn match MyOperators /[\+\-\=\/]/ | hi MyOperators ctermfg=219
+
 
 set encoding=utf-8
 
@@ -52,8 +62,9 @@ function! g:NumberToggle()
 endfunction
 nnoremap <silent><C-L> :call g:NumberToggle()<cr>
 
+" Set the cursorline and cursorcolumn
 set cursorline
-autocmd BufWinEnter * if getfsize(expand(@%)) < 10000 | set cursorcolumn | set cursorline | else | set nocursorcolumn | set nocursorline | endif
+"autocmd BufWinEnter * if getfsize(expand(@%)) < 10000 | set cursorcolumn | set cursorline | else | set nocursorcolumn | set nocursorline | endif
 
 syntax on
 
@@ -92,6 +103,12 @@ autocmd BufNewFile,BufRead *.sage,*.spyx,*.pyx set filetype=python
 " Turn off line cursor and turn on spell check, linebreak for some files
 autocmd BufEnter *.md setlocal spell spelllang=en linebreak nocursorline nocursorcolumn
 autocmd BufEnter *.tex setlocal linebreak nocursorline nocursorcolumn
+
+" Searching things
+set incsearch
+set ignorecase smartcase
+"Hit Esc to unhighlight searched term
+nnoremap <silent><esc> :noh<return><esc>
 
 " Autocomplete pairing of braces and parentheses
 "inoremap {      {}<Left>

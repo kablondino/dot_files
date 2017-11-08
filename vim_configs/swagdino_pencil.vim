@@ -69,10 +69,11 @@ let s:white           = { "gui": "#F1F1F1", "cterm": "15"  }
 let s:actual_white    = { "gui": "#FFFFFF", "cterm": "231" }
 let s:light_black     = { "gui": "#424242", "cterm": "8"   }
 let s:lighter_black   = { "gui": "#545454", "cterm": "240" }
+let s:lighterer_black = { "gui": "#3A3A3A", "cterm": "237" }
 
 if g:pencil_higher_contrast_ui == 0
   " darker shadow and whiter grays
-  let s:subtle_black  = { "gui": "#262626", "cterm": "235" }
+  let s:subtle_black  = { "gui": "#262626", "cterm": "233" }
   let s:light_gray    = { "gui": "#D9D9D9", "cterm": "253" }
   let s:lighter_gray  = { "gui": "#E5E6E6", "cterm": "254" }
 else
@@ -108,26 +109,28 @@ let s:yellow_green    = { "gui": "#afff00", "cterm": "154" }
 
 if &background == "dark"
   let s:bg              = s:black
-  let s:bg_subtle       = s:light_black
   let s:bg_very_subtle  = s:subtle_black
+  let s:bg_subtle       = s:light_black
+  let s:bg_not_subtle   = s:lighterer_black
   let s:norm            = s:lighter_gray
   let s:norm_subtle     = s:light_gray
   let s:purple          = s:light_purple
   let s:cyan            = s:dark_cyan
   let s:green           = s:dark_green
   let s:red             = s:light_red
-  let s:visual          = s:lighter_black
+  let s:visual          = s:lighterer_black
 else
   let s:bg              = s:white
-  let s:bg_subtle       = s:light_gray
   let s:bg_very_subtle  = s:lighter_gray
+  let s:bg_subtle       = s:light_gray
+  let s:bg_not_subtle   = s:lighter_black
   let s:norm            = s:light_black
   let s:norm_subtle     = s:lighter_black
   let s:purple          = s:dark_purple
   let s:cyan            = s:dark_cyan
   let s:green           = s:dark_green
   let s:red             = s:dark_red
-  let s:visual          = s:light_blue
+  let s:visual          = s:pink
 endif
 
 if g:pencil_neutral_headings == 1
@@ -175,7 +178,7 @@ call s:h("Normal",        {"bg": s:bg, "fg": s:norm})
 call s:h("Cursor",        {"bg": s:blue, "fg": s:norm })
 call s:h("Comment",       {"fg": s:medium_gray, "gui": "italic", "cterm": "italic"})
 
-call s:h("Constant",      {"fg": s:dark_cyan})
+call s:h("Constant",      {"fg": s:cyan})
 hi! link String           Constant
 hi! link Character        Constant
 hi! link Number           Constant
@@ -221,14 +224,14 @@ call s:h("Todo",          {"fg": s:actual_white, "bg": s:pink, "gui": "bold"    
 
 call s:h("SpecialKey",    {"fg": s:bg_subtle})
 call s:h("NonText",       {"fg": s:bg_subtle})
-call s:h("Directory",     {"fg": s:dark_blue})
+call s:h("Directory",     {"fg": s:blue})
 call s:h("ErrorMsg",      {"fg": s:pink, "cterm": "bold"})
 call s:h("IncSearch",     {"bg": s:yellow, "fg": s:light_black})
-call s:h("Search",        {"bg": s:bg_subtle})
+call s:h("Search",        {"bg": s:bg_not_subtle})
 set hlsearch
 call s:h("MoreMsg",       {"fg": s:medium_gray, "gui": "bold", "cterm": "bold"})
 hi! link ModeMsg MoreMsg
-call s:h("LineNr",        {"fg": s:bg_subtle})
+call s:h("LineNr",        {"fg": s:bg_subtle, "bg": s:bg_very_subtle})
 call s:h("CursorLineNr",  {"fg": s:bg, "bg": s:yellow_green, "cterm": "italic,bold"})
 call s:h("Question",      {"fg": s:red})
 call s:h("StatusLine",    {"bg": s:bg_very_subtle})
