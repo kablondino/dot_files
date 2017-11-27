@@ -92,7 +92,7 @@ alias digitalocean='ssh -X kabv@95.85.18.5'
 alias grad_proj='cd ~/Documents/Masters/Graduation_Project/ && git status'
 
 # MATLAB
-alias MATLAB='~/MATLAB/bin/matlab'
+alias MATLAB='~/MATLAB/bin/matlab -nodesktop -nosplash'
 
 
 ## FUNCTIONS!
