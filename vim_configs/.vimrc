@@ -12,8 +12,6 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'itchyny/lightline.vim'
 
-Plugin 'luochen1990/rainbow'
-
 Plugin 'nelstrom/vim-markdown-folding'
 
 Plugin 'matze/vim-tex-fold'
@@ -107,7 +105,8 @@ autocmd BufEnter *.tex setlocal linebreak nocursorline nocursorcolumn
 " Searching things
 set incsearch
 set ignorecase smartcase
-"Hit Esc to unhighlight searched term
+" Hit Esc to unhighlight searched term
+" DOES NOT WORK ON CHROME OS or crouton!!
 nnoremap <silent><esc> :noh<return><esc>
 
 " Autocomplete pairing of braces and parentheses

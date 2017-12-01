@@ -64,6 +64,7 @@ promptinit
 # TWO LINE PROMPT
 PROMPT="${display_time} ${user_host}↣${current_dir}
 ╰─$PR_PROMPT"
+# CHROME OS and crouton do not like the right prompt!
 RPROMPT="${return_code}"
 
 
