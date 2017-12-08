@@ -38,8 +38,8 @@ colorscheme swagdino_pencil
 "let g:solarized_termcolors=256
 
 " Specific colors for paretheses and math operators
-autocmd BufRead,BufNewFile * syn match parens /[(){}\[\]]/ | hi parens guifg=#ff0000 ctermfg=9
-autocmd BufRead,BufNewFile * syn match MyOperators /[\+\-\=\/]/ | hi MyOperators guifg=#ffafff ctermfg=219
+"autocmd BufRead,BufNewFile * syn match parens /[(){}\[\]]/ | hi parens guifg=#ff0000 ctermfg=9
+"autocmd BufRead,BufNewFile * syn match MyOperators /[\+\-\=\/]/ | hi MyOperators guifg=#ffafff ctermfg=219
 
 
 set encoding=utf-8
