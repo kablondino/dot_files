@@ -92,6 +92,9 @@ alias digitalocean='ssh -X kabv@95.85.18.5'
 # Graduation Project directory
 alias grad_proj='cd ~/Documents/Masters/Graduation_Project/ && git status'
 
+# Activate FiPy
+alias fipy='source activate fipy'
+
 # MATLAB
 alias MATLAB='~/MATLAB/bin/matlab -nodesktop -nosplash'
 
