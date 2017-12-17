@@ -252,14 +252,14 @@ call s:h("DiffText",      {"bg": s:bg_subtle, "fg": s:dark_blue})
 call s:h("SignColumn",    {"fg": s:light_green})
 
 if has("gui_running")
-  call s:h("SpellBad",    {"gui": s:sp_un, "sp": s:red})
+  call s:h("SpellBad",    {"gui": s:sp_un, "sp": s:pink})
   call s:h("SpellCap",    {"gui": s:sp_un, "sp": s:light_green})
-  call s:h("SpellRare",   {"gui": s:sp_un, "sp": s:pink})
+  call s:h("SpellRare",   {"gui": s:sp_un, "sp": s:red})
   call s:h("SpellLocal",  {"gui": s:sp_un, "sp": s:dark_green})
 else
-  call s:h("SpellBad",    {"cterm": s:sp_un, "fg": s:red})
+  call s:h("SpellBad",    {"cterm": s:sp_un, "fg": s:pink})
   call s:h("SpellCap",    {"cterm": s:sp_un, "fg": s:light_green})
-  call s:h("SpellRare",   {"cterm": s:sp_un, "fg": s:pink})
+  call s:h("SpellRare",   {"cterm": s:sp_un, "fg": s:red})
   call s:h("SpellLocal",  {"cterm": s:sp_un, "fg": s:dark_green})
 endif
 call s:h("Pmenu",         {"fg": s:norm, "bg": s:bg_subtle})
