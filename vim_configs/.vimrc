@@ -100,7 +100,7 @@ autocmd BufNewFile,BufRead *.sage,*.spyx,*.pyx set filetype=python
 
 " Turn off line cursor and turn on spell check, linebreak for some files
 autocmd BufEnter *.md setlocal spell spelllang=en linebreak nocursorline nocursorcolumn
-autocmd BufEnter *.tex setlocal linebreak nocursorline nocursorcolumn
+autocmd BufEnter *.tex setlocal spell spelllang=en linebreak nocursorline nocursorcolumn
 
 " Searching things
 set incsearch
