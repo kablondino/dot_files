@@ -139,17 +139,24 @@ STICKY 37;44 # dir with the sticky bit set (+t) and not other-writable
 
 # Data files
 .dat 38;5;000;48;5;255
+.tsv 38;5;000;48;5;255
+.csv 38;5;000;48;5;255
 .mat 00;33
+
+# Session files
+.sobj 38;5;000;48;5;14
+
+# Configuration files
+.vimrc 38;5;70;48;5;236
+.conf 38;5;70;48;5;236
+.zshrc 38;5;70;48;5;236
+.bashrc 38;5;70;48;5;236
 
 # Misc
 .gpi 04;38;5;104
 .pdf 01;31
 .html 38;5;214
 .log 03;38;5;090
-.vimrc 38;5;70;48;5;236
-.conf 38;5;70;48;5;236
-.zshrc 38;5;70;48;5;236
-.bashrc 38;5;70;48;5;236
 
 # This is for files with execute permission:
 EXEC 01;38;5;046
