@@ -86,30 +86,34 @@ STICKY 37;44 # dir with the sticky bit set (+t) and not other-writable
 .deb 07;31
 .rpm 07;31
 .jar 07;31
+
 # image formats
 .jpg 38;5;35
 .jpeg 38;5;35
 .gif 38;5;35
-.bmp 01;35
-.pbm 01;35
-.pgm 01;35
-.ppm 01;35
-.tga 01;35
-.xbm 01;35
-.xpm 01;35
-.tif 01;35
-.tiff 01;35
+.bmp 38;5;35
+.pbm 35
+.pgm 35
+.ppm 35
+.tga 35
+.xbm 35
+.xpm 35
+.tif 38;5;35
+.tiff 38;5;35
 .png 38;5;35
 .mov 01;35
-.mpg 38;5;34
-.mpeg 38;5;34
-.avi 38;5;34
-.mkv 38;5;34
+.mpg 01;38;5;220
+.mpeg 01;;38;5;220
+.avi 01;38;5;220
+.mkv 01;38;5;220
 .fli 01;35
 .gl 01;35
 .dl 01;35
 .xcf 01;35
 .xwd 01;35
+.svg 38;5;91
+.eps 38;5;91
+
 # audio formats
 .flac 38;5;29
 .mp3 38;5;29
@@ -160,3 +164,4 @@ STICKY 37;44 # dir with the sticky bit set (+t) and not other-writable
 
 # This is for files with execute permission:
 EXEC 01;38;5;046
+
