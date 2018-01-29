@@ -7,9 +7,17 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory autocd notify
-bindkey -e
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
+
+# Vim mode!
+bindkey -v
+bindkey "^?" backward-delete-char
+bindkey "[3~" delete-char
+function zle-keymap-select {
+	VIMODE="${${KEYMAP/vicmd/ M:command}/(main|viins)/}"
+	zle reset-prompt
+}
+zle -N zle-keymap-select
+
 zstyle :compinstall filename '$HOME/.zshrc'
 
 autoload -Uz compinit && compinit
