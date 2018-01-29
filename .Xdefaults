@@ -1,18 +1,35 @@
-! Capitalization is IMPORTANT!
-urxvt-256color*background: #000000
-urxvt-256color*foreground: #cccccc
+!! Capitalization is IMPORTANT!
+URxvt.background: rgba:0000/0000/0000/cccc
+URxvt.foreground: #cccccc
 
-! For use only WITH powerline fonts
-urxvt-256color*font: xft:DejaVu Sans Mono for Powerline:size=12:pixelsize=13:antialias=true:hinting=true:style=Book
-urxvt-256color*letterSpace: -0.5
+URxvt.font: xft:DejaVuSansMono:size=14:pixelsize=14:antialias=true:hinting=true:style=Book, 
+URxvt.intensityStyles: false
+!!URxvt*letterSpace: -0.5
 
-urxvt-256color*borderLess: false
-urxvt-256color*depth: 32
-urxvt-256color*urlLauncher: chromium
-urxvt-256color*background: rgba:0000/0000/0000/cccc
+!! Extensions
+URxvt.perl-ext-common: default,matcher,resize-font,keyboard-select
+URxvt.resize-font.smaller: C-j
+URxvt.resize-font.bigger: C-k
 
-urxvt-256color.scrollBar: true
-urxvt-256color.scrollBar_right: true
-urxvt-256color.scrollStyle: rvxt
-urxvt-256color.cursorBlink: true
-urxvt-256color.visualBell: true
+URxvt.borderLess: false
+URxvt.depth: 32
+
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.urlLauncher: chromium
+URxvt.matcher.button: 1
+URxvt.fading: 30
+
+URxvt.scrollBar: false
+URxvt.mouseWheelScrollPage: false
+!!URxvt.scrollBar_right: true
+!!URxvt.scrollStyle: rvxt
+!
+URxvt.visualBell: true
+URxvt.urgentOnBell: true
+
+URxvt.cursorBlink: true
+URxvt.cursorUnderline: false
+URxvt.cursorColor: green
+URxvt.cursorColor2: black
+
+
