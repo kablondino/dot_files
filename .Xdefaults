@@ -2,14 +2,15 @@
 URxvt.background: rgba:0000/0000/0000/cccc
 URxvt.foreground: #cccccc
 
-URxvt.font: xft:DejaVuSansMono:size=14:pixelsize=14:antialias=true:hinting=true:style=Book, 
+URxvt.font: xft:DejaVuSansMono:size=14:pixelsize=14
 URxvt.intensityStyles: false
 !!URxvt*letterSpace: -0.5
 
 !! Extensions
-URxvt.perl-ext-common: default,matcher,resize-font,keyboard-select
+URxvt.perl-ext-common: default,matcher,resize-font,keyboard-select,fullscreen
 URxvt.resize-font.smaller: C-j
 URxvt.resize-font.bigger: C-k
+URxvt.keysym.F11: perl:fullscreen:switch
 
 URxvt.borderLess: false
 URxvt.depth: 32
@@ -17,7 +18,7 @@ URxvt.depth: 32
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
 URxvt.urlLauncher: chromium
 URxvt.matcher.button: 1
-URxvt.fading: 30
+URxvt.fading: 20
 
 URxvt.scrollBar: false
 URxvt.mouseWheelScrollPage: false
