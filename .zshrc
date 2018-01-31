@@ -10,13 +10,22 @@ setopt appendhistory autocd notify
 
 # Vim mode!
 bindkey -v
+
+# Proper backspace and delete keys
 bindkey "^?" backward-delete-char
 bindkey "[3~" delete-char
-function zle-keymap-select {
-	VIMODE="${${KEYMAP/vicmd/ M:command}/(main|viins)/}"
-	zle reset-prompt
-}
-zle -N zle-keymap-select
+
+# ----------------- VIM Mode Display ----------------------
+#function zle-keymap-select {
+#	vim_mode="${${KEYMAP/vicmd/${vim_cmd_mode}}/(main|viins)/${vim_ins_mode}}"
+#	zle reset-prompt
+#}
+#
+#zle -N zle-keymap-select
+#
+#function zle-line-finish {
+#	vim_mode=$vim_ins_mode
+#}
 
 zstyle :compinstall filename '$HOME/.zshrc'
 
@@ -36,15 +45,26 @@ export TERM=xterm-256color
 
 local PR_USER PR_USER_OP PR_PROMPT PR_HOST
 
+#function zle-line-init zle-keymap-select {
+#	vim_normal_mode="%K{yellow}%F{black}%B[NOR]%b%f%k"
+#	vim_ins_mode="%K{white}%F{blue}%B[INS]%b%f%k"
+#	the_vim_mode="${${KEYMAP/vicmd/$vim_normal_mode}/(main|viins)/$vim_ins_mode}"
+#
+#	zle reset-prompt
+#}
+#
+#zle -N zle-line-init
+#zle -N zle-keymap-select
+
 # Check the UID
 if [[ $UID -ne 0 ]]; then # normal user
 	PR_USER='%U%F{green}%n%f%u'
 	PR_USER_OP='%F{green}%#%f'
-	PR_PROMPT='%f➤ %f'
+	PR_PROMPT=$the_vim_mode'%f➤ %f'
 else # root
 	PR_USER='%F{red}%n%f'
 	PR_USER_OP='%F{red}%#%f'
-	PR_PROMPT='%F{red}➤ %f'
+	PR_PROMPT=$the_vim_mode'%F{red}➤ %f'
 fi
 
 # Check if we are on SSH or not
