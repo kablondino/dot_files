@@ -1,8 +1,9 @@
 !! Capitalization is IMPORTANT!
-URxvt.background: rgba:0000/0000/0000/cccc
+URxvt.background: [90]#000000
+!!URxvt.background: rgba:0000/0000/0000/cccc
 URxvt.foreground: #cccccc
 
-URxvt.font: xft:DejaVuSansMono:size=14:pixelsize=14
+URxvt.font: xft:DejaVuSansMono:size=16:pixelsize=14
 URxvt.intensityStyles: false
 !!URxvt*letterSpace: -0.5
 
