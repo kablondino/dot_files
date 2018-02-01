@@ -50,9 +50,9 @@ local PR_USER PR_USER_OP PR_PROMPT PR_HOST
 
 setopt PROMPT_SUBST
 
-vim_cmd_mode="%{[01;38;5;022;48;5;148m%} NOR %{$reset_color%}"
-vim_ins_mode="%{[00;38;5;015;48;5;031m%} INS %{$reset_color%}"
-vim_vis_mode="%{[01;38;5;088;48;5;208m%} VIS %{$reset_color%}"
+vim_cmd_mode="%{[01;38;5;022;48;5;148m%} NORMAL %{$reset_color%}"
+vim_ins_mode="%{[00;38;5;015;48;5;031m%} INSERT %{$reset_color%}"
+vim_vis_mode="%{[01;38;5;088;48;5;208m%} VISUAL %{$reset_color%}"
 vim_mode=$vim_ins_mode
 
 function zle-keymap-select {
@@ -70,11 +70,11 @@ zle -N zle-line-finish
 if [[ $UID -ne 0 ]]; then # normal user
 	PR_USER='%U%F{green}%n%f%u'
 	PR_USER_OP='%F{green}%#%f'
-	PR_PROMPT='%f${vim_mode}➤ %f'
+	PR_PROMPT='%f${vim_mode} ❱ %f'
 else # root
 	PR_USER='%F{red}%n%f'
 	PR_USER_OP='%F{red}%#%f'
-	PR_PROMPT='%F{red}${vim_mode}➤ %f'
+	PR_PROMPT='%F{red}${vim_mode} ❱ %f'
 fi
 
 # Check if we are on SSH or not
