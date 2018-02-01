@@ -35,14 +35,14 @@ colorscheme swagdino_pencil
 "hi Comment guifg=#875F00 guibg=NONE guisp=NONE gui=italic ctermfg=94 ctermbg=NONE cterm=italic
 "hi CursorLineNr guifg=#000000 guibg=#afff00 guisp=NONE gui=bold,italic ctermfg=232 ctermbg=154 cterm=bold,italic
 
-" Solarized
-"colorscheme solarized
-"let g:solarized_termcolors=256
-
 " Specific colors for paretheses and math operators
 "autocmd BufRead,BufNewFile * syn match parens /[(){}\[\]]/ | hi parens guifg=#ff0000 ctermfg=9
 "autocmd BufRead,BufNewFile * syn match MyOperators /[\+\-\=\/]/ | hi MyOperators guifg=#ffafff ctermfg=219
 
+" Vim Lightline
+let g:lightline = {
+	\ 'colorscheme': 'powerline',
+	\ }
 
 set encoding=utf-8
 
@@ -60,7 +60,7 @@ function! g:NumberToggle()
 		set norelativenumber
 	endif
 endfunction
-nnoremap <silent><C-L> :call g:NumberToggle()<cr>
+nnoremap <silent><C-L> :call g:NumberToggle()<Enter>
 
 " Set the cursorline and cursorcolumn
 set cursorline
@@ -79,6 +79,7 @@ set tabstop=4 softtabstop=0 noexpandtab shiftwidth=4
 
 set laststatus=2
 set statusline=%f\ =\ Filetype:\ %y
+set noshowmode
 
 set showmatch
 set mouse=a
@@ -102,14 +103,13 @@ autocmd BufNewFile,BufRead *.sage,*.spyx,*.pyx set filetype=python
 
 " Turn off line cursor and turn on spell check, linebreak for some files
 autocmd BufEnter *.md setlocal spell spelllang=en linebreak nocursorline nocursorcolumn
-autocmd BufEnter *.tex setlocal spell spelllang=en linebreak nocursorline nocursorcolumn
+autocmd BufEnter *.tex setlocal linebreak nocursorline nocursorcolumn
 
 " Searching things
 set incsearch
 set ignorecase smartcase
 " Hit Esc to unhighlight searched term
-" DOES NOT WORK ON CHROME OS or crouton!!
-nnoremap <silent><esc> :noh<return><esc>
+"nnoremap <silent><F3> :noh<Enter>
 
 " Autocomplete pairing of braces and parentheses
 "inoremap {      {}<Left>
