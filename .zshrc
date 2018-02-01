@@ -15,17 +15,6 @@ bindkey -v
 bindkey "^?" backward-delete-char
 bindkey "[3~" delete-char
 
-# ----------------- VIM Mode Display ----------------------
-#function zle-keymap-select {
-#	vim_mode="${${KEYMAP/vicmd/${vim_cmd_mode}}/(main|viins)/${vim_ins_mode}}"
-#	zle reset-prompt
-#}
-#
-#zle -N zle-keymap-select
-#
-#function zle-line-finish {
-#	vim_mode=$vim_ins_mode
-#}
 
 zstyle :compinstall filename '$HOME/.zshrc'
 
@@ -38,33 +27,54 @@ zstyle ':completion:*' menu select
 export EDITOR=$(which vim)
 export VISUAL=$(which vim)
 
+# Timeout for keyboard
+export KEYTIMEOUT=1
+
 # Set the TERM so that italics and color are available, even in TMUX
 export TERM=xterm-256color
+
+# Prompt customization
+autoload -Uz promptinit
+autoload -U colors && colors
+autoload -Uz vcs_info
+promptinit
+# OLD PROMPT!
+#PROMPT='%B%F{1}%U%n%u%F{5}∂%F{3}%m %b%1~/ %B%F{2}▶%f%b '
+#RPROMPT='%B%F{2}%*'
+# Extra symbols
+#∈ ∂ ℤ∫ ℍ ∇
 
 # ------------ Set up some variables for prompt --------------
 
 local PR_USER PR_USER_OP PR_PROMPT PR_HOST
 
-#function zle-line-init zle-keymap-select {
-#	vim_normal_mode="%K{yellow}%F{black}%B[NOR]%b%f%k"
-#	vim_ins_mode="%K{white}%F{blue}%B[INS]%b%f%k"
-#	the_vim_mode="${${KEYMAP/vicmd/$vim_normal_mode}/(main|viins)/$vim_ins_mode}"
-#
-#	zle reset-prompt
-#}
-#
-#zle -N zle-line-init
-#zle -N zle-keymap-select
+setopt PROMPT_SUBST
+
+vim_cmd_mode="%{[01;38;5;022;48;5;148m%} NOR %{$reset_color%}"
+vim_ins_mode="%{[00;38;5;015;48;5;031m%} INS %{$reset_color%}"
+vim_vis_mode="%{[01;38;5;088;48;5;208m%} VIS %{$reset_color%}"
+vim_mode=$vim_ins_mode
+
+function zle-keymap-select {
+	vim_mode="${${KEYMAP/vicmd/${vim_cmd_mode}}/(main|viins)/${vim_ins_mode}}"
+	zle reset-prompt
+}
+zle -N zle-keymap-select
+
+function zle-line-finish {
+	vim_mode=${vim_ins_mode}
+}
+zle -N zle-line-finish
 
 # Check the UID
 if [[ $UID -ne 0 ]]; then # normal user
 	PR_USER='%U%F{green}%n%f%u'
 	PR_USER_OP='%F{green}%#%f'
-	PR_PROMPT=$the_vim_mode'%f➤ %f'
+	PR_PROMPT='%f${vim_mode}➤ %f'
 else # root
 	PR_USER='%F{red}%n%f'
 	PR_USER_OP='%F{red}%#%f'
-	PR_PROMPT=$the_vim_mode'%F{red}➤ %f'
+	PR_PROMPT='%F{red}${vim_mode}➤ %f'
 fi
 
 # Check if we are on SSH or not
@@ -76,25 +86,19 @@ fi
 
 local return_code="%(?..%F{red}%? ↵%f)"
 
-local display_time="%{[00;38;5;196m%}%*"
+local display_time="%{[00;38;5;196m%}%*%{$reset_color%}"
 local user_host="${PR_USER}%B%F{cyan}∈%b${PR_HOST}"
-local current_dir="%B%{[01;38;5;057m%}%~/%{[0m%}%b"
-
-# Prompt customization
-autoload -Uz promptinit
-promptinit
-# OLD PROMPT!
-#PROMPT='%B%F{1}%U%n%u%F{5}∂%F{3}%m %b%1~/ %B%F{2}▶%f%b '
-#RPROMPT='%B%F{2}%*'
-# Extra symbols
-#∈ ∂ ℤ∫ ℍ ∇
+local current_dir="%B%{[01;38;5;057m%}%~/%{$reset_color%}%b"
 
 # TWO LINE PROMPT
-PROMPT="${display_time} ${user_host}↣${current_dir}
-╰─$PR_PROMPT"
+PROMPT="%B%F{cyan}[%f%b${display_time}%B%F{cyan}]%f%b ${user_host}%B%F{cyan}❱%f%b${current_dir}
+$PR_PROMPT"
+#╰─
 # CHROME OS and crouton do not like the right prompt!
 RPROMPT="${return_code}"
 
+# Directory and file colors
+test -r ~/.dircolors && eval "$(dircolors $HOME/.dircolors)"
 
 ## Aliases
 alias ls='ls --color=auto'
@@ -147,8 +151,6 @@ function google {
 #function hr {
 #	print ${(1:COLUMNS::=:)}
 #}
-# Directory and file colors
-test -r ~/.dircolors && eval "$(dircolors $HOME/.dircolors)"
 
 #neofetch
 fortune
