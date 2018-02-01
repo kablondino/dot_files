@@ -51,7 +51,7 @@ local PR_USER PR_USER_OP PR_PROMPT PR_HOST
 setopt PROMPT_SUBST
 
 vim_cmd_mode="%{[01;38;5;022;48;5;148m%} NORMAL %{$reset_color%}"
-vim_ins_mode="%{[00;38;5;015;48;5;031m%} INSERT %{$reset_color%}"
+vim_ins_mode="%{[01;38;5;015;48;5;031m%} INSERT %{$reset_color%}"
 vim_vis_mode="%{[01;38;5;088;48;5;208m%} VISUAL %{$reset_color%}"
 vim_mode=$vim_ins_mode
 
