@@ -109,7 +109,7 @@ autocmd BufEnter *.tex setlocal linebreak nocursorline nocursorcolumn
 set incsearch
 set ignorecase smartcase
 " Hit Esc to unhighlight searched term
-"nnoremap <silent><F3> :noh<Enter>
+nnoremap <silent><Esc> :noh<Enter>
 
 " Autocomplete pairing of braces and parentheses
 "inoremap {      {}<Left>
