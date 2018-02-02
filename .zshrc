@@ -18,10 +18,10 @@ bindkey "[3~" delete-char
 
 zstyle :compinstall filename '$HOME/.zshrc'
 
+# Autocomplete
 autoload -Uz compinit && compinit
-# End of lines added by compinstall
-
-zstyle ':completion:*' menu select
+#zstyle ':completion:*' menu select
+zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
 
 # Default text editor
 export EDITOR=$(which vim)
@@ -155,7 +155,7 @@ function google {
 #	print ${(1:COLUMNS::=:)}
 #}
 
-#neofetch
+#neofetch <- SLOW on OpenSUSE
 fortune
 echo -n "Current Shell: "; echo -n "ZSH "; echo $ZSH_VERSION
 
