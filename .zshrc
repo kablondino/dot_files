@@ -97,6 +97,9 @@ $PR_PROMPT"
 # CHROME OS and crouton do not like the right prompt!
 RPROMPT="${return_code}"
 
+# REFRESH prompt every X seconds:
+#TMOUT=2; TRAPALRM() { zle reset-prompt }
+
 # Directory and file colors
 test -r ~/.dircolors && eval "$(dircolors $HOME/.dircolors)"
 
