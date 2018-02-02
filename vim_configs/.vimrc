@@ -16,7 +16,8 @@ Plugin 'nelstrom/vim-markdown-folding'
 
 Plugin 'matze/vim-tex-fold'
 
-Plugin 'xuhdev/vim-latex-live-preview'
+"Plugin 'xuhdev/vim-latex-live-preview'
+" Enter :LLPStartPreview <source>
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
