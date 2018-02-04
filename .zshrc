@@ -51,7 +51,7 @@ local PR_USER PR_USER_OP PR_PROMPT PR_HOST
 setopt PROMPT_SUBST
 
 vim_cmd_mode="%{[01;38;5;022;48;5;148m%} NORMAL %{$reset_color%}"
-vim_ins_mode="%{[01;38;5;015;48;5;031m%} INSERT %{$reset_color%}"
+vim_ins_mode="%{[01;38;5;031;48;5;015m%} INSERT %{$reset_color%}"
 vim_vis_mode="%{[01;38;5;088;48;5;208m%} VISUAL %{$reset_color%}"
 vim_mode=$vim_ins_mode
 
@@ -70,7 +70,7 @@ zle -N zle-line-finish
 if [[ $UID -ne 0 ]]; then # normal user
 	PR_USER='%U%F{green}%n%f%u'
 	PR_USER_OP='%F{green}%#%f'
-	PR_PROMPT='%f${vim_mode} ❱ %f'
+	PR_PROMPT='%f${vim_mode} %F{cyan}❱ %f'
 else # root
 	PR_USER='%F{red}%n%f'
 	PR_USER_OP='%F{red}%#%f'
