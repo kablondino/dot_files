@@ -91,18 +91,18 @@ tmux_conf_theme_status_attr='none'
 # window status style
 #   - built-in variables are:
 #     - #{circled_window_index}
-tmux_conf_theme_window_status_fg='#8a8a8a'              # light gray
-tmux_conf_theme_window_status_bg='#080808'              # dark gray
+tmux_conf_theme_window_status_fg='#005f00'         # dark green, Xterm 22
+tmux_conf_theme_window_status_bg='#afd700'         # dark yellow, Xterm 148
 tmux_conf_theme_window_status_attr='none'
-tmux_conf_theme_window_status_format='#I #W'
+tmux_conf_theme_window_status_format=' #I #W '
 #tmux_conf_theme_window_status_format='#{circled_window_index} #W'
 #tmux_conf_theme_window_status_format='#I #W#{?window_bell_flag,🔔,}#{?window_zoomed_flag,🔍,}'
 
 # window current status style
 #   - built-in variables are:
 #     - #{circled_window_index}
-tmux_conf_theme_window_status_current_fg='#000000'      # black
-tmux_conf_theme_window_status_current_bg='#00afff'      # light blue
+tmux_conf_theme_window_status_current_fg='#0037af'      # dark cyan, Xterm 31
+tmux_conf_theme_window_status_current_bg='#ffffff'      # white, Xterm 15
 tmux_conf_theme_window_status_current_attr='bold'
 tmux_conf_theme_window_status_current_format='#I #W'
 #tmux_conf_theme_window_status_current_format='#{circled_window_index} #W'
@@ -119,19 +119,19 @@ tmux_conf_theme_window_status_bell_bg='default'
 tmux_conf_theme_window_status_bell_attr='blink,bold'
 
 # window last status style
-tmux_conf_theme_window_status_last_fg='#00afff'         # light blue
-tmux_conf_theme_window_status_last_bg='default'
-tmux_conf_theme_window_status_last_attr='none'
+tmux_conf_theme_window_status_last_fg='#005f00'         # dark green, Xterm 22
+tmux_conf_theme_window_status_last_bg='#afd700'         # dark yellow, Xterm 148
+tmux_conf_theme_window_status_last_attr='bold'
 
 # status left/right sections separators
 tmux_conf_theme_left_separator_main=''
 tmux_conf_theme_left_separator_sub='|'
 tmux_conf_theme_right_separator_main=''
 tmux_conf_theme_right_separator_sub='|'
-tmux_conf_theme_left_separator_main=''  # /!\ you don't need to install Powerline
-tmux_conf_theme_left_separator_sub=''   #   you only need fonts patched with
-tmux_conf_theme_right_separator_main='' #   Powerline symbols or the standalone
-tmux_conf_theme_right_separator_sub=''  #   PowerlineSymbols.otf font
+#tmux_conf_theme_left_separator_main=''  # /!\ you don't need to install Powerline
+#tmux_conf_theme_left_separator_sub=''   #   you only need fonts patched with
+#tmux_conf_theme_right_separator_main='' #   Powerline symbols or the standalone
+#tmux_conf_theme_right_separator_sub=''  #   PowerlineSymbols.otf font
 
 # status left/right content:
 #   - separate main sections with '|'
@@ -155,20 +155,20 @@ tmux_conf_theme_right_separator_sub=''  #   PowerlineSymbols.otf font
 #     - #{uptime_s}
 #     - #{username}
 #     - #{username_ssh}
-tmux_conf_theme_status_left='#{?uptime_d, #{uptime_d}d,} #{?uptime_h,#{uptime_h}h,}#{?uptime_m,#{uptime_m}m,}#{?uptime_s,#{uptime_s}s,}'
-tmux_conf_theme_status_right='#{prefix}#{pairing}#{?battery_status, #{battery_status},} #{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} , %d %b %Y , %R | #{username}#{root} | #{hostname}'
-#⌛⌚
-#{?battery_status, #{battery_status},}
+tmux_conf_theme_status_left=' ↑#{?uptime_d, #{uptime_d}d,} #{?uptime_h,#{uptime_h}h,}#{?uptime_m,#{uptime_m}m,} '
+tmux_conf_theme_status_right='#{prefix}#{pairing}#{?battery_status, #{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},},%d %b %Y,%R | #{username}#{root} | #{hostname}'
 
 # status left style
-tmux_conf_theme_status_left_fg='#ceb888,#e4e4e4,#e4e4e4'  # black, white, white
-tmux_conf_theme_status_left_bg='#870000,#e4e4e4,#00afff'  #orange, white, blue
+tmux_conf_theme_status_left_fg='#870000,#e4e4e4,#e4e4e4'
+#tmux_conf_theme_status_left_fg='#005f00,#e4e4e4,#e4e4e4'
+tmux_conf_theme_status_left_bg='#ff8700,#e4e4e4,#00afff'
+#tmux_conf_theme_status_left_bg='#afd700,#ff00af,#0087af'
 tmux_conf_theme_status_left_attr='bold,none,none'
 
 # status right style
 tmux_conf_theme_status_right_fg='#8a8a8a,#e4e4e4,#000000' # light gray, white, black
 tmux_conf_theme_status_right_bg='#080808,#d70000,#e4e4e4' # dark gray, red, white
-tmux_conf_theme_status_right_attr='none,bold,bold'
+tmux_conf_theme_status_right_attr='none,none,bold'
 
 # pairing indicator
 tmux_conf_theme_pairing='👓'          # U+1F453
@@ -197,27 +197,27 @@ tmux_conf_battery_bar_symbol_empty='◻'
 # battery bar length (in number of symbols), possible values are:
 #   - auto
 #   - a number, e.g. 5
-tmux_conf_battery_bar_length=6
+tmux_conf_battery_bar_length='auto'
 
 # battery bar palette, possible values are:
 #   - gradient (default)
 #   - heat
 #   - 'colour_full_fg,colour_empty_fg,colour_bg'
-tmux_conf_battery_bar_palette='gradient'
+tmux_conf_battery_bar_palette='heat'
 #tmux_conf_battery_bar_palette='#d70000,#e4e4e4,#000000'   # red, white, black
 
 # battery hbar palette, possible values are:
 #   - gradient (default)
 #   - heat
 #   - 'colour_low,colour_half,colour_full'
-tmux_conf_battery_hbar_palette='gradient'
+tmux_conf_battery_hbar_palette='heat'
 #tmux_conf_battery_hbar_palette='#d70000,#ff5f00,#5fff00'  # red, orange, green
 
 # battery vbar palette, possible values are:
 #   - gradient (default)
 #   - heat
 #   - 'colour_low,colour_half,colour_full'
-tmux_conf_battery_vbar_palette='gradient'
+tmux_conf_battery_vbar_palette='heat'
 #tmux_conf_battery_vbar_palette='#d70000,#ff5f00,#5fff00'  # red, orange, green
 
 # symbols used to indicate whether battery is charging or discharging
@@ -229,6 +229,16 @@ tmux_conf_battery_status_discharging='↯'   # U+21AF
 # clock style
 tmux_conf_theme_clock_colour='#00ff00'  # light green
 tmux_conf_theme_clock_style='24'
+
+
+# -- clipboard -----------------------------------------------------------------
+
+# in copy mode, copying selection also copies to the OS clipboard
+#   - true
+#   - false (default)
+# on macOS, this requires installing reattach-to-user-namespace, see README.md
+# on Linux, this requires xsel or xclip
+tmux_conf_copy_to_os_clipboard=false
 
 
 # ------------------------------------------------------------------------------
@@ -244,3 +254,4 @@ tmux_conf_theme_clock_style='24'
 
 # move status line to top
 #set -g status-position top
+#
