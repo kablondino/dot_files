@@ -67,7 +67,10 @@ nnoremap <silent><C-L> :call g:NumberToggle()<Enter>
 set cursorline
 "autocmd BufWinEnter * if getfsize(expand(@%)) < 10000 | set cursorcolumn | set cursorline | else | set nocursorcolumn | set nocursorline | endif
 
-syntax on
+" Better way of showing syntax
+if !exists("g:syntax_on")
+	syntax enable
+endif
 
 set t_ZH=[3m
 set t_ZR=[23m
