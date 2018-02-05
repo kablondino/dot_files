@@ -28,10 +28,10 @@ filetype plugin indent on    " required
 
 " COLORSCHEME SPECIFIC OPTIONS
 set bg=dark
-colorscheme swagdino_pencil
+colorscheme swagdino
 
 " For the original color
-"colorscheme swagdino
+"colorscheme swagdino_old
 "hi Normal guifg=#C6C6C6 ctermfg=254 ctermbg=NONE cterm=NONE
 "hi Comment guifg=#875F00 guibg=NONE guisp=NONE gui=italic ctermfg=94 ctermbg=NONE cterm=italic
 "hi CursorLineNr guifg=#000000 guibg=#afff00 guisp=NONE gui=bold,italic ctermfg=232 ctermbg=154 cterm=bold,italic
