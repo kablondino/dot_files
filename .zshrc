@@ -20,8 +20,8 @@ zstyle :compinstall filename '$HOME/.zshrc'
 
 # Autocomplete
 autoload -Uz compinit && compinit
-#zstyle ':completion:*' menu select
-zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
+zstyle ':completion:*' menu select
+#zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
 
 # Default text editor
 export EDITOR=$(which vim)
