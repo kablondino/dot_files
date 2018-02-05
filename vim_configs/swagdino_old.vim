@@ -151,3 +151,4 @@ hi htmltagname guifg=#ffcbff guibg=NONE guisp=NONE gui=NONE ctermfg=225 ctermbg=
 hi javascriptstrings guifg=#ffcbff guibg=NONE guisp=NONE gui=NONE ctermfg=225 ctermbg=NONE cterm=NONE
 hi htmlstring guifg=#ffcbff guibg=NONE guisp=NONE gui=NONE ctermfg=225 ctermbg=NONE cterm=NONE
 hi phpstringsingle guifg=#ffcbff guibg=NONE guisp=NONE gui=NONE ctermfg=225 ctermbg=NONE cterm=NONE
+
