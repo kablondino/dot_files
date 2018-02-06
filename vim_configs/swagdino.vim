@@ -105,7 +105,7 @@ let s:yellow          = { "gui": "#F3E430", "cterm": "11"  }
 let s:light_yellow    = { "gui": "#FFFF5F", "cterm": "227" }
 let s:dark_yellow     = { "gui": "#A89C14", "cterm": "3"   }
 
-let s:yellow_green    = { "gui": "#afff00", "cterm": "154" }
+let s:yellow_green    = { "gui": "#afd700", "cterm": "148" }
 
 if &background == "dark"
   let s:bg              = s:black
