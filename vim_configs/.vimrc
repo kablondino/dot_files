@@ -12,6 +12,8 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'itchyny/lightline.vim'
 
+Plugin 'bling/vim-bufferline'
+
 Plugin 'nelstrom/vim-markdown-folding'
 
 Plugin 'matze/vim-tex-fold'
@@ -30,20 +32,42 @@ filetype plugin indent on    " required
 set bg=dark
 colorscheme swagdino
 
-" For the original color
-"colorscheme swagdino_old
-"hi Normal guifg=#C6C6C6 ctermfg=254 ctermbg=NONE cterm=NONE
-"hi Comment guifg=#875F00 guibg=NONE guisp=NONE gui=italic ctermfg=94 ctermbg=NONE cterm=italic
-"hi CursorLineNr guifg=#000000 guibg=#afff00 guisp=NONE gui=bold,italic ctermfg=232 ctermbg=154 cterm=bold,italic
-
 " Specific colors for paretheses and math operators
 "autocmd BufRead,BufNewFile * syn match parens /[(){}\[\]]/ | hi parens guifg=#ff0000 ctermfg=9
 "autocmd BufRead,BufNewFile * syn match MyOperators /[\+\-\=\/]/ | hi MyOperators guifg=#ffafff ctermfg=219
 
-" Vim Lightline
+" Bufferline configuration
+"let g:bufferline_echo = 0
+"autocmd VimEnter *
+"			\ let &statusline='%{bufferline#refresh_status()}'
+"			\ .bufferline#get_status_string()
+
+" Vim Lightline configuration
+set noshowmode	" Removes duplicate info on the command line
 let g:lightline = {
 	\ 'colorscheme': 'powerline',
+	\ 'active': {
+	\	'left': [ [ 'mode', 'paste', 'spell' ],
+	\			[ 'char_hex_value', 'readonly', 'bufnum', 'filename', 'modified' ] ],
+	\ },
+	\ 'component': {
+	\		'char_hex_value': '0x%B',
+	\		'lineinfo': '%3l:%-2v'
+	\ },
+	\ 'component_function': {
+	\		'readonly': 'LightlineReadonly'
+	\ },
 	\ }
+function! LightlineReadonly()
+	return &readonly ? '' : ''
+endfunction
+
+"let g:lightline.separator = {
+"	\ 'left': '', 'right': ''
+"	\ }
+"let g:lightline.subseparator = {
+"	\ 'left': '', 'right': '' 
+"	\ }
 
 set encoding=utf-8
 
@@ -83,7 +107,6 @@ set tabstop=4 softtabstop=0 noexpandtab shiftwidth=4
 
 set laststatus=2
 set statusline=%f\ =\ Filetype:\ %y
-set noshowmode
 
 set showmatch
 set mouse=a
@@ -115,7 +138,7 @@ autocmd BufEnter,BufNewFile,BufRead *.tex syntax spell toplevel
 set incsearch
 set ignorecase smartcase
 " Hit Esc to unhighlight searched term
-nnoremap <silent><Esc> :noh<Enter>
+nnoremap <silent><F3> :noh<Enter>
 
 " Autocomplete pairing of braces and parentheses
 "inoremap {      {}<Left>
