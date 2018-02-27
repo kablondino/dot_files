@@ -41,9 +41,9 @@ set noshowmode	" Removes duplicate info on the command line
 let g:lightline = {
 	\ 'colorscheme': 'powerline',
 	\ 'tabline': {
-	\	'left': [ [ 'bufferinfo' ], [ 'separator' ],
+	\	'left': [ [ 'bufferinfo' ], [ 'buff_separator' ],
 	\			[ 'bufferbefore', 'buffercurrent', 'bufferafter' ], ],
-	\	'right': [ [ 'buff_separator' ], [ 'close' ], ],
+	\	'right': [ [ 'close' ], ],
 	\ },
 	\ 'active': {
 	\	'left': [ [ 'mode', 'paste', 'spell' ],
