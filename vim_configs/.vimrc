@@ -12,7 +12,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'itchyny/lightline.vim'
 
-Plugin 'bling/vim-bufferline'
+Plugin 'taohex/lightline-buffer'
 
 Plugin 'nelstrom/vim-markdown-folding'
 
@@ -36,38 +36,75 @@ colorscheme swagdino
 "autocmd BufRead,BufNewFile * syn match parens /[(){}\[\]]/ | hi parens guifg=#ff0000 ctermfg=9
 "autocmd BufRead,BufNewFile * syn match MyOperators /[\+\-\=\/]/ | hi MyOperators guifg=#ffafff ctermfg=219
 
-" Bufferline configuration
-"let g:bufferline_echo = 0
-"autocmd VimEnter *
-"			\ let &statusline='%{bufferline#refresh_status()}'
-"			\ .bufferline#get_status_string()
-
-" Vim Lightline configuration
+" Vim Lightline configuration, with buffer
 set noshowmode	" Removes duplicate info on the command line
 let g:lightline = {
 	\ 'colorscheme': 'powerline',
+	\ 'tabline': {
+	\	'left': [ [ 'bufferinfo' ], [ 'separator' ],
+	\			[ 'bufferbefore', 'buffercurrent', 'bufferafter' ], ],
+	\	'right': [ [ 'buff_separator' ], [ 'close' ], ],
+	\ },
 	\ 'active': {
 	\	'left': [ [ 'mode', 'paste', 'spell' ],
-	\			[ 'char_hex_value', 'readonly', 'bufnum', 'filename', 'modified' ] ],
+	\			[ 'char_hex_value', 'readonly', 'filename', 'modified' ] ],
+	\ },
+	\ 'component_expand': {
+	\		'buffercurrent': 'lightline#buffer#buffercurrent',
+	\		'bufferbefore': 'lightline#buffer#bufferbefore',
+	\		'bufferafter': 'lightline#buffer#bufferafter',
+	\ },
+	\ 'component_type': {
+	\		'buffercurrent': 'tabsel',
+	\		'bufferbefore': 'raw',
+	\		'bufferafter': 'raw',
 	\ },
 	\ 'component': {
 	\		'char_hex_value': '0x%B',
-	\		'lineinfo': '%3l:%-2v'
+	\		'filename': '%n:%t',
+	\		'lineinfo': '%3l:%-2v',
+	\		'buff_separator': ''
 	\ },
 	\ 'component_function': {
-	\		'readonly': 'LightlineReadonly'
+	\		'readonly': 'LightlineReadonly',
+	\		'modified': 'LightlineModified',
+	\		'bufferinfo': 'lightline#buffer#bufferinfo',
 	\ },
 	\ }
-function! LightlineReadonly()
+function! LightlineReadonly()	" For the status line
 	return &readonly ? '' : ''
 endfunction
+function! LightlineModified()
+	return &modifiable && &modified ? '✭' : ''
+endfunction
 
-"let g:lightline.separator = {
-"	\ 'left': '', 'right': ''
-"	\ }
-"let g:lightline.subseparator = {
-"	\ 'left': '', 'right': '' 
-"	\ }
+" REMAP ARROW KEYS! to switch between buffers
+nnoremap <Left> :bprev<return>
+nnoremap <Right> :bnext<return>
+
+"let g:lightline.separator = { 'left': '', 'right': '' }
+let g:lightline.subseparator = { 'left': '', 'right': '' }
+let g:lightline_buffer_readonly_icon = ''	" For the buffer line
+let g:lightline_buffer_modified_icon = '✭'
+let g:lightline_buffer_git_icon = ''
+let g:lightline_buffer_ellipsis_icon = '…'
+let g:lightline_buffer_expand_left_icon = '◀ '
+let g:lightline_buffer_expand_right_icon = ' ▶'
+let g:lightline_buffer_active_buffer_left_icon = ''
+let g:lightline_buffer_active_buffer_right_icon = ''
+let g:lightline_buffer_separator_icon = ''
+
+" lightline-buffer function settings
+let g:lightline_buffer_show_bufnr = 1
+let g:lightline_buffer_rotate = 0
+let g:lightline_buffer_fname_mod = ':t'
+let g:lightline_buffer_excludes = ['vimfiler']
+
+let g:lightline_buffer_maxflen = 30
+let g:lightline_buffer_maxfextlen = 3
+let g:lightline_buffer_minflen = 16
+let g:lightline_buffer_minfextlen = 3
+let g:lightline_buffer_reservelen = 20
 
 set encoding=utf-8
 
@@ -85,11 +122,11 @@ function! g:NumberToggle()
 		set norelativenumber
 	endif
 endfunction
-nnoremap <silent><C-L> :call g:NumberToggle()<Enter>
+nnoremap <silent><C-L> :call g:NumberToggle()<return>
 
 " Set the cursorline and cursorcolumn
 set cursorline
-"autocmd BufWinEnter * if getfsize(expand(@%)) < 10000 | set cursorcolumn | set cursorline | else | set nocursorcolumn | set nocursorline | endif
+set colorcolumn=80
 
 " Better way of showing syntax
 if !exists("g:syntax_on")
@@ -105,8 +142,10 @@ set tabstop=4 softtabstop=0 noexpandtab shiftwidth=4
 " Set the color column
 "set colorcolumn=80
 
-set laststatus=2
+set laststatus=2					" Always show last status
 set statusline=%f\ =\ Filetype:\ %y
+set hidden							" Allows buffer switching without saving
+set showtabline=2					" Always show tabs
 
 set showmatch
 set mouse=a
@@ -120,7 +159,6 @@ else
 endif
 " UNICODE for symbols:
 " ▶▷▸▹►▻ (The right small triangle) U+25B5 through U+25BB
-" ❪❫❬❭❮❯❰❱ (Angled brackets) U+276A through U+2772
 " · (The middle dot) U+00B7
 " ¬ (The not symbol) U+00AC
 
@@ -138,7 +176,7 @@ autocmd BufEnter,BufNewFile,BufRead *.tex syntax spell toplevel
 set incsearch
 set ignorecase smartcase
 " Hit Esc to unhighlight searched term
-nnoremap <silent><F3> :noh<Enter>
+nnoremap <silent><F3> :noh<return>
 
 " Autocomplete pairing of braces and parentheses
 "inoremap {      {}<Left>
