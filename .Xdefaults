@@ -1,5 +1,5 @@
 !! Capitalization is IMPORTANT!
-URxvt.background: [90]#000000
+URxvt.background: [85]#000000
 !!URxvt.background: rgba:0000/0000/0000/cccc
 URxvt.foreground: #cccccc
 
