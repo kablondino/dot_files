@@ -50,9 +50,16 @@ local PR_USER PR_USER_OP PR_PROMPT PR_HOST
 
 setopt PROMPT_SUBST
 
+# Powerline colors
 vim_cmd_mode="%{[01;38;5;022;48;5;148m%} NORMAL %{$reset_color%}"
 vim_ins_mode="%{[01;38;5;031;48;5;015m%} INSERT %{$reset_color%}"
 vim_vis_mode="%{[01;38;5;088;48;5;208m%} VISUAL %{$reset_color%}"
+
+# Landscape colors
+#vim_cmd_mode="%{[01;38;5;012;48;5;015m%} NORMAL %{$reset_color%}"
+#vim_ins_mode="%{[01;38;5;022;48;5;015m%} INSERT %{$reset_color%}"
+#vim_vis_mode="%{[01;38;5;057;48;5;015m%} INSERT %{$reset_color%}"
+
 vim_mode=$vim_ins_mode
 
 function zle-keymap-select {
@@ -84,18 +91,18 @@ else
 	PR_HOST='%F{yellow}%M%f' # no SSH
 fi
 
-local return_code="%(?..%F{red}%? ↵%f)"
+local return_code="%(?..%F{red}%?↵%f)"
 
 local display_time="%{[00;38;5;196m%}%*%{$reset_color%}"
-local user_host="${PR_USER}%B%F{cyan}∈%b${PR_HOST}"
+local user_host="%B%F{cyan}[%f%b ${PR_USER}%B%F{cyan}∈%b${PR_HOST} %B%F{cyan]%f%b"
 local current_dir="%B%{[01;38;5;057m%}%~/%{$reset_color%}%b"
 
 # TWO LINE PROMPT
-PROMPT="%B%F{cyan}[%f%b${display_time}%B%F{cyan}]%f%b ${user_host}%B%F{cyan}❱%f%b${current_dir}
+PROMPT="%B%F{cyan}[ %f%b${display_time}%B%F{cyan} ] ❱%f%b ${current_dir}
 $PR_PROMPT"
 #╰─
 # CHROME OS and crouton do not like the right prompt!
-RPROMPT="${return_code}"
+RPROMPT="${return_code}${user_host}"
 
 # REFRESH prompt every X seconds:
 #TMOUT=2; TRAPALRM() { zle reset-prompt }
