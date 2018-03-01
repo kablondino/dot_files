@@ -39,16 +39,28 @@ colorscheme swagdino
 " Vim Lightline configuration, with buffer
 set noshowmode	" Removes duplicate info on the command line
 let g:lightline = {
-	\ 'colorscheme': 'powerline',
+	\ 'colorscheme': 'landscape',
 	\ 'tabline': {
-	\	'left': [ [ 'bufferinfo' ], [ 'buff_separator' ],
+	\	'left': [ [ 'bufferinfo' ],
 	\			[ 'bufferbefore', 'buffercurrent', 'bufferafter' ], ],
 	\	'right': [ [ 'close' ], ],
 	\ },
+	\ 'tabline_separator': { 'left': '', 'right': '' },
+	\
 	\ 'active': {
-	\	'left': [ [ 'mode', 'paste', 'spell' ],
-	\			[ 'char_hex_value', 'readonly', 'filename', 'modified' ] ],
+	\	'left': [ [ 'mode', 'paste', 'spell' ], [ 'char_hex_value',
+	\			'readonly', 'filename', 'modified' ] ],
+	\	'right': [ [ 'lineinfo' ], [ 'percent' ],
+	\			[ 'fileformat', 'fileencoding', 'filetype'] ],
 	\ },
+	\
+	\ 'inactive': {
+	\	'left': [ [ 'big_separator' ], [ 'char_hex_value',
+	\			'readonly', 'filename', 'modified' ] ],
+	\	'right': [ [ 'lineinfo' ], [ 'percent' ],
+	\			[ 'fileformat', 'fileencoding', 'filetype'] ],
+	\ },
+	\
 	\ 'component_expand': {
 	\		'buffercurrent': 'lightline#buffer#buffercurrent',
 	\		'bufferbefore': 'lightline#buffer#bufferbefore',
@@ -61,16 +73,15 @@ let g:lightline = {
 	\ },
 	\ 'component': {
 	\		'char_hex_value': '0x%B',
-	\		'filename': '%n:%t',
+	\		'filename': '%n %f',
 	\		'lineinfo': '%3l:%-2v',
-	\		'buff_separator': ''
+	\		'big_separator': '      ',
 	\ },
 	\ 'component_function': {
 	\		'readonly': 'LightlineReadonly',
 	\		'modified': 'LightlineModified',
 	\		'bufferinfo': 'lightline#buffer#bufferinfo',
-	\ },
-	\ }
+	\ }, }
 function! LightlineReadonly()	" For the status line
 	return &readonly ? '' : ''
 endfunction
@@ -107,6 +118,7 @@ let g:lightline_buffer_minfextlen = 3
 let g:lightline_buffer_reservelen = 20
 
 set encoding=utf-8
+set fileencoding=utf-8
 
 " Line number configurations
 set number
