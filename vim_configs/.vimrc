@@ -11,11 +11,11 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'itchyny/lightline.vim'
-
 Plugin 'taohex/lightline-buffer'
 
-Plugin 'nelstrom/vim-markdown-folding'
+Plugin 'ryanoasis/vim-devicons'	" REQUIRES Nerd Font
 
+Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'matze/vim-tex-fold'
 
 "Plugin 'xuhdev/vim-latex-live-preview'
@@ -41,15 +41,15 @@ set noshowmode	" Removes duplicate info on the command line
 let g:lightline = {
 	\ 'colorscheme': 'landscape',
 	\ 'tabline': {
-	\	'left': [ [ 'bufferinfo' ],
+	\	'left': [ [ 'bufferinfo' ], [ 'buff_separator' ],
 	\			[ 'bufferbefore', 'buffercurrent', 'bufferafter' ], ],
 	\	'right': [ [ 'close' ], ],
 	\ },
-	\ 'tabline_separator': { 'left': '', 'right': '' },
+	\ 'tabline_separator': { 'left': '', 'right': '' },
 	\
 	\ 'active': {
-	\	'left': [ [ 'mode', 'paste', 'spell' ], [ 'char_hex_value',
-	\			'readonly', 'filename', 'modified' ] ],
+	\	'left': [ [ 'mode', 'paste', 'spell' ], [ 'filename',
+	\			'readonly', 'modified' ], [ 'char_hex_value' ] ],
 	\	'right': [ [ 'lineinfo' ], [ 'percent' ],
 	\			[ 'fileformat', 'fileencoding', 'filetype'] ],
 	\ },
@@ -73,32 +73,44 @@ let g:lightline = {
 	\ },
 	\ 'component': {
 	\		'char_hex_value': '0x%B',
-	\		'filename': '%n %f',
+	\		'filename': '%f',
 	\		'lineinfo': '%3l:%-2v',
+	\		'buff_separator': '',
 	\		'big_separator': '      ',
 	\ },
 	\ 'component_function': {
+	\		'filetype': 'MyFiletype',
+	\		'fileformat': 'MyFileformat',
+	\		'bufferinfo': 'lightline#buffer#bufferinfo',
 	\		'readonly': 'LightlineReadonly',
 	\		'modified': 'LightlineModified',
-	\		'bufferinfo': 'lightline#buffer#bufferinfo',
 	\ }, }
+function! MyFiletype()
+	return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . 
+	\		WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
+endfunction
+function! MyFileformat()
+	return winwidth(0) > 70 ? (&fileformat . ' ' . 
+	\		WebDevIconsGetFileFormatSymbol()) : ''
+endfunction
+
 function! LightlineReadonly()	" For the status line
-	return &readonly ? '' : ''
+	return &readonly ? '' : ''	" ,	U+F023, F13E, E0A2
 endfunction
 function! LightlineModified()
-	return &modifiable && &modified ? '✭' : ''
+	return &modifiable && &modified ? '' : ''	" U+F044, E240
 endfunction
 
 " REMAP ARROW KEYS! to switch between buffers
 nnoremap <Left> :bprev<return>
 nnoremap <Right> :bnext<return>
-
-"let g:lightline.separator = { 'left': '', 'right': '' }
-let g:lightline.subseparator = { 'left': '', 'right': '' }
-let g:lightline_buffer_readonly_icon = ''	" For the buffer line
-let g:lightline_buffer_modified_icon = '✭'
-let g:lightline_buffer_git_icon = ''
-let g:lightline_buffer_ellipsis_icon = '…'
+ 
+let g:lightline.separator = { 'left': '', 'right': '' }	" U+E0B0 - E0C7
+let g:lightline.subseparator = { 'left': '', 'right': '' }
+let g:lightline_buffer_readonly_icon = ''	" U+F023, for the buffer line
+let g:lightline_buffer_modified_icon = ''	" U+F044
+let g:lightline_buffer_git_icon = ''		" U+E0A0
+let g:lightline_buffer_ellipsis_icon = '…'	" U+2026
 let g:lightline_buffer_expand_left_icon = '◀ '
 let g:lightline_buffer_expand_right_icon = ' ▶'
 let g:lightline_buffer_active_buffer_left_icon = ''
@@ -108,14 +120,22 @@ let g:lightline_buffer_separator_icon = ''
 " lightline-buffer function settings
 let g:lightline_buffer_show_bufnr = 1
 let g:lightline_buffer_rotate = 0
+" :help filename-modifiers
 let g:lightline_buffer_fname_mod = ':t'
+" hide buffer list
 let g:lightline_buffer_excludes = ['vimfiler']
 
+" max file name length
 let g:lightline_buffer_maxflen = 30
+" max file extension length
 let g:lightline_buffer_maxfextlen = 3
+" min file name length
 let g:lightline_buffer_minflen = 16
+" min file extension length
 let g:lightline_buffer_minfextlen = 3
+" reserve length for other component (e.g. info, close)
 let g:lightline_buffer_reservelen = 20
+
 
 set encoding=utf-8
 set fileencoding=utf-8
@@ -179,8 +199,10 @@ autocmd BufNewFile,BufRead *.source set filetype=fortran
 autocmd BufNewFile,BufRead *.sage,*.spyx,*.pyx set filetype=python
 
 " Turn off line cursor and turn on spell check, linebreak for some files
-autocmd BufEnter,BufNewFile,BufRead *.md setlocal spell spelllang=en linebreak nocursorline nocursorcolumn
-autocmd BufEnter,BufNewFile,BufRead *.tex setlocal spell spelllang=en linebreak nocursorline nocursorcolumn
+autocmd BufEnter,BufNewFile,BufRead *.md setlocal spell spelllang=en
+			\	linebreak nocursorline nocursorcolumn
+autocmd BufEnter,BufNewFile,BufRead *.tex setlocal spell spelllang=en
+			\	linebreak nocursorline nocursorcolumn
 " Turn spell check ON for ALL non-comments in tex (latex) files
 autocmd BufEnter,BufNewFile,BufRead *.tex syntax spell toplevel
 
