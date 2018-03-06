@@ -32,9 +32,11 @@ filetype plugin indent on    " required
 set bg=dark
 colorscheme swagdino
 
-" Specific colors for paretheses and math operators
-"autocmd BufRead,BufNewFile * syn match parens /[(){}\[\]]/ | hi parens guifg=#ff0000 ctermfg=9
-"autocmd BufRead,BufNewFile * syn match MyOperators /[\+\-\=\/]/ | hi MyOperators guifg=#ffafff ctermfg=219
+" Specific colors for paretheses and math operators; BREAKS LaTeX!
+"autocmd BufRead,BufNewFile * syn match parens /[(){}\[\]]/ 
+"			\| hi parens guifg=#ff0000 ctermfg=9
+"autocmd BufRead,BufNewFile * syn match MyOperators /[\+\-\=\/]/ 
+"			\| hi MyOperators guifg=#ffafff ctermfg=219
 
 " Vim Lightline configuration, with buffer
 set noshowmode	" Removes duplicate info on the command line
@@ -48,8 +50,8 @@ let g:lightline = {
 	\ 'tabline_separator': { 'left': '', 'right': '' },
 	\
 	\ 'active': {
-	\	'left': [ [ 'mode', 'paste', 'spell' ], [ 'filename',
-	\			'readonly', 'modified' ], [ 'char_hex_value' ] ],
+	\	'left': [ [ 'mode', 'paste', 'spell' ], [ 'readonly', 'filename',
+	\			'modified' ], [ 'char_hex_value' ] ],
 	\	'right': [ [ 'lineinfo' ], [ 'percent' ],
 	\			[ 'fileformat', 'fileencoding', 'filetype'] ],
 	\ },
@@ -98,7 +100,7 @@ function! LightlineReadonly()	" For the status line
 	return &readonly ? '' : ''	" ,	U+F023, F13E, E0A2
 endfunction
 function! LightlineModified()
-	return &modifiable && &modified ? '' : ''	" U+F044, E240
+	return &modifiable && &modified ? ' ' : ' '	" U+E240, U+F00D, F00C
 endfunction
 
 " REMAP ARROW KEYS! to switch between buffers
@@ -108,7 +110,7 @@ nnoremap <Right> :bnext<return>
 let g:lightline.separator = { 'left': '', 'right': '' }	" U+E0B0 - E0C7
 let g:lightline.subseparator = { 'left': '', 'right': '' }
 let g:lightline_buffer_readonly_icon = ''	" U+F023, for the buffer line
-let g:lightline_buffer_modified_icon = ''	" U+F044
+let g:lightline_buffer_modified_icon = ' '	" U+F069
 let g:lightline_buffer_git_icon = ''		" U+E0A0
 let g:lightline_buffer_ellipsis_icon = '…'	" U+2026
 let g:lightline_buffer_expand_left_icon = '◀ '
