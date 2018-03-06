@@ -75,7 +75,7 @@ zle -N zle-line-finish
 
 # Check the UID
 if [[ $UID -ne 0 ]]; then # normal user
-	PR_USER="%{[00;38;5;022;48;5;000m%}%{[00;38;5;000;48;5;022m%} %n"	# HOST corrects colors
+	PR_USER="%{[00;38;5;022m%}%{[00;38;5;000;48;5;022m%} %n"	# HOST corrects colors
 	PR_USER_OP='%F{green}%#%f'
 	PR_PROMPT='${vim_mode} '
 else # root
@@ -91,14 +91,14 @@ else
 	PR_HOST='%{[00;38;5;022m%}%{[00;38;5;148m%}%k%{[00;38;5;000;48;5;148m%} %M %f%k' # no SSH
 fi
 
-local return_code="%(?..%{[00;38;5;088m%}%{[00;38;5;000;48;5;088m%} %? %{[00;38;5;088;48;5;000m%}%f%k)"	# U+F112
+local return_code="%(?..%{[00;38;5;088m%}%{[00;38;5;000;48;5;088m%} %? %{[00;38;5;088m%}%f%k)"	# U+F112
 
 local display_time="%{[00;38;5;000;48;5;088m%} %* %f%k%{[00;38;5;088m%}%f%k"
 local user_host="${PR_USER} ${PR_HOST}"
 local current_dir="%{[01;48;5;057;38;5;000m%} %~/ %b%{[00;38;5;057m%}%f%k"
 
 # TWO LINE PROMPT
-PROMPT="${display_time}%{[01;38;5;057;48;5;000m%}%f%b${current_dir}
+PROMPT="${display_time}%{[01;38;5;057m%}%f%b${current_dir}
 $PR_PROMPT"
 #╰─
 # CHROME OS and crouton do not like the right prompt!
