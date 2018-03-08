@@ -110,6 +110,9 @@ RPROMPT="${return_code}${user_host}"
 # Directory and file colors
 test -r ~/.dircolors && eval "$(dircolors $HOME/.dircolors)"
 
+# Unset SSH_ASKPASS
+unset SSH_ASKPASS
+
 ## Aliases
 alias ls='ls --color=auto'
 alias ll='ls -lh'
