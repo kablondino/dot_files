@@ -11,9 +11,11 @@ URxvt.intensityStyles: false
 !!URxvt*letterSpace: -0.5
 
 !! Extensions
-URxvt.perl-ext-common: default,matcher,resize-font,keyboard-select,fullscreen
-URxvt.resize-font.smaller: C-j
-URxvt.resize-font.bigger: C-k
+URxvt.perl-ext-common: default,matcher,font-size,keyboard-select,fullscreen
+URxvt.keysym.C-Down: resize-font:smaller
+URxvt.keysym.C-Up: resize-font:bigger
+URxvt.keysym.C-equal: resize-font:reset
+URxvt.keysym.C-question: resize-font:show
 URxvt.keysym.F11: perl:fullscreen:switch
 
 URxvt.borderLess: false
