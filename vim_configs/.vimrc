@@ -38,7 +38,9 @@ colorscheme swagdino
 "autocmd BufRead,BufNewFile * syn match MyOperators /[\+\-\=\/]/ 
 "			\| hi MyOperators guifg=#ffafff ctermfg=219
 
-" Vim Lightline configuration, with buffer
+" ---------------------------------------------------------------------------
+"  Status Line Configuration with Lightline and Lightline-Buffer
+" ---------------------------------------------------------------------------
 set noshowmode	" Removes duplicate info on the command line
 let g:lightline = {
 	\ 'colorscheme': 'landscape',
@@ -138,6 +140,11 @@ let g:lightline_buffer_minfextlen = 3
 " reserve length for other component (e.g. info, close)
 let g:lightline_buffer_reservelen = 20
 
+set laststatus=2					" Always show last status
+set statusline=%f\ =\ Filetype:\ %y
+set hidden							" Allows buffer switching without saving
+set showtabline=2					" Always show tabs
+
 
 set encoding=utf-8
 set fileencoding=utf-8
@@ -170,16 +177,13 @@ endif
 set t_ZH=[3m
 set t_ZR=[23m
 
+" Turn OFF Vim's default python behavior
+let g:python_recommended_style = 0
 " Tab length
 set tabstop=4 softtabstop=0 noexpandtab shiftwidth=4
 
 " Set the color column
 "set colorcolumn=80
-
-set laststatus=2					" Always show last status
-set statusline=%f\ =\ Filetype:\ %y
-set hidden							" Allows buffer switching without saving
-set showtabline=2					" Always show tabs
 
 set showmatch
 set mouse=a

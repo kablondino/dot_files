@@ -1,9 +1,4 @@
 " Vim Color File
-" Name:       pencil.vim
-" Version:    0.6
-" Maintainer: github.com/reedes github.com/mattly
-" License:    The MIT License (MIT)
-
 " Original iA Writer colors, to use as a guide
 " White           #F1F1F1
 " OffWhiteIPad    #F5F2EC
@@ -35,7 +30,7 @@ if exists('syntax on')
     syntax reset
 endif
 
-let g:colors_name='swagdino_pencil'
+let g:colors_name='swagdino'
 
 if ! exists("g:pencil_higher_contrast_ui")
   let g:pencil_higher_contrast_ui = 0
