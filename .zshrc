@@ -1,3 +1,18 @@
+#  ███████╗██╗    ██╗ █████╗  ██████╗ ██████╗ ██╗███╗   ██╗ ██████╗ 
+#  ██╔════╝██║    ██║██╔══██╗██╔════╝ ██╔══██╗██║████╗  ██║██╔═══██╗
+#  ███████╗██║ █╗ ██║███████║██║  ███╗██║  ██║██║██╔██╗ ██║██║   ██║
+#  ╚════██║██║███╗██║██╔══██║██║   ██║██║  ██║██║██║╚██╗██║██║   ██║
+#  ███████║╚███╔███╔╝██║  ██║╚██████╔╝██████╔╝██║██║ ╚████║╚██████╔╝
+#  ╚══════╝ ╚══╝╚══╝ ╚═╝  ╚═╝ ╚═════╝ ╚═════╝ ╚═╝╚═╝  ╚═══╝ ╚═════╝ 
+#                                                                   
+#  ███████╗███████╗██╗  ██╗██████╗  ██████╗                         
+#  ╚══███╔╝██╔════╝██║  ██║██╔══██╗██╔════╝                         
+#    ███╔╝ ███████╗███████║██████╔╝██║                              
+#   ███╔╝  ╚════██║██╔══██║██╔══██╗██║                              
+#  ███████╗███████║██║  ██║██║  ██║╚██████╗                         
+#  ╚══════╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝                         
+
+
 # HOW TO RUN ZSH SETUP AGAIN!
 #	autoload -Uz zsh-newuser-install
 #	zsh-newuser-install -f
@@ -138,7 +153,7 @@ alias digitalocean='ssh -X kabv@95.85.18.5'
 alias grad_proj='cd ~/Documents/Masters/Graduation_Project/ && git status'
 
 # Activate FiPy
-alias fipy='source activate fipy'
+alias fipy='cd $HOME/Documents/Masters/Graduation_Project/FiPy_Model && source activate fipy'
 
 # MATLAB
 alias MATLAB='~/MATLAB/bin/matlab -nodesktop -nosplash'
