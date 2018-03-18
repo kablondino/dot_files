@@ -67,8 +67,8 @@ let g:lightline = {
 	\ 'tabline_separator': { 'left': '', 'right': '' },
 	\
 	\ 'active': {
-	\	'left': [ [ 'mode', 'paste', 'spell' ], [ 'readonly', 'filename',
-	\			'modified' ], [ 'char_hex_value' ] ],
+	\	'left': [ [ 'mode', 'paste', 'spell' ], [ 'readonly', 'modified',
+	\			'filename' ], [ 'char_hex_value' ] ],
 	\	'right': [ [ 'lineinfo' ], [ 'percent' ],
 	\			[ 'fileformat', 'fileencoding', 'filetype'] ],
 	\ },
