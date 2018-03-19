@@ -140,30 +140,20 @@ alias less='less -R'
 # ANACONDA
 export PATH="/home/kabv/anaconda2/bin:$PATH"
 
-# The Common Room Raspberry Pi
-alias common_room_pi='ssh pi@25.33.244.15'
-
-# ITER HPC
-alias hpc-iter='ssh -X blondik@hpc-login4.iter.org'
-
-# DigitalOcean "Droplet" Login
-alias digitalocean='ssh -X kabv@95.85.18.5'
-
 # Graduation Project directory
 alias grad_proj='cd ~/Documents/Masters/Graduation_Project/ && git status'
 
 # Activate FiPy
 alias fipy='cd $HOME/Documents/Masters/Graduation_Project/FiPy_Model && source activate fipy'
 
-# MATLAB
-alias MATLAB='~/MATLAB/bin/matlab -nodesktop -nosplash'
-
-
 ## FUNCTIONS!
 # Delete each line in a file that starts with a NON-number(digit) character
 function data_clean() {
 	grep "^[0-9]" $1 > $2
 }
+
+# Insert a # on the first line of each TSV file in the current directory
+function comment_TSV() { sed -i '1s/^/\#/' *.tsv }
 
 # urlencode some text
 function urlencode {
