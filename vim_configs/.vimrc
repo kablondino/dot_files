@@ -156,7 +156,7 @@ let g:lightline_buffer_minfextlen = 3
 let g:lightline_buffer_reservelen = 20
 
 set laststatus=2					" Always show last status
-set statusline=%f\ =\ Filetype:\ %y
+"set statusline=%f\ =\ Filetype:\ %y
 set hidden							" Allows buffer switching without saving
 set showtabline=2					" Always show tabs
 
@@ -206,7 +206,7 @@ set mouse=a
 " Sets list characters (\t, \n, etc.)
 set list
 if has('multi_byte') && &encoding ==# 'utf-8'
-	let &listchars = 'tab:▸·,trail:·,eol:¬,extends:❯,precedes:❮,nbsp:±'
+	let &listchars = 'tab:▸·,trail:·,eol:¬,extends:,precedes:,nbsp:±'
 else
 	let &listchars = 'tab:> ,trail:.,eol:|,extends:>,precedes:<,nbsp%'
 endif
@@ -230,7 +230,7 @@ autocmd BufEnter,BufNewFile,BufRead *.tex syntax spell toplevel
 " Searching things
 set incsearch
 set ignorecase smartcase
-" Hit Esc to unhighlight searched term
+" Hit F3 to unhighlight searched term
 nnoremap <silent><F3> :noh<return>
 
 " Autocomplete pairing of braces and parentheses
