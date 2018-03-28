@@ -49,12 +49,18 @@ export KEYTIMEOUT=1
 export TERM=xterm-256color
 
 # Load the source file for git prompt thing
-source ~/zsh-git-prompt/zshrc.sh
+#source ~/zsh-git-prompt/zshrc.sh
 
 # Prompt customization
 autoload -Uz promptinit
 autoload -U colors && colors
 autoload -Uz vcs_info
+precmd() { vcs_info }
+
+# Format the vcs_info_msg_0_ variable
+#zstyle ':vcs_info:*' check-for-changes true
+#zstyle ':vcs_info:git:*' actionformats "%s  %r/%S %b %m%u%c "
+
 promptinit
 # OLD PROMPT!
 #PROMPT='%B%F{1}%U%n%u%F{5}∂%F{3}%m %b%1~/ %B%F{2}▶%f%b '
@@ -116,7 +122,7 @@ local user_host="${PR_USER} ${PR_HOST}"
 local current_dir="%{[01;48;5;057;38;5;000m%} %~/ %b%{[00;38;5;057m%}%f%k"
 
 # TWO LINE PROMPT
-PROMPT="${display_time}%{[01;38;5;057m%}%f%b${current_dir}$(git_super_status)
+PROMPT="${display_time}%{[01;38;5;057m%}%f%b${current_dir}
 $PR_PROMPT"
 #╰─
 # CHROME OS and crouton do not like the right prompt!
