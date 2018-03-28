@@ -48,6 +48,9 @@ export KEYTIMEOUT=1
 # Set the TERM so that italics and color are available, even in TMUX
 export TERM=xterm-256color
 
+# Load the source file for git prompt thing
+source ~/zsh-git-prompt/zshrc.sh
+
 # Prompt customization
 autoload -Uz promptinit
 autoload -U colors && colors
@@ -113,7 +116,7 @@ local user_host="${PR_USER} ${PR_HOST}"
 local current_dir="%{[01;48;5;057;38;5;000m%} %~/ %b%{[00;38;5;057m%}%f%k"
 
 # TWO LINE PROMPT
-PROMPT="${display_time}%{[01;38;5;057m%}%f%b${current_dir}
+PROMPT="${display_time}%{[01;38;5;057m%}%f%b${current_dir}$(git_super_status)
 $PR_PROMPT"
 #╰─
 # CHROME OS and crouton do not like the right prompt!
@@ -136,6 +139,7 @@ alias sl='sl -e'
 alias quit='exit'
 alias tmux='tmux -2'
 alias less='less -R'
+alias mv='mv -i'
 
 # ANACONDA
 export PATH="/home/kabv/anaconda2/bin:$PATH"
