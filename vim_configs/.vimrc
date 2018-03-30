@@ -42,6 +42,7 @@ call vundle#end()            " required
 
 filetype plugin indent on    " required
 
+set showcmd
 
 " COLORSCHEME SPECIFIC OPTIONS
 set bg=dark
