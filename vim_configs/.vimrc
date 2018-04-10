@@ -27,14 +27,14 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'itchyny/lightline.vim'
 Plugin 'taohex/lightline-buffer'
+Plugin 'mgee/lightline-bufferline'
 
 Plugin 'ryanoasis/vim-devicons'	" REQUIRES Nerd Font
 
 Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'matze/vim-tex-fold'
 
-"Plugin 'xuhdev/vim-latex-live-preview'
-" Enter :LLPStartPreview <source>
+"Plugin 'lifepillar/vim-solarized8'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -47,6 +47,7 @@ set showcmd
 " COLORSCHEME SPECIFIC OPTIONS
 set bg=dark
 colorscheme swagdino
+"let g:solarized_use16 = 1
 
 " Specific colors for paretheses and math operators; BREAKS LaTeX!
 "autocmd BufRead,BufNewFile * syn match parens /[(){}\[\]]/ 
@@ -62,7 +63,7 @@ let g:lightline = {
 	\ 'colorscheme': 'landscape',
 	\ 'tabline': {
 	\	'left': [ [ 'bufferinfo' ], [ 'buff_separator' ],
-	\			[ 'bufferbefore', 'buffercurrent', 'bufferafter' ], ],
+	\			[ 'buffers' ], ],
 	\	'right': [ [ 'close' ], ],
 	\ },
 	\ 'tabline_separator': { 'left': '', 'right': '' },
@@ -71,7 +72,7 @@ let g:lightline = {
 	\	'left': [ [ 'mode', 'paste', 'spell' ], [ 'readonly', 'modified',
 	\			'filename' ], [ 'char_hex_value' ] ],
 	\	'right': [ [ 'lineinfo' ], [ 'percent' ],
-	\			[ 'fileformat', 'fileencoding', 'filetype'] ],
+	\			[ 'fileencoding', 'filetype'] ],
 	\ },
 	\
 	\ 'inactive': {
@@ -82,15 +83,12 @@ let g:lightline = {
 	\ },
 	\
 	\ 'component_expand': {
-	\		'buffercurrent': 'lightline#buffer#buffercurrent',
-	\		'bufferbefore': 'lightline#buffer#bufferbefore',
-	\		'bufferafter': 'lightline#buffer#bufferafter',
+	\		'buffers': 'lightline#bufferline#buffers'
 	\ },
 	\ 'component_type': {
-	\		'buffercurrent': 'tabsel',
-	\		'bufferbefore': 'raw',
-	\		'bufferafter': 'raw',
+	\		'buffers': 'tabsel',
 	\ },
+	\
 	\ 'component': {
 	\		'char_hex_value': '0x%B',
 	\		'filename': '%f',
@@ -121,40 +119,69 @@ function! LightlineModified()
 	return &modifiable && &modified ? ' ' : ' '	" U+E240, U+F00D, F00C
 endfunction
 
+let g:lightline#bufferline#filename_modifier = MyFiletype()	"NOT WORKING!
+let g:lightline#bufferline#modified = ''
+let g:lightline#bufferline#show_number = 2
+let g:lightline#bufferline#read_only = ''
+
+let g:lightline#bufferline#number_map = {
+\ 0: '⁰', 1: '¹', 2: '²', 3: '³', 4: '⁴',
+\ 5: '⁵', 6: '⁶', 7: '⁷', 8: '⁸', 9: '⁹'}
+
 " REMAP ARROW KEYS! to switch between buffers
 nnoremap <Left> :bprev<return>
 nnoremap <Right> :bnext<return>
  
 let g:lightline.separator = { 'left': '', 'right': '' }	" U+E0B0 - E0C7
 let g:lightline.subseparator = { 'left': '', 'right': '' }
-let g:lightline_buffer_readonly_icon = ''	" U+F023, for the buffer line
-let g:lightline_buffer_modified_icon = ' '	" U+F069
-let g:lightline_buffer_git_icon = ''		" U+E0A0
-let g:lightline_buffer_ellipsis_icon = '…'	" U+2026
-let g:lightline_buffer_expand_left_icon = '◀ '
-let g:lightline_buffer_expand_right_icon = ' ▶'
-let g:lightline_buffer_active_buffer_left_icon = ''
-let g:lightline_buffer_active_buffer_right_icon = ''
-let g:lightline_buffer_separator_icon = ''
 
-" lightline-buffer function settings
-let g:lightline_buffer_show_bufnr = 1
-let g:lightline_buffer_rotate = 0
-" :help filename-modifiers
-let g:lightline_buffer_fname_mod = ':t'
-" hide buffer list
-let g:lightline_buffer_excludes = ['vimfiler']
+" ----------------- DEPRICATED section of old lightline-buffer ---------------
+"	\ 'tabline': {
+"	\	'left': [ [ 'bufferinfo' ], [ 'buff_separator' ],
+"	\			[ 'bufferbefore', 'buffercurrent', 'bufferafter' ], ],
+"	\	'right': [ [ 'close' ], ],
+"	\ },
+"	\ 'tabline_separator': { 'left': '', 'right': '' },
+"
+"	\ 'component_expand': {
+"	\		'buffercurrent': 'lightline#buffer#buffercurrent',
+"	\		'bufferbefore': 'lightline#buffer#bufferbefore',
+"	\		'bufferafter': 'lightline#buffer#bufferafter',
+"	\ },
+"	\ 'component_type': {
+"	\		'buffercurrent': 'tabsel',
+"	\		'bufferbefore': 'raw',
+"	\		'bufferafter': 'raw',
+"	\ },
 
-" max file name length
-let g:lightline_buffer_maxflen = 30
-" max file extension length
-let g:lightline_buffer_maxfextlen = 3
-" min file name length
-let g:lightline_buffer_minflen = 16
-" min file extension length
-let g:lightline_buffer_minfextlen = 3
-" reserve length for other component (e.g. info, close)
-let g:lightline_buffer_reservelen = 20
+"let g:lightline_buffer_readonly_icon = ''	" U+F023, for the buffer line
+"let g:lightline_buffer_modified_icon = ' '	" U+F069
+"let g:lightline_buffer_git_icon = ''		" U+E0A0
+"let g:lightline_buffer_ellipsis_icon = '…'	" U+2026
+"let g:lightline_buffer_expand_left_icon = '◀ '
+"let g:lightline_buffer_expand_right_icon = ' ▶'
+"let g:lightline_buffer_active_buffer_left_icon = ''
+"let g:lightline_buffer_active_buffer_right_icon = ''
+"let g:lightline_buffer_separator_icon = ''
+"
+"" lightline-buffer function settings
+"let g:lightline_buffer_show_bufnr = 1
+"let g:lightline_buffer_rotate = 0
+"" :help filename-modifiers
+"let g:lightline_buffer_fname_mod = ':t'
+"" hide buffer list
+"let g:lightline_buffer_excludes = ['vimfiler']
+"
+"" max file name length
+"let g:lightline_buffer_maxflen = 30
+"" max file extension length
+"let g:lightline_buffer_maxfextlen = 3
+"" min file name length
+"let g:lightline_buffer_minflen = 16
+"" min file extension length
+"let g:lightline_buffer_minfextlen = 3
+"" reserve length for other component (e.g. info, close)
+"let g:lightline_buffer_reservelen = 20
 
 set laststatus=2					" Always show last status
 "set statusline=%f\ =\ Filetype:\ %y
@@ -219,6 +246,12 @@ endif
 " Syntax for odd file types
 autocmd BufNewFile,BufRead *.source set filetype=fortran
 autocmd BufNewFile,BufRead *.sage,*.spyx,*.pyx set filetype=python
+
+" LaTeX Fold customization
+let g:tex_fold_sec_char='§'
+let g:tex_fold_env_char='ﲖ'
+let g:tex_fold_allow_marker=1
+let g:tex_fold_override_foldtext=1
 
 " Turn off line cursor and turn on spell check, linebreak for some files
 autocmd BufEnter,BufNewFile,BufRead *.md setlocal spell spelllang=en
