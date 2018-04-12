@@ -66,7 +66,8 @@ let g:lightline = {
 	\			[ 'buffers' ], ],
 	\	'right': [ [ 'close' ], ],
 	\ },
-	\ 'tabline_separator': { 'left': '', 'right': '' },
+	\ 'tabline_separator': { 'left': '', 'right': '' },
+	\ 'tabline_subseparator': { 'left': '', 'right': ''},
 	\
 	\ 'active': {
 	\	'left': [ [ 'mode', 'paste', 'spell' ], [ 'readonly', 'modified',
@@ -92,7 +93,7 @@ let g:lightline = {
 	\ 'component': {
 	\		'char_hex_value': '0x%B',
 	\		'filename': '%f',
-	\		'lineinfo': '%3l:%-2v',
+	\		'lineinfo': '%3l|%-2v',
 	\		'buff_separator': '',
 	\		'big_separator': '      ',
 	\ },
@@ -135,7 +136,8 @@ nnoremap <Right> :bnext<return>
 let g:lightline.separator = { 'left': '', 'right': '' }	" U+E0B0 - E0C7
 let g:lightline.subseparator = { 'left': '', 'right': '' }
 
-" ----------------- DEPRICATED section of old lightline-buffer ---------------
+
+" --------------- DEPRICATED section of old lightline-buffer -----------------
 "	\ 'tabline': {
 "	\	'left': [ [ 'bufferinfo' ], [ 'buff_separator' ],
 "	\			[ 'bufferbefore', 'buffercurrent', 'bufferafter' ], ],
