@@ -148,7 +148,7 @@ alias less='less -R'
 alias mv='mv -i'
 
 # ANACONDA
-export PATH="/home/kabv/anaconda2/bin:$PATH"
+export PATH="/home/kabv/miniconda2/bin:$PATH"
 
 # Graduation Project directory
 alias grad_proj='cd ~/Documents/Masters/Graduation_Project/ && git status'

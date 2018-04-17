@@ -120,7 +120,7 @@ function! LightlineModified()
 	return &modifiable && &modified ? ' ' : ' '	" U+E240, U+F00D, F00C
 endfunction
 
-let g:lightline#bufferline#filename_modifier = MyFiletype()	"NOT WORKING!
+let g:lightline#bufferline#enable_devicons = 1
 let g:lightline#bufferline#modified = ''
 let g:lightline#bufferline#show_number = 2
 let g:lightline#bufferline#read_only = ''
