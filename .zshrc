@@ -110,7 +110,7 @@ fi
 
 # Check if we are on SSH or not
 if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then
-	PR_HOST='%{[00;38;5;029;48;5;022m%}%{[00;38;5;019;48;5;029m%} %{[00;38;5;000;48;5;019m%} %M%k%f' # SSH
+	PR_HOST='%{[00;38;5;036;48;5;022m%}%{[00;38;5;032;48;5;036m%} %{[00;38;5;000;48;5;032m%} %M%k%f' # SSH
 else
 	PR_HOST='%{[00;38;5;107;48;5;022m%}%{[00;38;5;148;48;5;107m%} %{[00;38;5;000;48;5;148m%} %M%k%f' # no SSH
 fi
@@ -138,14 +138,14 @@ test -r ~/.dircolors && eval "$(dircolors $HOME/.dircolors)"
 unset SSH_ASKPASS
 
 ## Aliases
-alias ls='ls --color=auto'
-alias ll='ls -lh'
+alias ls='ls --color=auto'		# Always use color
+alias ll='ls -lh'				# Human-readable for detailed list
 alias la='ls -A'
 alias sl='sl -e'
 alias quit='exit'
 alias tmux='tmux -2'
 alias less='less -R'
-alias mv='mv -i'
+alias mv='mv -i'				# Confirm move if overwriting
 
 # ANACONDA
 export PATH="/home/kabv/miniconda2/bin:$PATH"
