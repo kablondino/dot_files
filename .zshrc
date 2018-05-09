@@ -152,6 +152,7 @@ export PATH="/home/kabv/miniconda2/bin:$PATH"
 
 # Graduation Project directory
 alias grad_proj='cd ~/Documents/Masters/Graduation_Project/ && git status'
+alias thesis='cd ~/Documents/Masters/Graduation_Project/Thesis/ && ls'
 
 # Activate FiPy
 alias fipy='cd $HOME/Documents/Masters/Graduation_Project/FiPy_Model && source activate fipy'

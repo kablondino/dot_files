@@ -34,6 +34,8 @@ Plugin 'ryanoasis/vim-devicons'	" REQUIRES Nerd Font
 Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'matze/vim-tex-fold'
 
+Plugin 'tpope/vim-fugitive'
+
 "Plugin 'lifepillar/vim-solarized8'
 
 " All of your Plugins must be added before the following line
