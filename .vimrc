@@ -256,14 +256,17 @@ let g:tex_fold_sec_char='§'
 let g:tex_fold_env_char='ﲖ'
 let g:tex_fold_allow_marker=1
 let g:tex_fold_override_foldtext=1
+" SageTeX Folding
+let g:tex_fold_additional_envs = ['sageblock', 'sagesilent']
 
 " Turn off line cursor and turn on spell check, linebreak for some files
 autocmd BufEnter,BufNewFile,BufRead *.md setlocal spell spelllang=en
-			\	linebreak nocursorline nocursorcolumn
+			\ linebreak nocursorline nocursorcolumn
 autocmd BufEnter,BufNewFile,BufRead *.tex setlocal spell spelllang=en
-			\	linebreak nocursorline nocursorcolumn
+			\ linebreak nocursorline nocursorcolumn
 " Turn spell check ON for ALL non-comments in tex (latex) files
 autocmd BufEnter,BufNewFile,BufRead *.tex syntax spell toplevel
+let g:tex_comment_nospell=1
 
 " Searching things
 set incsearch
