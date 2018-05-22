@@ -62,7 +62,7 @@ colorscheme swagdino
 " ---------------------------------------------------------------------------
 set noshowmode	" Removes duplicate info on the command line
 let g:lightline = {
-	\ 'colorscheme': 'landscape',
+	\ 'colorscheme': 'deus',
 	\ 'tabline': {
 	\	'left': [ [ 'bufferinfo' ], [ 'buff_separator' ],
 	\			[ 'buffers' ], ],
