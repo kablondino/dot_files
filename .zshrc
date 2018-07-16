@@ -181,6 +181,14 @@ function hr {
 	print ${(l:COLUMNS::=:)}
 }
 
+# display a list of supported colors
+function lscolors {
+	((cols = $COLUMNS - 4))
+	s=$(printf %${cols}s)
+	for i in {000..$(tput colors)}; do
+		echo -e $i $(tput setaf $i; tput setab $i)${s// /=}$(tput op);
+	done
+}
 
 # Explain command, requires curl and internet
 explain () {
