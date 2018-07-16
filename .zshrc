@@ -119,7 +119,7 @@ local return_code="%(?..%{[00;38;5;088m%}%{[00;38;5;000;48;5;088m%} %? %
 
 local display_time="%{[00;38;5;000;48;5;088m%}%*%{[00;38;5;088;48;5;091m%} "
 local user_host="${PR_USER}${PR_HOST}"
-local current_dir="%{[01;48;5;055;38;5;000m%} %~/%b%{[00;38;5;055m%}%f%k"
+local current_dir="%{[01;48;5;055;38;5;000m%} %~%b%{[00;38;5;055m%}%f%k"
 
 # TWO LINE PROMPT
 PROMPT="${display_time}%{[01;38;5;091;48;5;055m%}${current_dir}
@@ -164,7 +164,7 @@ function data_clean() {
 }
 
 # Insert a # on the first line of each TSV file in the current directory
-function comment_TSV() { sed -i '1s/^/\#/' *.tsv }
+#function comment_TSV() { sed -i '1s/^/\#/' *.tsv }
 
 # urlencode some text
 function urlencode {
@@ -180,6 +180,26 @@ function google {
 #function hr {
 #	print ${(1:COLUMNS::=:)}
 #}
+
+
+# Explain command, requires curl and internet
+explain () {
+	if [ "$#" -eq 0 ]; then
+		while read  -p "Command: " cmd; do
+			curl -Gs "https://www.mankier.com/api/explain/?cols="$(tput cols) --data-urlencode "q=$cmd"
+		done
+		echo "Bye!"
+
+	elif [ "$#" -eq 1 ]; then
+		curl -Gs "https://www.mankier.com/api/explain/?cols="$(tput cols) --data-urlencode "q=$1"
+
+	else
+		echo "Usage"
+		echo "explain                  interactive mode."
+		echo "explain 'cmd -o | ...'   one quoted command to explain it."
+	fi
+}
+
 
 #neofetch <- SLOW on OpenSUSE
 fortune
