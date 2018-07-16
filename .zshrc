@@ -177,9 +177,9 @@ function google {
 }
 
 # print a separator banner as wide as the terminal
-#function hr {
-#	print ${(1:COLUMNS::=:)}
-#}
+function hr {
+	print ${(l:COLUMNS::=:)}
+}
 
 
 # Explain command, requires curl and internet
