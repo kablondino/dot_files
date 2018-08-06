@@ -26,7 +26,6 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'itchyny/lightline.vim'
-Plugin 'taohex/lightline-buffer'
 Plugin 'mgee/lightline-bufferline'
 
 Plugin 'ryanoasis/vim-devicons'	" REQUIRES Nerd Font
@@ -36,7 +35,7 @@ Plugin 'matze/vim-tex-fold'
 
 Plugin 'tpope/vim-fugitive'
 
-"Plugin 'lifepillar/vim-solarized8'
+Plugin 'severin-lemaignan/vim-minimap'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -273,6 +272,9 @@ set incsearch
 set ignorecase smartcase
 " Hit F3 to unhighlight searched term
 nnoremap <silent><F3> :noh<return>
+
+" Show and hide 'Minimap'
+let g:minimap_toggle='<F4>'
 
 " Autocomplete pairing of braces and parentheses
 "inoremap {      {}<Left>
