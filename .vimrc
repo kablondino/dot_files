@@ -138,54 +138,6 @@ let g:lightline.separator = { 'left': '', 'right': '' }	" U+E0B0 - E0C7
 let g:lightline.subseparator = { 'left': '', 'right': '' }
 
 
-" --------------- DEPRICATED section of old lightline-buffer -----------------
-"	\ 'tabline': {
-"	\	'left': [ [ 'bufferinfo' ], [ 'buff_separator' ],
-"	\			[ 'bufferbefore', 'buffercurrent', 'bufferafter' ], ],
-"	\	'right': [ [ 'close' ], ],
-"	\ },
-"	\ 'tabline_separator': { 'left': '', 'right': '' },
-"
-"	\ 'component_expand': {
-"	\		'buffercurrent': 'lightline#buffer#buffercurrent',
-"	\		'bufferbefore': 'lightline#buffer#bufferbefore',
-"	\		'bufferafter': 'lightline#buffer#bufferafter',
-"	\ },
-"	\ 'component_type': {
-"	\		'buffercurrent': 'tabsel',
-"	\		'bufferbefore': 'raw',
-"	\		'bufferafter': 'raw',
-"	\ },
-
-"let g:lightline_buffer_readonly_icon = ''	" U+F023, for the buffer line
-"let g:lightline_buffer_modified_icon = ' '	" U+F069
-"let g:lightline_buffer_git_icon = ''		" U+E0A0
-"let g:lightline_buffer_ellipsis_icon = '…'	" U+2026
-"let g:lightline_buffer_expand_left_icon = '◀ '
-"let g:lightline_buffer_expand_right_icon = ' ▶'
-"let g:lightline_buffer_active_buffer_left_icon = ''
-"let g:lightline_buffer_active_buffer_right_icon = ''
-"let g:lightline_buffer_separator_icon = ''
-"
-"" lightline-buffer function settings
-"let g:lightline_buffer_show_bufnr = 1
-"let g:lightline_buffer_rotate = 0
-"" :help filename-modifiers
-"let g:lightline_buffer_fname_mod = ':t'
-"" hide buffer list
-"let g:lightline_buffer_excludes = ['vimfiler']
-"
-"" max file name length
-"let g:lightline_buffer_maxflen = 30
-"" max file extension length
-"let g:lightline_buffer_maxfextlen = 3
-"" min file name length
-"let g:lightline_buffer_minflen = 16
-"" min file extension length
-"let g:lightline_buffer_minfextlen = 3
-"" reserve length for other component (e.g. info, close)
-"let g:lightline_buffer_reservelen = 20
-
 set laststatus=2					" Always show last status
 "set statusline=%f\ =\ Filetype:\ %y
 set hidden							" Allows buffer switching without saving
@@ -228,8 +180,9 @@ let g:python_recommended_style = 0
 " Tab length
 set tabstop=4 softtabstop=0 noexpandtab shiftwidth=4
 
-" Set the color column
-"set colorcolumn=80
+" Backspace by default does NOT delete already-written text.
+" backspace=2 changes this.
+"set backspace=2
 
 set showmatch
 set mouse=a
