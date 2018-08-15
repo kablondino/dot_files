@@ -62,11 +62,6 @@ precmd() { vcs_info }
 #zstyle ':vcs_info:git:*' actionformats "%s  %r/%S %b %m%u%c "
 
 promptinit
-# OLD PROMPT!
-#PROMPT='%B%F{1}%U%n%u%F{5}∂%F{3}%m %b%1~/ %B%F{2}▶%f%b '
-#RPROMPT='%B%F{2}%*'
-# Extra symbols
-#∈ ∂ ℤ∫ ℍ ∇
 
 # ------------ Set up some variables for prompt --------------
 
@@ -82,7 +77,13 @@ setopt PROMPT_SUBST
 # Landscape colors
 vim_cmd_mode="%{[01;38;5;012;48;5;015m%} NORMAL %{[00;38;5;015m%}%k%f"
 vim_ins_mode="%{[01;38;5;022;48;5;015m%} INSERT %{[00;38;5;015m%}%k%f"
-vim_vis_mode="%{[01;38;5;057;48;5;015m%} INSERT %{[00;38;5;015m%}%k%f"
+vim_vis_mode="%{[01;38;5;057;48;5;015m%} VISUAL %{[00;38;5;015m%}%k%f"
+
+# Deus colors
+vim_cmd_mode="%{[01;38;5;000;48;5;114m%} NORMAL %{[00;38;5;114m%}%k%f"
+vim_ins_mode="%{[01;38;5;000;48;5;039m%} INSERT %{[00;38;5;039m%}%k%f"
+vim_vis_mode="%{[01;38;5;000;48;5;170m%} VISUAL %{[00;38;5;170m%}%k%f"
+
 
 vim_mode=$vim_ins_mode
 
@@ -115,14 +116,14 @@ else
 	PR_HOST='%{[00;38;5;107;48;5;022m%}%{[00;38;5;148;48;5;107m%} %{[00;38;5;000;48;5;148m%} %M%k%f' # no SSH
 fi
 
-local return_code="%(?..%{[00;38;5;088m%}%{[00;38;5;000;48;5;088m%} %? %{[00;38;5;088m%}%f%k)"	# U+F112
+local display_time="%{[00;38;5;000;48;5;204m%}%*%{[00;38;5;204;48;5;170m%} "
+local current_dir="%{[01;48;5;097;38;5;000m%} %~%b%{[00;38;5;097m%}%f%k"
 
-local display_time="%{[00;38;5;000;48;5;088m%}%*%{[00;38;5;088;48;5;091m%} "
+local return_code="%(?..%{[00;38;5;088m%}%{[00;38;5;000;48;5;088m%} %? %{[00;38;5;088m%}%f%k)"	# U+F112
 local user_host="${PR_USER}${PR_HOST}"
-local current_dir="%{[01;48;5;055;38;5;000m%} %~%b%{[00;38;5;055m%}%f%k"
 
 # TWO LINE PROMPT
-PROMPT="${display_time}%{[01;38;5;091;48;5;055m%}${current_dir}
+PROMPT="${display_time}%{[01;38;5;170;48;5;097m%}${current_dir}
 $PR_PROMPT"
 #╰─
 # CHROME OS and crouton do not like the right prompt!
@@ -156,6 +157,14 @@ alias thesis='cd ~/Documents/Masters/Graduation_Project/Thesis/ && ls'
 
 # Activate FiPy
 alias fipy='cd $HOME/Documents/Masters/Graduation_Project/FiPy_Model && source activate fipy'
+
+
+# Open urxvt-256color on the display 0, for use in WSL
+alias x11_urxvt='DISPLAY=:0 urxvt-256color'
+
+# Make the permissions on new files default to 755, for use in WSL
+umask 022
+
 
 ## FUNCTIONS!
 # Delete each line in a file that starts with a NON-number(digit) character

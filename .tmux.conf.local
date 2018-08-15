@@ -165,8 +165,8 @@ tmux_conf_theme_status_right='#{prefix}#{pairing}#{?battery_status, #{battery_st
 # status left style
 tmux_conf_theme_status_left_fg='#000000,#e4e4e4,#e4e4e4'
 #tmux_conf_theme_status_left_fg='#005f00,#e4e4e4,#e4e4e4'
-tmux_conf_theme_status_left_bg='#d75fd7,#e4e4e4,#00afff'
-#tmux_conf_theme_status_jeft_bg='#afd700,#ff00af,#0087af'
+tmux_conf_theme_status_left_bg='#ff5f87,#e4e4e4,#00afff' # 204, white,...
+#tmux_conf_theme_status_left_bg='#afd700,#ff00af,#0087af'
 tmux_conf_theme_status_left_attr='bold,none,none'
 
 # status right style
