@@ -91,8 +91,10 @@ tmux_conf_theme_status_attr='none'
 # window status style
 #   - built-in variables are:
 #     - #{circled_window_index}
-tmux_conf_theme_window_status_fg='#005f00'         # dark green, Xterm 22
-tmux_conf_theme_window_status_bg='#afd700'         # dark yellow, Xterm 148
+#tmux_conf_theme_window_status_fg='#005f00'         # dark green, Xterm 22
+#tmux_conf_theme_window_status_bg='#afd700'         # dark yellow, Xterm 148
+tmux_conf_theme_window_status_fg='#000000'
+tmux_conf_theme_window_status_bg='#87d787'          # muted green, Xterm 114
 tmux_conf_theme_window_status_attr='none'
 tmux_conf_theme_window_status_format=' #I #W '
 #tmux_conf_theme_window_status_format='#{circled_window_index} #W'
@@ -101,8 +103,10 @@ tmux_conf_theme_window_status_format=' #I #W '
 # window current status style
 #   - built-in variables are:
 #     - #{circled_window_index}
-tmux_conf_theme_window_status_current_fg='#0037af'      # dark cyan, Xterm 31
-tmux_conf_theme_window_status_current_bg='#ffffff'      # white, Xterm 15
+#tmux_conf_theme_window_status_current_fg='#0037af'   # dark cyan, Xterm 31
+#tmux_conf_theme_window_status_current_bg='#ffffff'   # white, Xterm 15
+tmux_conf_theme_window_status_fg='#000000'
+tmux_conf_theme_window_status_bg='#87d787'            # muted green, Xterm 114
 tmux_conf_theme_window_status_current_attr='bold'
 tmux_conf_theme_window_status_current_format='#I #W'
 #tmux_conf_theme_window_status_current_format='#{circled_window_index} #W'
@@ -114,13 +118,13 @@ tmux_conf_theme_window_status_activity_bg='default'
 tmux_conf_theme_window_status_activity_attr='underscore'
 
 # window bell status style
-tmux_conf_theme_window_status_bell_fg='#ffff00'         # yellow
+tmux_conf_theme_window_status_bell_fg='#ffff00'       # yellow
 tmux_conf_theme_window_status_bell_bg='default'
 tmux_conf_theme_window_status_bell_attr='blink,bold'
 
 # window last status style
-tmux_conf_theme_window_status_last_fg='#005f00'         # dark green, Xterm 22
-tmux_conf_theme_window_status_last_bg='#afd700'         # dark yellow, Xterm 148
+tmux_conf_theme_window_status_last_fg='#000000'
+tmux_conf_theme_window_status_last_bg='#87d787'       # muted green, Xterm 114
 tmux_conf_theme_window_status_last_attr='bold'
 
 # status left/right sections separators
@@ -159,15 +163,15 @@ tmux_conf_theme_status_left=' #{?uptime_d, #{uptime_d}d,} #{?uptime_h,#{uptim
 tmux_conf_theme_status_right='#{prefix}#{pairing}#{?battery_status, #{battery_status},} #{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage} ,}, %d %b %Y , %R | #{username}#{root} | #{hostname}'
 
 # status left style
-tmux_conf_theme_status_left_fg='#870000,#e4e4e4,#e4e4e4'
+tmux_conf_theme_status_left_fg='#000000,#e4e4e4,#e4e4e4'
 #tmux_conf_theme_status_left_fg='#005f00,#e4e4e4,#e4e4e4'
-tmux_conf_theme_status_left_bg='#ff8700,#e4e4e4,#00afff'
-#tmux_conf_theme_status_left_bg='#afd700,#ff00af,#0087af'
+tmux_conf_theme_status_left_bg='#d75fd7,#e4e4e4,#00afff'
+#tmux_conf_theme_status_jeft_bg='#afd700,#ff00af,#0087af'
 tmux_conf_theme_status_left_attr='bold,none,none'
 
 # status right style
-tmux_conf_theme_status_right_fg='#8a8a8a,#e4e4e4,#000000' # light gray, white, black
-tmux_conf_theme_status_right_bg='#080808,#d70000,#e4e4e4' # dark gray, red, white
+tmux_conf_theme_status_right_fg='#8a8a8a,#000000,#000000' # light gray, black, black
+tmux_conf_theme_status_right_bg='#080808,#ff5f87,#e4e4e4' # dark gray, 204, white
 tmux_conf_theme_status_right_attr='none,none,bold'
 
 # pairing indicator
@@ -203,7 +207,7 @@ tmux_conf_battery_bar_length='auto'
 #   - gradient (default)
 #   - heat
 #   - 'colour_full_fg,colour_empty_fg,colour_bg'
-tmux_conf_battery_bar_palette='heat'
+tmux_conf_battery_bar_palette='gradient'
 #tmux_conf_battery_bar_palette='#d70000,#e4e4e4,#000000'   # red, white, black
 
 # battery hbar palette, possible values are:
