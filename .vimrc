@@ -35,7 +35,7 @@ Plugin 'matze/vim-tex-fold'
 
 Plugin 'tpope/vim-fugitive'
 
-Plugin 'severin-lemaignan/vim-minimap'
+"Plugin 'severin-lemaignan/vim-minimap'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -227,7 +227,7 @@ set ignorecase smartcase
 nnoremap <silent><F3> :noh<return>
 
 " Show and hide 'Minimap'
-let g:minimap_toggle='<F4>'
+"let g:minimap_toggle='<F4>'
 
 " Autocomplete pairing of braces and parentheses
 "inoremap {      {}<Left>
