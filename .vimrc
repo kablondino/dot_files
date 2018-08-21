@@ -30,8 +30,10 @@ Plugin 'mgee/lightline-bufferline'
 
 Plugin 'ryanoasis/vim-devicons'	" REQUIRES Nerd Font
 
+Plugin 'Konfekt/FastFold'		" Unchecked with other folding plugins!
 Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'matze/vim-tex-fold'
+Plugin 'tmhedberg/SimpylFold'
 
 Plugin 'tpope/vim-fugitive'
 
@@ -48,7 +50,6 @@ set showcmd
 " COLORSCHEME SPECIFIC OPTIONS
 set bg=dark
 colorscheme swagdino
-"let g:solarized_use16 = 1
 
 " Specific colors for paretheses and math operators; BREAKS LaTeX!
 "autocmd BufRead,BufNewFile * syn match parens /[(){}\[\]]/ 
@@ -176,9 +177,9 @@ set t_ZH=[3m
 set t_ZR=[23m
 
 " Turn OFF Vim's default python behavior
-let g:python_recommended_style = 0
+let g:python_recommended_style = 1
 " Tab length
-set tabstop=4 softtabstop=0 noexpandtab shiftwidth=4
+set tabstop=4 softtabstop=0 noexpandtab shiftwidth=4 smarttab
 
 " Backspace by default does NOT delete already-written text.
 " backspace=2 changes this.
@@ -212,7 +213,7 @@ let g:tex_fold_override_foldtext=1
 let g:tex_fold_additional_envs = ['sageblock', 'sagesilent']
 
 " Turn off line cursor and turn on spell check, linebreak for some files
-autocmd BufEnter,BufNewFile,BufRead *.md setlocal spell spelllang=en
+autocmd BufEnter,BufNewFile,BufRead *.md,*.MD setlocal spell spelllang=en
 			\ linebreak nocursorline nocursorcolumn
 autocmd BufEnter,BufNewFile,BufRead *.tex setlocal spell spelllang=en
 			\ linebreak nocursorline nocursorcolumn
