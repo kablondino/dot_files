@@ -33,7 +33,7 @@ Plugin 'ryanoasis/vim-devicons'	" REQUIRES Nerd Font
 Plugin 'Konfekt/FastFold'		" Unchecked with other folding plugins!
 Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'matze/vim-tex-fold'
-Plugin 'tmhedberg/SimpylFold'
+"Plugin 'tmhedberg/SimpylFold'
 
 Plugin 'tpope/vim-fugitive'
 
@@ -139,14 +139,32 @@ let g:lightline.separator = { 'left': '', 'right': '' }	" U+E0B0 - E0C7
 let g:lightline.subseparator = { 'left': '', 'right': '' }
 
 
-set laststatus=2					" Always show last status
-"set statusline=%f\ =\ Filetype:\ %y
-set hidden							" Allows buffer switching without saving
-set showtabline=2					" Always show tabs
+set hidden						" Allows buffer switching without saving
+set showtabline=2 laststatus=2	" Always show tabs and last status
 
+" Tab control
+set tabstop=4 shiftwidth=4
+" Backspace by default does NOT delete already-written text.
+" backspace=2 changes this to a more default manner
+set backspace=1
 
-set encoding=utf-8
-set fileencoding=utf-8
+" Set the cursorline and cursorcolumn
+set cursorline colorcolumn=80
+
+set showmatch					" Show matching parenthesis, etc.
+set mouse=a						" Mouse is usable
+
+" Better way of showing syntax
+if !exists("g:syntax_on")
+	syntax enable
+endif
+
+set t_ZH=[3m t_ZR=[23m
+
+" Searching things
+set incsearch ignorecase smartcase
+" Hit F3 to unhighlight searched term
+nnoremap <silent><F3> :noh<return>
 
 " Line number configurations
 set number
@@ -164,29 +182,7 @@ function! g:NumberToggle()
 endfunction
 nnoremap <silent><C-L> :call g:NumberToggle()<return>
 
-" Set the cursorline and cursorcolumn
-set cursorline
-set colorcolumn=80
-
-" Better way of showing syntax
-if !exists("g:syntax_on")
-	syntax enable
-endif
-
-set t_ZH=[3m
-set t_ZR=[23m
-
-" Turn OFF Vim's default python behavior
-let g:python_recommended_style = 1
-" Tab length
-set tabstop=4 softtabstop=0 noexpandtab shiftwidth=4 smarttab
-
-" Backspace by default does NOT delete already-written text.
-" backspace=2 changes this.
-"set backspace=2
-
-set showmatch
-set mouse=a
+set encoding=utf-8 fileencoding=utf-8
 
 " Sets list characters (\t, \n, etc.)
 set list
@@ -201,34 +197,25 @@ endif
 " ¬ (The not symbol) U+00AC
 
 " Syntax for odd file types
-autocmd BufNewFile,BufRead *.source set filetype=fortran
 autocmd BufNewFile,BufRead *.sage,*.spyx,*.pyx set filetype=python
+
+" Toggle Vim's default python behavior
+let g:python_recommended_style = 1
 
 " LaTeX Fold customization
 let g:tex_fold_sec_char='§'
 let g:tex_fold_env_char='ﲖ'
 let g:tex_fold_allow_marker=1
 let g:tex_fold_override_foldtext=1
+
+let g:tex_comment_nospell=1
+
 " SageTeX Folding
 let g:tex_fold_additional_envs = ['sageblock', 'sagesilent']
 
-" Turn off line cursor and turn on spell check, linebreak for some files
+" Turn off line cursor and turn on spell check, linebreak for markdown
 autocmd BufEnter,BufNewFile,BufRead *.md,*.MD setlocal spell spelllang=en
 			\ linebreak nocursorline nocursorcolumn
-autocmd BufEnter,BufNewFile,BufRead *.tex setlocal spell spelllang=en
-			\ linebreak nocursorline nocursorcolumn
-" Turn spell check ON for ALL non-comments in tex (latex) files
-autocmd BufEnter,BufNewFile,BufRead *.tex syntax spell toplevel
-let g:tex_comment_nospell=1
-
-" Searching things
-set incsearch
-set ignorecase smartcase
-" Hit F3 to unhighlight searched term
-nnoremap <silent><F3> :noh<return>
-
-" Show and hide 'Minimap'
-"let g:minimap_toggle='<F4>'
 
 " Autocomplete pairing of braces and parentheses
 "inoremap {      {}<Left>
