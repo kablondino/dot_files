@@ -33,8 +33,9 @@ Plugin 'ryanoasis/vim-devicons'	" REQUIRES Nerd Font
 Plugin 'Konfekt/FastFold'		" Unchecked with other folding plugins!
 Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'matze/vim-tex-fold'
-"Plugin 'tmhedberg/SimpylFold'
+Plugin 'tmhedberg/SimpylFold'
 
+Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
 
 "Plugin 'severin-lemaignan/vim-minimap'
