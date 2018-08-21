@@ -14,3 +14,8 @@ syntax region pythonSnip matchgroup=Snip start='\\sage{' end='}' containedin=@Te
 syntax region pythonSnip matchgroup=Snip start='\\sage\[' end='}' containedin=@TeX contains=@Python
 hi link Snip SpecialComment
 
+" Turn off line cursor and turn on spell check
+autocmd BufEnter,BufNewFile,BufRead *.tex setlocal spell spelllang=en
+			\ linebreak nocursorline nocursorcolumn
+" Turn spell check ON for ALL non-comments in tex (latex) files
+autocmd BufEnter,BufNewFile,BufRead *.tex syntax spell toplevel
