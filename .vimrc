@@ -13,11 +13,11 @@
 "    ╚═══╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝                          
 
 
-set nocompatible              " be iMproved, required
-filetype off                  " required
+set nocompatible					" be iMproved, required
+filetype off						" required
 
 " VUNDLE SETUP START
-set rtp+=~/.vim/bundle/Vundle.vim " Default path
+set rtp+=~/.vim/bundle/Vundle.vim	" Default path
 call vundle#begin()
 " Alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
@@ -28,23 +28,23 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'mgee/lightline-bufferline'
 
-Plugin 'ryanoasis/vim-devicons'	" REQUIRES Nerd Font
+Plugin 'ryanoasis/vim-devicons'		" REQUIRES Nerd Font
 
-Plugin 'Konfekt/FastFold'		" Unchecked with other folding plugins!
+Plugin 'Konfekt/FastFold'			" Unchecked with other folding plugins!
 Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'matze/vim-tex-fold'
 Plugin 'tmhedberg/SimpylFold'
 
 Plugin 'scrooloose/nerdtree'
-Plugin 'tpope/vim-fugitive'
+"Plugin 'tpope/vim-fugitive'
 
 "Plugin 'severin-lemaignan/vim-minimap'
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
+call vundle#end()					" required
 " VUNDLE SETUP END
 
-filetype plugin indent on    " required
+filetype plugin indent on			" required
 
 set showcmd
 
@@ -76,12 +76,12 @@ let g:lightline = {
 	\	'left': [ [ 'mode', 'paste', 'spell' ], [ 'readonly', 'modified',
 	\			'filename' ], [ 'char_hex_value' ] ],
 	\	'right': [ [ 'lineinfo' ], [ 'percent' ],
-	\			[ 'fileencoding', 'filetype'] ],
+	\			[ 'fileencoding', 'filetype' ] ],
 	\ },
 	\
 	\ 'inactive': {
-	\	'left': [ [ 'big_separator' ], [ 'char_hex_value',
-	\			'readonly', 'filename', 'modified' ] ],
+	\	'left': [ [ 'big_separator' ], [ 'readonly', 'filename', 'modified',
+	\			'char_hex_value' ] ],
 	\	'right': [ [ 'lineinfo' ], [ 'percent' ],
 	\			[ 'fileformat', 'fileencoding', 'filetype'] ],
 	\ },
@@ -116,8 +116,8 @@ function! MyFileformat()
 	\		WebDevIconsGetFileFormatSymbol()) : ''
 endfunction
 
-function! LightlineReadonly()	" For the status line
-	return &readonly ? '' : ''	" ,	U+F023, F13E, E0A2
+function! LightlineReadonly()		" For the status line
+	return &readonly ? '' : ''	" , U+F023, F13E, E0A2
 endfunction
 function! LightlineModified()
 	return &modifiable && &modified ? ' ' : ' '	" U+E240, U+F00D, F00C
