@@ -1,43 +1,43 @@
-# My Personal Configs
-Configuration files for all the things.
+# dotfiles
 
-1. .bashrc
-2. .zshrc
-3. .tmux.conf and .tmux.conf.local with vim bindings
-4. .vimrc
-5. swagdino.vim color scheme
-6. .dircolors (requires 256 colors)
-7. i3.config
+This repository contains the configurations I use. Read over the `Makefile` and use it.
+
+1. `.bashrc` (very unused)
+2. `.zshrc`
+3. `.tmux.conf` and `.tmux.conf.local` from [Oh My Tmux!](https://github.com/gpakosz/.tmux "gpakosz GitHub Repository")
+4. `.vimrc`
+5. `swagdino.vim` color scheme and language-specific files
+6. `.dircolors` (requires 256 colors)
+7. `i3.config`, the i3gaps fork
 
 	+ $Mod + Ctrl + l:				Lock screen
-
 	+ $Mod + Ctrl + Alt:		 	Suspend
-
 	+ $Mod + Ctrl + Shift + Alt:	Hibernate
 
-8. .i3status.conf
+9. termite/.config
 
-## Required Software
 
-### VIM
+### VIM Plugins Used
 + VundleVim/Vundle.vim
 + itchyny/lightline.vim
-+ taohex/lightline-buffer
++ mgee/lightline-bufferline
++ chrisbra/Colorizer
 + ryanoasis/vim-devicons
++ Konfekt/FastFold
 + nelstrom/vim-markdown-folding
 + matze/vim-tex-fold
++ tmhedberg/SimpylFold
++ scrooloose/nerdtree
 
 ### ZSH / BASH
 + Fortune
-+ Neofetch
 
 ### i3
-+ URxvt
-+ Rofi
-+ Bumblebee-status
++ URxvt (Should change)
++ rofi
++ bumblebee-status
 + xscreensaver
-+ compton
-+ light
++ [light](https://github.com/haikarainen/light)
 + pactl
 + xfce4-power-manager
 + nm-applet
