@@ -27,6 +27,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'itchyny/lightline.vim'
 Plugin 'mgee/lightline-bufferline'
+Plugin 'chrisbra/Colorizer'
 
 Plugin 'ryanoasis/vim-devicons'		" REQUIRES Nerd Font
 
@@ -143,6 +144,8 @@ let g:lightline.subseparator = { 'left': '', 'right': '' }
 set hidden						" Allows buffer switching without saving
 set showtabline=2 laststatus=2	" Always show tabs and last status
 
+set lazyredraw ttyfast
+
 " Tab control
 set tabstop=4 shiftwidth=4
 " Backspace by default does NOT delete already-written text.
@@ -166,6 +169,12 @@ set t_ZH=[3m t_ZR=[23m
 set incsearch ignorecase smartcase
 " Hit F3 to unhighlight searched term
 nnoremap <silent><F3> :noh<return>
+
+" Colorizer Toggle
+nnoremap <silent><F4> :ColorToggle<return>
+
+" Minimap Toggle
+"let g:minimap_toggle='<F5>'
 
 " Line number configurations
 set number
@@ -199,6 +208,7 @@ endif
 
 " Syntax for odd file types
 autocmd BufNewFile,BufRead *.sage,*.spyx,*.pyx set filetype=python
+autocmd BufNewFile,BufRead *.feature setlocal expandtab
 
 " Toggle Vim's default python behavior
 let g:python_recommended_style = 1
