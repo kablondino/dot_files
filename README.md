@@ -1,6 +1,7 @@
 # dotfiles
 
-This repository contains the configurations I use. Read over the `Makefile` and use it.
+This repository contains the configurations I use.
+Read over the `Makefile` and use it.
 
 1. `.bashrc` (unused for a long time)
 2. `.zshrc`
@@ -14,20 +15,23 @@ This repository contains the configurations I use. Read over the `Makefile` and 
 	+ $Mod + Ctrl + Alt:		 	Suspend
 	+ $Mod + Ctrl + Shift + Alt:	Hibernate
 
-9. `termite/.config`; See the answer [here](https://askubuntu.com/questions/739163/how-to-install-termite) on how to install.
+8. `termite/.config`; See the answer [here](https://askubuntu.com/questions/739163/how-to-install-termite) on how to install.
+
+[Nerd Fonts](http://nerdfonts.com/) are used a lot for vim and the zsh prompt.
+Alter the font in the `.Xdefaults` to avoid using them.
 
 
 ### VIM Plugins Used
-+ VundleVim/Vundle.vim
-+ itchyny/lightline.vim
-+ mgee/lightline-bufferline
-+ chrisbra/Colorizer
-+ ryanoasis/vim-devicons
-+ Konfekt/FastFold
-+ nelstrom/vim-markdown-folding
-+ matze/vim-tex-fold
-+ tmhedberg/SimpylFold
-+ scrooloose/nerdtree
++ [VundleVim/Vundle.vim](https://github.com/VundleVim/Vundle.vim)
++ [itchyny/lightline.vim](https://github.com/itchyny/lightline.vim)
++ [mgee/lightline-bufferline](https://github.com/mgee/lightline-bufferline)
++ [chrisbra/Colorizer](https://github.com/chrisbra/Colorizer) (alternate is being investigated)
++ [ryanoasis/vim-devicons](https://github.com/ryanoasis/vim-devicons) (requires Nerd Fonts)
++ [Konfekt/FastFold](https://github.com/Konfekt/FastFold)
++ [nelstrom/vim-markdown-folding](https://github.com/nelstrom/vim-markdown-folding)
++ [matze/vim-tex-fold](https://github.com/matze/vim-tex-fold)
++ [tmhedberg/SimpylFold](https://github.com/tmhedberg/SimpylFold)
++ [scrooloose/nerdtree](https://github.com/scrooloose/nerdtree)
 
 ### ZSH / BASH
 + Fortune
