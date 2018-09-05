@@ -1,9 +1,9 @@
 [options]
 allow_bold = true
 audible_bell = false
-#clickable_url = true
+clickable_url = true
 dynamic_title = true
-font = mononoki Nerd Font Mono 11
+font = mononoki Nerd Font Mono 12
 fullscreen = true
 #icon_name = terminal
 #mouse_autohide = false
