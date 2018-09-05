@@ -9,7 +9,8 @@ config-vim:
 	vim +PluginInstall +qall
 
 link-tmux:
-	ln ./tmux/.* ~/
+	ln ./tmux/.tmux.conf ~/
+	ln ./tmux/.tmux.conf.local ~/
 
 link-dircolors:
 	ln ./.dircolors ~/.dircolors
