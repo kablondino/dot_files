@@ -27,3 +27,7 @@ zsh-shell:
 link-termite:
 	ln ./termite/config ~/.config/termite/config
 
+link-sage:
+	mkdir -p ~/.sage/
+	ln ./sage/init.sage ~/.sage/init.sage
+
