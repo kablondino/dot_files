@@ -219,12 +219,21 @@ explain () {
 
 
 #neofetch <- SLOW on OpenSUSE
+
 # Syntax highlighting
 if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] || [ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
 	source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
-fortune
+# thefuck alias
+if ! type $thefuck > /dev/null; then
+	eval $(thefuck --alias)
+fi
+
+# Fortune check install
+if ! type $fortune > /dev/null; then
+	fortune
+fi
 
 # Print current shell version
 echo -n "Current Shell: "; echo -n "ZSH "; echo $ZSH_VERSION
