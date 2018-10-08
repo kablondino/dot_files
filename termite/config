@@ -3,7 +3,7 @@ allow_bold = true
 audible_bell = false
 clickable_url = true
 dynamic_title = true
-font = mononoki Nerd Font Mono 12
+font = mononoki Nerd Font Mono 11
 fullscreen = true
 #icon_name = terminal
 #mouse_autohide = false
@@ -48,7 +48,7 @@ cursor_foreground = #000000
 #background = #000000
 
 # 20% background transparency (requires a compositor)
-#background = rgba(63, 63, 63, 0.8)
+#background = rgba(63, 63, 63, 0.9)
 
 # If unset, will reverse foreground and background
 #highlight = #2f2f2f
