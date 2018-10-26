@@ -74,17 +74,17 @@ let g:lightline = {
 	\ 'tabline_subseparator': { 'left': '', 'right': ''},
 	\
 	\ 'active': {
-	\	'left': [ [ 'mode', 'paste', 'spell' ], [ 'readonly', 'modified',
-	\			'filename' ], [ 'char_hex_value' ] ],
+	\	'left': [ [ 'mode', 'paste', 'spell' ], [ 'readonly',
+	\			'modified', 'filename' ], [ 'char_hex_value' ] ],
 	\	'right': [ [ 'lineinfo' ], [ 'percent' ],
 	\			[ 'fileencoding', 'filetype' ] ],
 	\ },
 	\
 	\ 'inactive': {
-	\	'left': [ [ 'big_separator' ], [ 'readonly', 'filename', 'modified',
-	\			'char_hex_value' ] ],
+	\	'left': [ [ 'big_separator' ], [ 'readonly', 'filename',
+	\			'modified', 'char_hex_value' ] ],
 	\	'right': [ [ 'lineinfo' ], [ 'percent' ],
-	\			[ 'fileformat', 'fileencoding', 'filetype'] ],
+	\			[ 'fileformat', 'fileencoding', 'filetype' ] ],
 	\ },
 	\
 	\ 'component_expand': {
@@ -96,7 +96,7 @@ let g:lightline = {
 	\
 	\ 'component': {
 	\		'char_hex_value': '0x%B',
-	\		'filename': '%f',
+	\		'filename': '%t',
 	\		'lineinfo': '%3l|%-2v',
 	\		'buff_separator': '',
 	\		'big_separator': '      ',
