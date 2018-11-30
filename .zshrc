@@ -151,19 +151,11 @@ alias mv='mv -i'				# Confirm move if overwriting
 # ANACONDA
 export PATH="/home/kabv/miniconda2/bin:$PATH"
 
-# Graduation Project directory
-alias grad_proj='cd ~/Documents/Masters/Graduation_Project/ && git status'
-alias thesis='cd ~/Documents/Masters/Graduation_Project/Thesis/ && ls'
-
-# Activate FiPy
-alias fipy='cd $HOME/Documents/Masters/Graduation_Project/FiPy_Model && source activate fipy'
-
-
-# Open urxvt-256color on the display 0, for use in WSL
+# Open urxvt-256color on the display 0, for use in Windows WSL
 alias x11_urxvt='DISPLAY=:0 urxvt-256color'
 
-# Make the permissions on new files default to 755, for use in WSL
-umask 022
+# Make the permissions on new files default to 755, for use in Windows WSL
+#umask 022
 
 
 ## FUNCTIONS!
