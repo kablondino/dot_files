@@ -130,12 +130,17 @@ STICKY 37;44 # dir with the sticky bit set (+t) and not other-writable
 .f90 04;38;5;039
 .f95 04;38;5;039
 .source 04;38;5;039
+.mod 04;38;5;51 # Fortran module file
+
 .py 04;38;5;227
 .sage 04;38;5;227
+
 .cpp 04;38;5;027
 .cc 04;38;5;027
 .c++ 04;38;5;027
 .c 04;38;5;027
+.h 04;38;5;51  # C/C++ header files
+
 .go 04;38;5;029
 .rb 04;38;5;160
 .m 04;38;5;202
