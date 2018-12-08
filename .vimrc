@@ -182,6 +182,13 @@ set number
 autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
 autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
 
+
+" Aliases for C, C++, and Fortran compiling, with no extra options sans -Wall
+ca C_compile !clear && gcc -Wall % -o c_%:r
+ca Cpp_compile !clear && g++ -Wall % -o cpp_%:r
+ca Fortran_compile !clear && gfortran -Wall % -o f_%:r
+
+
 " Toggle RELATIVE line numbers on and off with Ctrl-L (upper or lower case)
 function! g:NumberToggle()
 	if &relativenumber == 0
