@@ -35,6 +35,7 @@ Plugin 'Konfekt/FastFold'			" Unchecked with other folding plugins!
 Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'matze/vim-tex-fold'
 Plugin 'tmhedberg/SimpylFold'
+Plugin 'mboughaba/i3config.vim'
 
 Plugin 'scrooloose/nerdtree'
 "Plugin 'tpope/vim-fugitive'
