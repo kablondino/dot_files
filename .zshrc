@@ -117,13 +117,19 @@ else
 fi
 
 local display_time="%{[00;38;5;204m%}%{[00;38;5;000;48;5;204m%}%*%{[00;38;5;204;48;5;170m%} %k%f"
-local current_dir="%{[01;38;5;000;48;5;097m%} %~%k%f%{[01;38;5;097m%}%k%f"
+
+# Directory expansion for showing only the last 2 directories, if too long
+local current_dir="%(4~|%-1~/…/%2~|%3~)"
+# Directory expansion for showing only set amount of characters in prompt
+#local current_dir="%50<…<%~%<<"
+
+local formatted_current_dir="%{[01;38;5;000;48;5;097m%} ${current_dir}%k%f%{[01;38;5;097m%}%k%f"
 
 local return_code="%(?..%{[00;38;5;088m%}%{[00;38;5;000;48;5;088m%} %? %{[00;38;5;088;48;5;000m%}%k%f)"	# U+F112
 local user_host="${PR_USER}${PR_HOST}"
 
 # TWO LINE PROMPT
-PROMPT="${display_time}%{[01;38;5;170;48;5;097m%}${current_dir}
+PROMPT="${display_time}%{[01;38;5;170;48;5;097m%}${formatted_current_dir}
 $PR_PROMPT"
 #╰─
 # CHROME OS and crouton do not like the right prompt!
