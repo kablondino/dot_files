@@ -22,6 +22,7 @@ link-Xdefaults:
 
 zsh-shell:
 	ln ./.zshrc ~/.zshrc
+	ln ./.prompt.zsh ~/.prompt.zsh
 	chsh -s `which zsh`
 
 link-termite:
