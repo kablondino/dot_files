@@ -10,14 +10,14 @@ precmd() { vcs_info }
 
 promptinit
 
-
+# Set some variables for right side
 local PR_USER PR_USER_OP PR_PROMPT PR_HOST
 
 setopt PROMPT_SUBST
 
 # Check for Ubuntu release for prompt (ChromeOS)
-os_var=`cat /etc/os-release | head -1`
-if [[ $os_var=*"Ubuntu" ]]; then
+os_var=`cat /etc/os-release | head -1 | sed 's/\"//g' | sed 's/NAME=//'`
+if [[ "$os_var" = "Ubuntu" ]]; then
 	# Check the UID
 	if [[ $UID -ne 0 ]]; then # normal user
 		PR_USER="%{[00;38;5;000;48;5;022m%} %n "	# HOST corrects colors
@@ -111,7 +111,7 @@ else  # Not Ubuntu
 
 	# TWO LINE PROMPT
 	PROMPT="${display_time}%{[01;38;5;170;48;5;097m%}${formatted_current_dir}
-	$PR_PROMPT"
+$PR_PROMPT"
 	#╰─
 	RPROMPT="${return_code}${user_host}"
 fi
