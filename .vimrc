@@ -27,9 +27,9 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'itchyny/lightline.vim'
 Plugin 'mgee/lightline-bufferline'
-Plugin 'chrisbra/Colorizer'
-
 Plugin 'ryanoasis/vim-devicons'		" REQUIRES Nerd Font
+
+Plugin 'chrisbra/Colorizer'
 
 Plugin 'Konfekt/FastFold'			" Unchecked with other folding plugins!
 Plugin 'nelstrom/vim-markdown-folding'
