@@ -139,7 +139,7 @@ if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] || [ -f
 fi
 
 # thefuck alias
-if ! type $thefuck > /dev/null; then
+if ! type $thefuck > /dev/null 2>&1; then
 	eval $(thefuck --alias)
 fi
 
