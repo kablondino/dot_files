@@ -49,6 +49,7 @@ call vundle#end()					" required
 filetype plugin indent on			" required
 
 set showcmd
+set showfulltag
 
 " COLORSCHEME SPECIFIC OPTIONS
 set bg=dark
@@ -185,9 +186,9 @@ autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
 
 
 " Aliases for C, C++, and Fortran compiling, with no extra options sans -Wall
-ca C_compile !clear && gcc -Wall % -o %:r_c
-ca Cpp_compile !clear && g++ -Wall % -o %:r_cpp
-ca Fortran_compile !clear && gfortran -Wall % -o %:r_f
+cabbrev C_compile !clear && gcc -Wall % -o %:r_c
+cabbrev Cpp_compile !clear && g++ -Wall % -o %:r_cpp
+cabbrev Fortran_compile !clear && gfortran -Wall % -o %:r_f
 
 
 " Toggle RELATIVE line numbers on and off with Ctrl-L (upper or lower case)
@@ -204,6 +205,7 @@ set encoding=utf-8 fileencoding=utf-8
 
 " Sets list characters (\t, \n, etc.)
 set list
+let &showbreak = '↳ '
 if has('multi_byte') && &encoding ==# 'utf-8'
 	let &listchars = 'tab:▸·,trail:·,eol:¬,extends:,precedes:,nbsp:±'
 else
@@ -213,6 +215,7 @@ endif
 " ▶▷▸▹►▻ (The right small triangle) U+25B5 through U+25BB
 " · (The middle dot) U+00B7
 " ¬ (The not symbol) U+00AC
+" ↪ U+21AA, ↳ U+21B3
 
 " Syntax for odd file types
 autocmd BufNewFile,BufRead *.sage,*.spyx,*.pyx set filetype=python
