@@ -32,6 +32,7 @@ link-termite:
 link-i3:
 	mkdir -p ~/.config/i3/
 	ln ./i3/i3.config ~/.config/i3/config
+	ln ./.lock.sh ~/.lock.sh
 
 link-sage:
 	mkdir -p ~/.sage/
