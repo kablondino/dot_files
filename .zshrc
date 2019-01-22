@@ -38,20 +38,11 @@ autoload -Uz compinit && compinit
 zstyle ':completion:*' menu select
 #zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
 
-# Default text editor
-export EDITOR=$(which vim)
-export VISUAL=$(which vim)
+# Load the aliases and exported variables set by .common.rc.sh
+source ~/.common.rc.sh
 
-# Timeout for keyboard
-export KEYTIMEOUT=1
-
-# Set the TERM so that italics and color are available, even in TMUX
-export TERM=xterm-256color
-
-source ~/.prompt.zsh
-
-# REFRESH prompt every X seconds:
-#TMOUT=2; TRAPALRM() { zle reset-prompt }
+# Load the prompt
+. ~/.prompt.zsh
 
 # Directory and file colors
 test -r ~/.dircolors && eval "$(dircolors $HOME/.dircolors)"
@@ -59,35 +50,10 @@ test -r ~/.dircolors && eval "$(dircolors $HOME/.dircolors)"
 # Unset SSH_ASKPASS
 unset SSH_ASKPASS
 
-## Aliases
-alias ls='ls --color=auto'		# Always use color
-alias ll='ls -lh'				# Human-readable for detailed list
-alias la='ls -A'
-alias sl='sl -e'
-alias quit='exit'
-alias tmux='tmux -2'
-alias less='less -R'
-alias mv='mv -i'				# Confirm move if overwriting
-
 # ANACONDA
 export PATH="/home/kabv/miniconda2/bin:$PATH"
 
-# Open urxvt-256color on the display 0, for use in Windows WSL
-alias x11_urxvt='DISPLAY=:0 urxvt-256color'
-
-# Make the permissions on new files default to 755, for use in Windows WSL
-#umask 022
-
-
 ## FUNCTIONS!
-# Delete each line in a file that starts with a NON-number(digit) character
-function data_clean() {
-	grep "^[0-9]" $1 > $2
-}
-
-# Insert a # on the first line of each TSV file in the current directory
-#function comment_TSV() { sed -i '1s/^/\#/' *.tsv }
-
 # urlencode some text
 function urlencode {
 	print "${${(j: :)@}//(#b)(?)/%$[[##16]##${match[1]}]}"
