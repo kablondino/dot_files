@@ -21,9 +21,27 @@ link-Xdefaults:
 	echo "Restart the terminal"
 
 zsh-shell:
-	ln ./.zshrc ~/.zshrc
-	ln ./.prompt.zsh ~/.prompt.zsh
-	chsh -s `which zsh`
+ifneq ($(wildcard ~/.zshrc),)
+	$(info Replacing previous .zshrc)
+	@rm ~/.zshrc
+endif
+	@ln ./.zshrc ~/.zshrc
+ifneq ($(wildcard ~/.prompt.zsh),)
+	$(info Replacing previous .prompt.zsh)
+	@rm ~/.prompt.zsh
+endif
+	@ln ./.prompt.zsh ~/.prompt.zsh
+ifneq ($(wildcard ~/.common.rc.sh),)
+	$(info Replacing previous .common.rc.sh)
+	@rm ~/.common.rc.sh
+endif
+	@ln ./.common.rc.sh ~/.common.rc.sh
+ifneq ($(which $SHELL), $(which zsh))
+	$(info Enter password to change the default shell to zsh.)
+	@chsh -s `which zsh`
+else
+	$(info ZSH is already set to the default shell.)
+endif
 
 link-termite:
 	mkdir -p ~/.config/termite/
