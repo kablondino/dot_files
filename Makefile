@@ -6,28 +6,38 @@ vim_ftplugin_name := $(notdir $(dot_vim_ftplugin))
 home_vim_colors := $(addprefix ~/.vim/colors/, $(vim_colors_name))
 home_vim_ftplugin := $(addprefix ~/.vim/ftplugin/, $(notdir $(dot_vim_ftplugin)))
 
+
 default: config-vim link-tmux link-dircolors link-Xdefaults zsh-shell
 
+# =============================================================================
 
 make_vim_dirs:
 	$(info Making vim directories)
 	@mkdir -p ~/.vim/colors/
 	@mkdir -p ~/.vim/ftplugin/
 
-config-vim:
+# Targets for properly linking the files
+# Check and link colors
+~/.vim/colors/%.vim: ./vim/colors/%.vim
 ifeq ($(home_vim_colors), $(wildcard (home_vim_colors)))
 	$(info Replacing previous vim color files in ~/.vim/colors/)
 	@rm -f $(home_vim_colors)
 else
 	$(info Linking all vim color files into ~/.vim/colors/)
 endif
+	@ln $< $(dir $@)
+
+# Check and link ftplugin
+~/.vim/ftplugin/%.vim: ./vim/ftplugin/%.vim
 ifeq ($(home_vim_ftplugin), $(wildcard (home_vim_ftplugin)))
-	$(info Replacing previous vim color files in ~/.vim/ftplugin/)
+	$(info Replacing previous vim ftplugin files in ~/.vim/ftplugin/)
 	@rm -f $(home_vim_ftplugin)
 else
-	$(info Linking all vim color files into ~/.vim/ftplugin/)
+	$(info Linking all vim ftplugin files into ~/.vim/ftplugin/)
 endif
+	@ln $< $(dir $@)
 
+config-vim:
 ifneq ($(wildcard ~/.vimrc),)
 	$(info Replacing .vimrc)
 	@rm ~/.vimrc
@@ -42,15 +52,10 @@ ifeq ($(wildcard ~/.vim/bundle/Vundle.vim),)
 	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 endif
 
-	$(info Installing all plugins specified in .vimrc)
-	@vim +PluginInstall +qall
+#	$(info Installing all plugins specified in .vimrc)
+#	@vim +PluginInstall +qall
 
-# Targets for properly linking the files
-~/.vim/colors/%.vim: ./vim/colors/%.vim
-	@ln $< $(dir $@)
-~/.vim/ftplugin/%.vim: ./vim/ftplugin/%.vim
-	@ln $< $(dir $@)
-
+# =============================================================================
 
 link-tmux:
 ifneq ($(wildcard ~/.tmux.conf),)
@@ -68,6 +73,8 @@ else
 endif
 	@ln ./tmux/.tmux.conf.local ~/
 
+# =============================================================================
+
 link-dircolors:
 ifneq ($(wildcard ~/.dircolors),)
 	$(info Replacing previous .dircolors)
@@ -77,6 +84,7 @@ else
 endif
 	@ln ./.dircolors ~/.dircolors
 
+# =============================================================================
 
 link-Xdefaults:
 ifneq ($(wildcard ~/.Xdefaults),)
@@ -89,8 +97,8 @@ endif
 	$(info Reloading X server utility services.)
 	@xrdb ~/.Xdefaults
 
+# =============================================================================
 
-## FINISHED
 zsh-shell:
 ifneq ($(wildcard ~/.zshrc),)
 	$(info Replacing previous .zshrc)
@@ -121,6 +129,7 @@ else
 	$(info ZSH is already set to the default shell.)
 endif
 
+# =============================================================================
 
 link-termite:
 	@mkdir -p ~/.config/termite/
@@ -132,9 +141,10 @@ else
 endif
 	@ln ./termite/config ~/.config/termite/config
 
+# =============================================================================
 
 link-i3:
-	mkdir -p ~/.config/i3/
+	@mkdir -p ~/.config/i3/
 ifneq ($(wildcard ~/.config/i3/config),)
 	$(info Replacing previous i3wm configuration file)
 	@rm ~/.config/i3/config
@@ -150,9 +160,10 @@ else
 endif
 	@ln ./.lock.sh ~/.lock.sh
 
+# =============================================================================
 
 link-sage:
-	mkdir -p ~/.sage/
+	@mkdir -p ~/.sage/
 ifneq ($(wildcard ~/.sage/init.sage),)
 	$(info Replacing previous init.sage)
 	@rm ~/.sage/init.sage
@@ -161,6 +172,7 @@ else
 endif
 	@ln ./sage/init.sage ~/.sage/init.sage
 
+# =============================================================================
 
 .PHONY: config-vim
 config-vim: make_vim_dirs $(home_vim_colors) $(home_vim_ftplugin)
