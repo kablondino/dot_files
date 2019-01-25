@@ -165,6 +165,17 @@ endif
 
 # =============================================================================
 
+link-compton:
+ifneq (,)
+	$(info Replacing previous compton.conf)
+	@rm ~/.config/compton.conf
+else
+	$(info Linking compton.conf)
+endif
+	@ln ./compton.conf ~/.config/compton.conf
+
+# =============================================================================
+
 link-sage:
 	@mkdir -p ~/.sage/
 ifneq ($(wildcard ~/.sage/init.sage),)
