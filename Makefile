@@ -52,8 +52,8 @@ ifeq ($(wildcard ~/.vim/bundle/Vundle.vim),)
 	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 endif
 
-#	$(info Installing all plugins specified in .vimrc)
-#	@vim +PluginInstall +qall
+	$(info Installing all plugins specified in .vimrc)
+	@vim +PluginInstall +qall
 
 # =============================================================================
 
@@ -128,6 +128,9 @@ ifneq ($(which $SHELL), $(which zsh))
 else
 	$(info ZSH is already set to the default shell.)
 endif
+	$(info =====================================)
+	$(info   Source the new .zshrc to apply it)
+	$(info =====================================)
 
 # =============================================================================
 
