@@ -163,8 +163,10 @@ STICKY 37;44 # dir with the sticky bit set (+t) and not other-writable
 # Configuration files
 .vimrc 38;5;70;48;5;236
 .conf 38;5;70;48;5;236
-.zshrc 38;5;70;48;5;236
 .bashrc 38;5;70;48;5;236
+.zshrc 38;5;70;48;5;236
+.prompt.zsh 38;5;70;48;5;236
+.common.rc.sh 38;5;70;48;5;236
 
 # Misc
 .gpi 04;38;5;104
