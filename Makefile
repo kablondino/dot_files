@@ -162,6 +162,14 @@ else
 	$(info Linking .lock.sh)
 endif
 	@ln ./.lock.sh ~/.lock.sh
+	@mkdir -p ~/.config/rofi/
+ifneq ($(wildcard ~/.config/rofi/config),)
+	$(info Replacing previous rofi configuration file)
+	@rm ~/.config/rofi/config
+else
+	$(info Linking rofi.conf)
+endif
+	@ln ./rofi.conf ~/.config/rofi/config
 
 # =============================================================================
 
