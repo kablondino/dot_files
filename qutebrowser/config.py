@@ -81,7 +81,7 @@ c.scrolling.smooth = False
 #   - tr-TR: Turkish (Turkey)
 #   - uk-UA: Ukrainian (Ukraine)
 #   - vi-VN: Vietnamese (Viet Nam)
-c.spellcheck.languages = []
+c.spellcheck.languages = ['en-US']
 
 # Hide the statusbar unless a message is shown.
 # Type: Bool
@@ -149,7 +149,44 @@ c.fonts.monospace = '"mononoki Nerd Font", "xos4 Terminus", Terminus, \
 
 # Font used in the tab bar.
 # Type: QtFont
-c.fonts.tabs = '12pt "DejaVu"'
+c.fonts.tabs = '11pt "DejaVu"'
 
 c.confirm_quit = ['downloads', 'multiple-tabs']
+
+# ============================ Colors =========================================
+gruvbox = {
+    'border-color':         '#5a4b46',
+    'bg-color':             '#282828',
+    'inactive-bg-color':    '#282828',
+    'text-color':           '#fbf1c7',
+    'inactive-text-color':  '#bca895',
+    'urgent-bg-color':      '#e53935',
+    'indicator-color':      '#7f142c'
+    }
+
+deus = {
+    'black':    '#262626',
+    'green':    '#87d787',
+    'blue':     '#00afff',
+    'pink':     '#d75fd7'
+    }
+
+
+c.colors.tabs.bar.bg = gruvbox['bg-color']
+
+# Active tab colors
+c.colors.tabs.selected.even.fg = gruvbox['text-color']
+c.colors.tabs.selected.even.bg = gruvbox['bg-color']
+c.colors.tabs.selected.odd.fg = gruvbox['text-color']
+c.colors.tabs.selected.odd.bg = gruvbox['bg-color']
+
+# Inactive tab colors
+c.colors.tabs.even.fg = gruvbox['inactive-text-color']
+c.colors.tabs.even.bg = gruvbox['inactive-bg-color']
+c.colors.tabs.odd.fg = gruvbox['inactive-text-color']
+c.colors.tabs.odd.bg = gruvbox['inactive-bg-color']
+
+# Status bar colors
+c.colors.statusbar.insert.fg = deus['black']
+c.colors.statusbar.insert.bg = deus['blue']
 
