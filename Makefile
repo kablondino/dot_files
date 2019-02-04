@@ -173,6 +173,18 @@ endif
 
 # =============================================================================
 
+link-qutebrowser:
+	@mkdir -p ~/.config/qutebrowser/
+ifneq ($(wildcard ~/.config/qutebrowser/config.py),)
+	$(info Replacing previous qutebrowser config.py)
+	@rm ~/.config/qutebrowser/config.py
+else
+	$(info Linking qutebrowser config.py)
+endif
+	@ln ./qutebrowser/config.py ~/.config/qutebrowser/config.py
+
+# =============================================================================
+
 link-compton:
 ifneq (,)
 	$(info Replacing previous compton.conf)
