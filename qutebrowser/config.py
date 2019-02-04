@@ -112,9 +112,10 @@ config.unbind('<Alt-7>', mode='normal')
 config.unbind('<Alt-8>', mode='normal')
 config.unbind('<Alt-9>', mode='normal')
 
-# Unbind d and D from closing tab, and ZQ and ZZ from quitting
+# Unbind d and D from closing tab; and Ctrl+q, ZQ, and ZZ from quitting
 config.unbind('d', mode='normal')
 config.unbind('D', mode='normal')
+config.unbind('<Ctrl-q>', mode='normal')
 config.unbind('ZQ', mode='normal')
 config.unbind('ZZ', mode='normal')
 
