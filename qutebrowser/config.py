@@ -10,7 +10,7 @@
 # aliases, while the values are the commands they map to.
 # Type: Dict
 c.aliases = {'q': 'quit', 'w': 'session-save', 'wq': 'quit --save', \
-        'bd': 'tab-close'}
+        'exit': 'quit', 'bd': 'tab-close'}
 
 # Enable JavaScript.
 # Type: Bool
@@ -149,4 +149,6 @@ c.fonts.monospace = '"mononoki Nerd Font", "xos4 Terminus", Terminus, \
 # Font used in the tab bar.
 # Type: QtFont
 c.fonts.tabs = '12pt "DejaVu"'
+
+c.confirm_quit = ['downloads', 'multiple-tabs']
 
