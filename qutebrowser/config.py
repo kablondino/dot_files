@@ -112,12 +112,14 @@ config.unbind('<Alt-7>', mode='normal')
 config.unbind('<Alt-8>', mode='normal')
 config.unbind('<Alt-9>', mode='normal')
 
-# Unbind d and D from closing tab; and Ctrl+q, ZQ, and ZZ from quitting
+# Unbind d and D from closing tab; Ctrl+q, ZQ, and ZZ from quitting;
+# and Ctrl+Shift+w from closing window
 config.unbind('d', mode='normal')
 config.unbind('D', mode='normal')
 config.unbind('<Ctrl-q>', mode='normal')
 config.unbind('ZQ', mode='normal')
 config.unbind('ZZ', mode='normal')
+config.unbind('<Ctrl-Shift-w>', mode='normal')
 
 # Use Ctrl+num to go to tab
 config.bind('<Ctrl-1>', 'tab-focus 1')
@@ -151,7 +153,10 @@ c.fonts.monospace = '"mononoki Nerd Font", "xos4 Terminus", Terminus, \
 # Type: QtFont
 c.fonts.tabs = '11pt "DejaVu"'
 
-c.confirm_quit = ['downloads', 'multiple-tabs']
+c.tabs.last_close = 'close'
+c.confirm_quit = ['always']
+
+c.statusbar.widgets = ['keypress', 'url', 'scroll', 'progress']
 
 # ============================ Colors =========================================
 gruvbox = {
@@ -159,7 +164,7 @@ gruvbox = {
     'bg-color':             '#282828',
     'inactive-bg-color':    '#282828',
     'text-color':           '#fbf1c7',
-    'inactive-text-color':  '#bca895',
+    'inactive-text-color':  '#9c8b85',
     'urgent-bg-color':      '#e53935',
     'indicator-color':      '#7f142c'
     }
@@ -189,4 +194,7 @@ c.colors.tabs.odd.bg = gruvbox['inactive-bg-color']
 # Status bar colors
 c.colors.statusbar.insert.fg = deus['black']
 c.colors.statusbar.insert.bg = deus['blue']
+c.colors.statusbar.url.fg = gruvbox['text-color']
+c.colors.statusbar.url.success.http.fg = gruvbox['text-color']
+c.colors.statusbar.progress.bg = 'lime'
 
