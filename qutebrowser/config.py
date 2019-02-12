@@ -121,6 +121,13 @@ config.unbind('ZQ', mode='normal')
 config.unbind('ZZ', mode='normal')
 config.unbind('<Ctrl-Shift-w>', mode='normal')
 
+# Unbind Ctrl+v and bind Alt+v to passthrough mode
+# Suggestion for new binding still needed
+config.unbind('<Ctrl-v>', mode='normal')
+config.unbind('<Ctrl-v>', mode='passthrough')
+config.bind('<Alt-v>', 'enter-mode passthrough', mode='normal')
+config.bind('<Alt-v>', 'leave-mode', mode='passthrough')
+
 # Use Ctrl+num to go to tab
 config.bind('<Ctrl-1>', 'tab-focus 1')
 config.bind('<Ctrl-2>', 'tab-focus 2')
