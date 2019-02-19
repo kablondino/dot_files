@@ -146,7 +146,11 @@ config.bind('<Alt-Right>', 'forward')
 
 # Search engines
 c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}', \
+        'google': 'http://www.google.com/search?q={}', \
         'wiki': 'https://en.wikipedia.org/wiki/Special:Search/{}'}
+
+# Homepage
+c.url.default_page = 'about:blank'
 
 # Default monospace fonts. Whenever "monospace" is used in a font
 # setting, it's replaced with the fonts listed here.
