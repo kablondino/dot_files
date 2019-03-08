@@ -105,12 +105,12 @@ if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] || [ -f
 fi
 
 # thefuck alias
-if ! type $thefuck > /dev/null 2>&1; then
+if [ -s thefuck ]; then
 	eval $(thefuck --alias)
 fi
 
 # Fortune check install
-if ! type $fortune > /dev/null; then
+if [ -s fortune ]; then
 	fortune
 fi
 
