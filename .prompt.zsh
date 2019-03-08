@@ -17,7 +17,7 @@ setopt PROMPT_SUBST
 
 # Check for Ubuntu release for prompt (ChromeOS)
 os_var=`cat /etc/os-release | head -1 | sed 's/\"//g' | sed 's/NAME=//'`
-if [[ "$os_var" = "Ubuntu" ]]; then
+if [[ "$os_var" == "Ubuntu" ]]; then
 	# Check the UID
 	if [[ $UID -ne 0 ]]; then # normal user
 		PR_USER="%{[00;38;5;000;48;5;022m%} %n "	# HOST corrects colors
@@ -104,7 +104,7 @@ else  # Not Ubuntu
 	# Directory expansion for showing only set amount of characters in prompt
 	#local current_dir="%50<…<%~%<<"
 
-	local formatted_current_dir="%{[01;38;5;000;48;5;097m%} ${current_dir}%k%f%{[01;38;5;097m%}%k%f"
+	local formatted_current_dir="%{[01;38;5;232;48;5;097m%} ${current_dir}%k%f%{[01;38;5;097m%}%k%f"
 
 	local return_code="%(?..%{[00;38;5;088m%}%{[00;38;5;000;48;5;088m%} %? %{[00;38;5;088;48;5;000m%}%k%f)"	# U+F112
 	local user_host="${PR_USER}${PR_HOST}"
