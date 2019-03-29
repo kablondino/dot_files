@@ -51,7 +51,7 @@ test -r ~/.dircolors && eval "$(dircolors $HOME/.dircolors)"
 unset SSH_ASKPASS
 
 # ANACONDA
-export PATH="/home/kabv/miniconda2/bin:$PATH"
+export PATH="$HOME/miniconda2/bin:$PATH"
 
 ## FUNCTIONS!
 # urlencode some text
