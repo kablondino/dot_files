@@ -12,7 +12,7 @@ export KEYTIMEOUT=1
 export TERM=xterm-256color
 
 # ANACONDA
-export PATH="$HOME/miniconda2/bin:$PATH"
+export PATH="$HOME/miniconda2/bin:$HOME/miniconda3/bin:$PATH"
 
 ## Aliases
 alias ls='ls --color=auto'		# Always use color
