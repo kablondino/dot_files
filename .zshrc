@@ -50,9 +50,6 @@ test -r ~/.dircolors && eval "$(dircolors $HOME/.dircolors)"
 # Unset SSH_ASKPASS
 unset SSH_ASKPASS
 
-# ANACONDA
-export PATH="$HOME/miniconda2/bin:$PATH"
-
 ## FUNCTIONS!
 # urlencode some text
 function urlencode {
