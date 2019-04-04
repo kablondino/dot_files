@@ -11,8 +11,14 @@ export KEYTIMEOUT=1
 # Set the TERM so that italics and color are available, even in TMUX
 export TERM=xterm-256color
 
-# ANACONDA
-export PATH="$HOME/miniconda2/bin:$HOME/miniconda3/bin:$PATH"
+# Add conda path (DEPRICATED). Conda has claimed to have updated to not require this.
+#export PATH="$HOME/miniconda2/bin:$HOME/miniconda3/bin:$PATH"
+
+# Uses this one instead
+if [ -s $HOME/miniconda3/etc/profile.d/conda.sh ] ||
+	[ -s $HOME/miniconda2/etc/profile.d/conda.sh ]; then
+	. $HOME/miniconda3/etc/profile.d/conda.sh
+fi
 
 ## Aliases
 alias ls='ls --color=auto'		# Always use color

@@ -94,20 +94,18 @@ explain () {
 }
 
 
-#neofetch <- SLOW on OpenSUSE
-
 # Syntax highlighting
 if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] || [ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
 	source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
 # thefuck alias
-if [ -s thefuck ]; then
+if [ -x `which thefuck` ]; then
 	eval $(thefuck --alias)
 fi
 
 # Fortune check install
-if [ -s fortune ]; then
+if [ -x `which fortune` ]; then
 	fortune
 fi
 
