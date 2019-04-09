@@ -20,6 +20,11 @@ if [ -s $HOME/miniconda3/etc/profile.d/conda.sh ] ||
 	. $HOME/miniconda3/etc/profile.d/conda.sh
 fi
 
+# Set the Go path
+if [ -d $HOME/go ]; then
+	export GOPATH=$HOME/go
+fi
+
 ## Aliases
 alias ls='ls --color=auto'		# Always use color
 alias ll='ls -lh'				# Human-readable for detailed list
