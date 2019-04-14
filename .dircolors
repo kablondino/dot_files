@@ -108,6 +108,7 @@ STICKY 37;44 # dir with the sticky bit set (+t) and not other-writable
 .mkv 01;38;5;220
 .mp4 01;38;5;220
 .flv 01;38;5;220
+.webm 01;38;5;220
 .h264 01;38;5;220
 .fli 01;35
 .gl 01;35
