@@ -138,6 +138,9 @@ let g:lightline#bufferline#number_map = {
 " REMAP ARROW KEYS! to switch between buffers
 nnoremap <Left> :bprev<return>
 nnoremap <Right> :bnext<return>
+
+" Set W (capital w) to also write
+cnoreabbrev <expr> W ((getcmdtype() is# ':' && getcmdline() is# 'W')?('w'):('W'))
  
 let g:lightline.separator = { 'left': '', 'right': '' }	" U+E0B0 - E0C7
 let g:lightline.subseparator = { 'left': '', 'right': '' }
