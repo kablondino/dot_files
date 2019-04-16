@@ -189,8 +189,8 @@ autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
 
 
 " Aliases for C, C++, and Fortran compiling, with no extra options sans -Wall
-cabbrev C_compile !clear && gcc -Wall % -o %:r_c
-cabbrev Cpp_compile !clear && g++ -Wall % -o %:r_cpp
+cabbrev C_compile !clear && gcc -Wall % -o %:r_c -lm
+cabbrev Cpp_compile !clear && g++ -Wall % -o %:r_cpp -lm
 cabbrev Fortran_compile !clear && gfortran -Wall % -o %:r_f
 
 
