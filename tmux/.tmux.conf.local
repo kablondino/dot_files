@@ -85,7 +85,7 @@ tmux_conf_theme_mode_attr='bold'
 
 # status line style
 tmux_conf_theme_status_fg='#8a8a8a'                     # light gray
-tmux_conf_theme_status_bg='#080808'                     # dark gray
+tmux_conf_theme_status_bg='default'                     # default
 tmux_conf_theme_status_attr='none'
 
 # window status style
@@ -171,7 +171,7 @@ tmux_conf_theme_status_left_attr='bold,none,none'
 
 # status right style
 tmux_conf_theme_status_right_fg='#8a8a8a,#000000,#000000' # light gray, black, black
-tmux_conf_theme_status_right_bg='#080808,#ff5f87,#e4e4e4' # dark gray, 204, white
+tmux_conf_theme_status_right_bg='default,#ff5f87,#e4e4e4' # default, 204, white
 tmux_conf_theme_status_right_attr='none,none,bold'
 
 # pairing indicator
