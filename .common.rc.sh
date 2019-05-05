@@ -11,7 +11,7 @@ export KEYTIMEOUT=1
 # Set the TERM so that italics and color are available, even in TMUX
 export TERM=xterm-256color
 
-export LESS="-M -I -R -N"
+export LESS="-M -I -R"
 
 # Add conda path (DEPRICATED). Conda has claimed to have updated to not require this.
 #export PATH="$HOME/miniconda2/bin:$HOME/miniconda3/bin:$PATH"
