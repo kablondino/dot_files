@@ -75,10 +75,14 @@ STICKY 37;44 # dir with the sticky bit set (+t) and not other-writable
 #.bat 01;32
 .tar 07;31 # archives or compressed (bright red)
 .tgz 07;31
-.arj 07;31
 .taz 07;31
+.tar.bz 07;31
+.tar.bz2 07;31
+.tar.gz 07;31
+.arj 07;31
 .lzh 07;31
 .zip 07;31
+.rar 07;31
 .z 07;31
 .Z 07;31
 .gz 07;31

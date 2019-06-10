@@ -139,9 +139,13 @@ let g:lightline#bufferline#number_map = {
 nnoremap <Left> :bprev<return>
 nnoremap <Right> :bnext<return>
 
-" Set W (capital w) to also write
+nnoremap <C-S-D> :bn\|bd #<return>
+
+" Set W (capital w), and ẅ (w with diaeresis) to also write
 cnoreabbrev <expr> W ((getcmdtype() is# ':' && getcmdline() is# 'W')?('w'):('W'))
- 
+cnoreabbrev <expr> ẅ ((getcmdtype() is# ':' && getcmdline() is# 'ẅ')?('w'):('ẅ'))
+cnoreabbrev <expr> Ẅ ((getcmdtype() is# ':' && getcmdline() is# 'Ẅ')?('w'):('Ẅ'))
+
 let g:lightline.separator = { 'left': '', 'right': '' }	" U+E0B0 - E0C7
 let g:lightline.subseparator = { 'left': '', 'right': '' }
 
@@ -192,6 +196,8 @@ autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
 cabbrev C_compile !clear && gcc -Wall % -o %:r_c -lm
 cabbrev Cpp_compile !clear && g++ -Wall % -o %:r_cpp -lm
 cabbrev Fortran_compile !clear && gfortran -Wall % -o %:r_f
+cabbrev matlab_run !clear && matlab -nodisplay -nojvm -nosplash -r "run('%');"
+cabbrev octave_run !clear && octave -qf "run('%');"
 
 
 " Toggle RELATIVE line numbers on and off with Ctrl-L (upper or lower case)

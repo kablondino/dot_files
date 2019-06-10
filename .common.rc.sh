@@ -2,8 +2,10 @@
 #emulate -LR bash 2>/dev/null
 
 # Default text editor
-export EDITOR=$(which vim)
-export VISUAL=$(which vim)
+EDITOR=$(which vim)
+VISUAL=$(which vim)
+export EDITOR
+export VISUAL
 
 # Timeout for keyboard
 export KEYTIMEOUT=1
@@ -17,13 +19,13 @@ export LESS="-M -I -R"
 #export PATH="$HOME/miniconda2/bin:$HOME/miniconda3/bin:$PATH"
 
 # Uses this one instead
-if [ -s $HOME/miniconda3/etc/profile.d/conda.sh ] ||
-	[ -s $HOME/miniconda2/etc/profile.d/conda.sh ]; then
-	. $HOME/miniconda3/etc/profile.d/conda.sh
+if [ -s "$HOME/miniconda3/etc/profile.d/conda.sh" ] ||
+	[ -s "$HOME/miniconda2/etc/profile.d/conda.sh" ]; then
+	. "$HOME/miniconda3/etc/profile.d/conda.sh"
 fi
 
 # Set the Go path
-if [ -d $HOME/go ]; then
+if [ -d "$HOME/go" ]; then
 	export GOPATH=$HOME/go
 fi
 
