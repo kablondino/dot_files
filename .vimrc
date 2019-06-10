@@ -195,6 +195,7 @@ cabbrev C_compile !clear && gcc -Wall % -o %:r_c -lm
 cabbrev Cpp_compile !clear && g++ -Wall % -o %:r_cpp -lm
 cabbrev Fortran_compile !clear && gfortran -Wall % -o %:r_f
 cabbrev matlab_run !clear && matlab -nodisplay -nojvm -nosplash -r "run('%');"
+cabbrev octave_run !clear && octave -qf "run('%');"
 
 
 " Toggle RELATIVE line numbers on and off with Ctrl-L (upper or lower case)
