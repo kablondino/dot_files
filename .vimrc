@@ -139,7 +139,8 @@ let g:lightline#bufferline#number_map = {
 nnoremap <Left> :bprev<return>
 nnoremap <Right> :bnext<return>
 
-nnoremap <C-S-D> :bn\|bd #<return>
+" Delete buffer but NOT the split
+cabbrev BD bn\|bd #
 
 " Set W (capital w), and ẅ (w with diaeresis) to also write
 cnoreabbrev <expr> W ((getcmdtype() is# ':' && getcmdline() is# 'W')?('w'):('W'))
