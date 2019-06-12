@@ -39,7 +39,15 @@ alias tmux='tmux -2'
 alias less='less -R'
 alias mv='mv -i'				# Confirm move if overwriting
 
+# Alias to cd and list files at once
 function cs () {
 	cd "$@" && ls
 }
+
+# Run matlab script (no JVM)
+function matlab_run () {
+	matlab -nodesktop -nosplash -nojvm -r "run('$@'); exit;" | tail -n +11
+}
+
+# Less Colors
 
