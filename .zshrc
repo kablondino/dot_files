@@ -100,12 +100,12 @@ if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] || [ -f
 fi
 
 # thefuck alias
-if [ -x `which thefuck` ]; then
+if [ -x "$(command -v thefuck)" ]; then
 	eval $(thefuck --alias)
 fi
 
 # Fortune check install
-if [ -x `which fortune` ]; then
+if [ -x "$(command -v fortune)" ]; then
 	fortune
 fi
 
