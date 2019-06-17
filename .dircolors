@@ -147,6 +147,7 @@ STICKY 37;44 # dir with the sticky bit set (+t) and not other-writable
 .h 04;38;5;51  # C/C++ header files
 
 .go 04;38;5;029
+.hs 04;38;5;098
 .rb 04;38;5;160
 .m 04;38;5;202
 .js 04;38;5;82
