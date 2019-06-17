@@ -51,6 +51,12 @@ filetype plugin indent on			" required
 set showcmd
 set showfulltag
 
+" ----------------------------------------------------------------------------
+"  FOR SECURITY, disable modelines
+set modelines=0
+set nomodeline
+"-----------------------------------------------------------------------------
+
 " COLORSCHEME SPECIFIC OPTIONS
 set bg=dark
 colorscheme swagdino
