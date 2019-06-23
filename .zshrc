@@ -50,7 +50,8 @@ test -r ~/.dircolors && eval "$(dircolors $HOME/.dircolors)"
 # Unset SSH_ASKPASS
 unset SSH_ASKPASS
 
-## FUNCTIONS!
+
+## ZSH-specific functions
 # urlencode some text
 function urlencode {
 	print "${${(j: :)@}//(#b)(?)/%$[[##16]##${match[1]}]}"
@@ -61,52 +62,10 @@ function google {
 	xdg-open "https://www.google.com/search?q=`urlencode "${(j: :)@}"`"
 }
 
-# print a separator banner as wide as the terminal
-function hr {
-	print ${(l:COLUMNS::=:)}
-}
-
-# display a list of supported colors
-function lscolors {
-	((cols = $COLUMNS - 4))
-	s=$(printf %${cols}s)
-	for i in {000..$(tput colors)}; do
-		echo -e $i $(tput setaf $i; tput setab $i)${s// /=}$(tput op);
-	done
-}
-
-# Explain command, requires curl and internet
-explain () {
-	if [ "$#" -eq 0 ]; then
-		while read  -p "Command: " cmd; do
-			curl -Gs "https://www.mankier.com/api/explain/?cols="$(tput cols) --data-urlencode "q=$cmd"
-		done
-		echo "Bye!"
-
-	elif [ "$#" -eq 1 ]; then
-		curl -Gs "https://www.mankier.com/api/explain/?cols="$(tput cols) --data-urlencode "q=$1"
-
-	else
-		echo "Usage"
-		echo "explain                  interactive mode."
-		echo "explain 'cmd -o | ...'   one quoted command to explain it."
-	fi
-}
-
 
 # Syntax highlighting
 if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] || [ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
 	source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
-
-# thefuck alias
-if [ -x "$(command -v thefuck)" ]; then
-	eval $(thefuck --alias)
-fi
-
-# Fortune check install
-if [ -x "$(command -v fortune)" ]; then
-	fortune
 fi
 
 # Print current shell version
