@@ -7,7 +7,7 @@ home_vim_colors := $(addprefix ~/.vim/colors/, $(vim_colors_name))
 home_vim_ftplugin := $(addprefix ~/.vim/ftplugin/, $(notdir $(dot_vim_ftplugin)))
 
 
-default: config-vim link-tmux link-dircolors link-Xdefaults zsh-shell
+default: config-vim link-tmux link-dircolors link-termite link-Xdefaults zsh-shell
 
 # =============================================================================
 
@@ -122,11 +122,11 @@ else
 endif
 	@ln ./.common.rc.sh ~/.common.rc.sh
 #	Check what the default shell is
-ifneq ($(which $SHELL), $(which zsh))
+ifeq ($(which $SHELL), $(which zsh))
+	$(info ZSH is already set to the default shell.)
+else
 	$(info Enter password to change the default shell to zsh.)
 	@chsh -s `which zsh`
-else
-	$(info ZSH is already set to the default shell.)
 endif
 	$(info =====================================)
 	$(info   Source the new .zshrc to apply it)
