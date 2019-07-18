@@ -15,8 +15,9 @@ local PR_USER PR_USER_OP PR_PROMPT PR_HOST
 
 setopt PROMPT_SUBST
 
-# Check for Ubuntu release for prompt (ChromeOS)
+# Check for distro release
 os_var=`cat /etc/os-release | head -1 | sed 's/\"//g' | sed 's/NAME=//'`
+
 if [[ "$os_var" == "Ubuntu" ]]; then
 	# Check the UID
 	if [[ $UID -ne 0 ]]; then # normal user
@@ -42,6 +43,7 @@ if [[ "$os_var" == "Ubuntu" ]]; then
 	local current_dir="%(4~|%-1~/…/%2~|%3~)"
 	local formatted_current_dir=" %{[01;38;5;232;48;5;097m%} ${current_dir} %k%f "
 
+	# aka exit code
 	local return_code="%(?..%{[00;38;5;000;48;5;088m%} %? %k%f)"
 	local user_host="${PR_USER}${PR_HOST}"
 
@@ -106,7 +108,8 @@ else  # Not Ubuntu
 
 	local formatted_current_dir="%{[01;38;5;232;48;5;097m%} ${current_dir}%k%f%{[01;38;5;097m%}%k%f"
 
-	local return_code="%(?..%{[00;38;5;088m%}%{[00;38;5;000;48;5;088m%} %? %{[00;38;5;088;48;5;000m%}%k%f)"	# U+F112
+	# aka exit code
+	local return_code="%(?..%{[00;38;5;088m%}%{[00;38;5;000;48;5;088m%} %? %{[00;38;5;088m%}%k%f)"	# U+F112
 	local user_host="${PR_USER}${PR_HOST}"
 
 	# TWO LINE PROMPT
