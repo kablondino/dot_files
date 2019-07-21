@@ -7,9 +7,7 @@ Read over the `Makefile` and use it.
 2. `.zshrc`
 	+ `.prompt.zsh`
 3. `.tmux.conf` and `.tmux.conf.local` from [Oh My Tmux!](https://github.com/gpakosz/.tmux "gpakosz GitHub Repository")
-4. `.vimrc`
 5. `.Xdefaults`
-6. `swagdino.vim`, color scheme and language-specific files
 7. `.dircolors` (requires 256 colors)
 8. `i3.config`, the i3gaps fork
 
@@ -19,27 +17,15 @@ Read over the `Makefile` and use it.
 
 9. `termite/.config`; See an answer [here](https://askubuntu.com/questions/739163/how-to-install-termite) on how to install.
 
-[Nerd Fonts](http://nerdfonts.com/) are used a lot for vim and the zsh prompt.
+[Nerd Fonts](http://nerdfonts.com/) are used a lot for vim (see note below about vim) and the zsh prompt.
 Alter the font in the `.Xdefaults` or `termite/.config` to avoid using them, depending on which terminal you use.
 
 
 ### VIM Files and Plugins
-+ Color scheme
-+ Syntax files
-	+ TeX
-	+ Python
-+ [VundleVim/Vundle.vim](https://github.com/VundleVim/Vundle.vim)
-+ [itchyny/lightline.vim](https://github.com/itchyny/lightline.vim)
-+ [mgee/lightline-bufferline](https://github.com/mgee/lightline-bufferline)
-+ [ryanoasis/vim-devicons](https://github.com/ryanoasis/vim-devicons)
-	+ Current configuration requires Nerd Fonts to show glyphs correctly for the 3 above plugins
-+ [chrisbra/Colorizer](https://github.com/chrisbra/Colorizer)
-+ [Konfekt/FastFold](https://github.com/Konfekt/FastFold)
-+ [nelstrom/vim-markdown-folding](https://github.com/nelstrom/vim-markdown-folding)
-+ [matze/vim-tex-fold](https://github.com/matze/vim-tex-fold)
-+ [tmhedberg/SimpylFold](https://github.com/tmhedberg/SimpylFold)
-+ [mboughaba/i3config.vim](https://github.com/mboughaba/i3config.vim)
-+ [scrooloose/nerdtree](https://github.com/scrooloose/nerdtree)
+**NOTE!** Vim files have moved!
+It has been moved to its own repository, partially because I dropped [Vundle](https://github.com/VundleVim/Vundle.vim).
+Now, Vim 8's built-in functionality is used.
+Look at [my other repository](https://github.com/kablondino/.vim) to implement it.
 
 ### ZSH / BASH
 + Fortune
