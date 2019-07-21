@@ -24,6 +24,8 @@ Alter the font in the `.Xdefaults` or `termite/.config` to avoid using them, dep
 
 
 ### VIM Files and Plugins
+**NOTE!** Vim files are in the process of moving repositories, as Vundle will be dropped.
+The repository will be different than this one, with more manual plugin management.
 + Color scheme
 + Syntax files
 	+ TeX
