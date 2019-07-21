@@ -1,59 +1,4 @@
-# Variables for making vim
-dot_vim_colors := $(wildcard ./vim/colors/*.vim)
-dot_vim_ftplugin := $(wildcard ./vim/ftplugin/*.vim)
-vim_colors_name := $(notdir $(dot_vim_colors))
-vim_ftplugin_name := $(notdir $(dot_vim_ftplugin))
-home_vim_colors := $(addprefix ~/.vim/colors/, $(vim_colors_name))
-home_vim_ftplugin := $(addprefix ~/.vim/ftplugin/, $(notdir $(dot_vim_ftplugin)))
-
-
-default: config-vim link-tmux link-dircolors link-termite link-Xdefaults zsh-shell
-
-# =============================================================================
-
-make_vim_dirs:
-	$(info Making vim directories)
-	@mkdir -p ~/.vim/colors/
-	@mkdir -p ~/.vim/ftplugin/
-
-# Targets for properly linking the files
-# Check and link colors
-~/.vim/colors/%.vim: ./vim/colors/%.vim
-ifeq ($(home_vim_colors), $(wildcard (home_vim_colors)))
-	$(info Replacing previous vim color files in ~/.vim/colors/)
-	@rm -f $(home_vim_colors)
-else
-	$(info Linking all vim color files into ~/.vim/colors/)
-endif
-	@ln $< $(dir $@)
-
-# Check and link ftplugin
-~/.vim/ftplugin/%.vim: ./vim/ftplugin/%.vim
-ifeq ($(home_vim_ftplugin), $(wildcard (home_vim_ftplugin)))
-	$(info Replacing previous vim ftplugin files in ~/.vim/ftplugin/)
-	@rm -f $(home_vim_ftplugin)
-else
-	$(info Linking all vim ftplugin files into ~/.vim/ftplugin/)
-endif
-	@ln $< $(dir $@)
-
-config-vim:
-ifneq ($(wildcard ~/.vimrc),)
-	$(info Replacing .vimrc)
-	@rm ~/.vimrc
-else
-	$(info Linking .vimrc)
-endif
-	@ln ./.vimrc ~/.vimrc
-
-# Install Vundle
-ifeq ($(wildcard ~/.vim/bundle/Vundle.vim),)
-	$(info Installing Vundle)
-	git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-endif
-
-	$(info Installing all plugins specified in .vimrc)
-	@vim +PluginInstall +qall
+default: link-tmux link-dircolors link-termite link-Xdefaults zsh-shell
 
 # =============================================================================
 
@@ -207,7 +152,4 @@ endif
 	@ln ./sage/init.sage ~/.sage/init.sage
 
 # =============================================================================
-
-.PHONY: config-vim
-config-vim: make_vim_dirs $(home_vim_colors) $(home_vim_ftplugin)
 
