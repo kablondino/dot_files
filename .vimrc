@@ -16,35 +16,38 @@
 set nocompatible					" be iMproved, required
 filetype off						" required
 
+
+"============================= DEPRICATED ====================================
 " VUNDLE SETUP START
-set rtp+=~/.vim/bundle/Vundle.vim	" Default path
-call vundle#begin()
-" Alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-Plugin 'itchyny/lightline.vim'
-Plugin 'mgee/lightline-bufferline'
-Plugin 'ryanoasis/vim-devicons'		" REQUIRES Nerd Font
-
-Plugin 'chrisbra/Colorizer'
-
-Plugin 'Konfekt/FastFold'			" Unchecked with other folding plugins!
-Plugin 'nelstrom/vim-markdown-folding'
-Plugin 'matze/vim-tex-fold'
-Plugin 'tmhedberg/SimpylFold'
-Plugin 'mboughaba/i3config.vim'
-
-Plugin 'scrooloose/nerdtree'
-"Plugin 'tpope/vim-fugitive'
-
-"Plugin 'severin-lemaignan/vim-minimap'
-
-" All of your Plugins must be added before the following line
-call vundle#end()					" required
+"set rtp+=~/.vim/bundle/Vundle.vim	" Default path
+"call vundle#begin()
+"" Alternatively, pass a path where Vundle should install plugins
+""call vundle#begin('~/some/path/here')
+"
+"" let Vundle manage Vundle, required
+"Plugin 'VundleVim/Vundle.vim'
+"
+"Plugin 'itchyny/lightline.vim'
+"Plugin 'mgee/lightline-bufferline'
+"Plugin 'ryanoasis/vim-devicons'		" REQUIRES Nerd Font
+"
+"Plugin 'chrisbra/Colorizer'
+"
+"Plugin 'Konfekt/FastFold'			" Unchecked with other folding plugins!
+"Plugin 'nelstrom/vim-markdown-folding'
+"Plugin 'matze/vim-tex-fold'
+"Plugin 'tmhedberg/SimpylFold'
+"Plugin 'mboughaba/i3config.vim'
+"
+"Plugin 'scrooloose/nerdtree'
+""Plugin 'tpope/vim-fugitive'
+"
+""Plugin 'severin-lemaignan/vim-minimap'
+"
+"" All of your Plugins must be added before the following line
+"call vundle#end()					" required
 " VUNDLE SETUP END
+" ============================================================================
 
 filetype plugin indent on			" required
 
