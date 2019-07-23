@@ -135,16 +135,17 @@ STICKY 37;44 # dir with the sticky bit set (+t) and not other-writable
 .f90 04;38;5;039
 .f95 04;38;5;039
 .source 04;38;5;039
-.mod 04;38;5;51 # Fortran module file
+.mod 00;38;5;51 # Fortran module file
 
 .py 04;38;5;227
 .sage 04;38;5;227
+.jl 04;38;5;211
 
 .cpp 04;38;5;027
 .cc 04;38;5;027
 .c++ 04;38;5;027
 .c 04;38;5;027
-.h 04;38;5;51  # C/C++ header files
+.h 04;38;5;80  # C/C++ header files
 
 .go 04;38;5;029
 .hs 04;38;5;098
@@ -153,8 +154,9 @@ STICKY 37;44 # dir with the sticky bit set (+t) and not other-writable
 .js 04;38;5;82
 
 .tex 04;38;5;057
-.bib 03;38;5;053
+.bib 03;38;5;054
 .md 04;38;5;116
+.MD 04;38;5;116
 .markdown 04;38;5;116
 
 # Data files
