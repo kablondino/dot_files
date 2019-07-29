@@ -36,6 +36,7 @@ alias quit='exit'
 alias tmux='tmux -2'
 alias less='less -R'
 alias mv='mv -i'				# Confirm move if overwriting
+alias ncdu='ncdu --color=dark --confirm-quit'
 
 
 ## FUNCTIONS and procedures!
