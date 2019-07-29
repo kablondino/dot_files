@@ -6,7 +6,7 @@ precmd() { vcs_info }
 
 # Format the vcs_info_msg_0_ variable
 #zstyle ':vcs_info:*' check-for-changes true
-#zstyle ':vcs_info:git:*' actionformats "%s  %r/%S %b %m%u%c "
+zstyle ':vcs_info:git:*' formats " %b"
 
 promptinit
 
@@ -39,6 +39,9 @@ if [[ "$os_var" == "Ubuntu" ]]; then
 
 	local display_time="%{[00;38;5;000;48;5;204m%} %* %k%f"
 
+	# Version control colorized
+	local formatted_vcs_info="%{[00;38;5;232;48;5;170m%}\${vcs_info_msg_0_} %k%f"
+
 	# Directory expansion for showing only the last 2 directories, if too long
 	local current_dir="%(4~|%-1~/…/%2~|%3~)"
 	local formatted_current_dir=" %{[01;38;5;232;48;5;097m%} ${current_dir} %k%f "
@@ -47,8 +50,7 @@ if [[ "$os_var" == "Ubuntu" ]]; then
 	local return_code="%(?..%{[00;38;5;000;48;5;088m%} %? %k%f)"
 	local user_host="${PR_USER}${PR_HOST}"
 
-	PROMPT="${display_time}${formatted_current_dir}"
-	#╰─
+	PROMPT="${display_time}${formatted_vcs_info}${formatted_current_dir}"
 	RPROMPT="${return_code}${user_host}"
 
 else  # Not Ubuntu
@@ -99,12 +101,15 @@ else  # Not Ubuntu
 		PR_HOST="%{[00;38;5;107;48;5;022m%}%{[00;38;5;148;48;5;107m%} %{[00;38;5;000;48;5;148m%} %M %k%{[00;38;5;148m%}%k%f" # no SSH
 	fi
 
-	local display_time="%{[00;38;5;204m%}%{[00;38;5;000;48;5;204m%}%*%{[00;38;5;204;48;5;170m%} %k%f"
+	local display_time="%{[00;38;5;204m%}%{[00;38;5;000;48;5;204m%}%*%{[01;38;5;204;48;5;170m%} %k%f"
 
 	# Directory expansion for showing only the last 2 directories, if too long
-	local current_dir="%(4~|%-1~/…/%2~|%3~)"
+	local current_dir='%(4~|%-1~/…/%2~|%3~)'
 	# Directory expansion for showing only set amount of characters in prompt
 	#local current_dir="%50<…<%~%<<"
+
+	# Version control colorized
+	local formatted_vcs_info="%{[00;38;5;232;48;5;170m%}\${vcs_info_msg_0_}%{[01;38;5;170;48;5;097m%}%k%f"
 
 	local formatted_current_dir="%{[01;38;5;232;48;5;097m%} ${current_dir}%k%f%{[01;38;5;097m%}%k%f"
 
@@ -113,8 +118,7 @@ else  # Not Ubuntu
 	local user_host="${PR_USER}${PR_HOST}"
 
 	# TWO LINE PROMPT
-	PROMPT="${display_time}%{[01;38;5;170;48;5;097m%}${formatted_current_dir}
+	PROMPT="${display_time}${formatted_vcs_info}${formatted_current_dir}
 $PR_PROMPT"
-	#╰─
 	RPROMPT="${return_code}${user_host}"
 fi
