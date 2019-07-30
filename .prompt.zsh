@@ -20,8 +20,8 @@ os_var=`cat /etc/os-release | head -1 | sed 's/\"//g' | sed 's/NAME=//'`
 
 if [[ "$os_var" == "Ubuntu" ]]; then
 	# Check the UID
-	if [[ $UID -ne 0 ]]; then # normal user
-		PR_USER="%{[00;38;5;000;48;5;022m%} %n "	# HOST corrects colors
+	if [[ $UID -ne 0 ]]; then  # normal user
+		PR_USER="%F{232}%K{022} %n "  # HOST corrects colors
 		PR_USER_OP='%F{green}%#%f'
 		PR_PROMPT='${vim_mode} '
 	else # root
@@ -32,22 +32,22 @@ if [[ "$os_var" == "Ubuntu" ]]; then
 
 	# Check if we are on SSH or not
 	if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then
-		PR_HOST="%{[00;38;5;032;48;5;036m%}%M %k%f" # SSH
+		PR_HOST="%F{032}%K{036}%M %k%f"  # SSH
 	else
-		PR_HOST="%{[00;38;5;000;48;5;148m%} %M %k%f" # no SSH
+		PR_HOST="%F{232}%K{148} %M %k%f"  # no SSH
 	fi
 
-	local display_time="%{[00;38;5;000;48;5;204m%} %* %k%f"
+	local display_time="%F{232}%K{204} %* %k%f"
 
 	# Version control colorized
-	local formatted_vcs_info="%{[00;38;5;232;48;5;170m%}\${vcs_info_msg_0_} %k%f"
+	local formatted_vcs_info="%F{232}%K{170}\${vcs_info_msg_0_} %k%f"
 
 	# Directory expansion for showing only the last 2 directories, if too long
 	local current_dir="%(4~|%-1~/…/%2~|%3~)"
-	local formatted_current_dir=" %{[01;38;5;232;48;5;097m%} ${current_dir} %k%f "
+	local formatted_current_dir=" %B%F{232}%K{097} ${current_dir} %k%f "
 
 	# aka exit code
-	local return_code="%(?..%{[00;38;5;000;48;5;088m%} %? %k%f)"
+	local return_code="%(?..%F{232}%K{088} %? %k%f)"
 	local user_host="${PR_USER}${PR_HOST}"
 
 	PROMPT="${display_time}${formatted_vcs_info}${formatted_current_dir}"
@@ -60,14 +60,14 @@ else  # Not Ubuntu
 	#vim_vis_mode="%{[01;38;5;088;48;5;208m%} VISUAL %{[00;38;5;208m%}%k%f"
 
 	# Landscape colors
-	vim_cmd_mode="%{[01;38;5;015;48;012m%}%{[01;38;5;012;48;5;015m%} NORMAL %k%{[00;38;5;015m%}%k%f"
-	vim_ins_mode="%{[00;38;5;015;48;022m%}%{[01;38;5;022;48;5;015m%} INSERT %k%{[00;38;5;015m%}%k%f"
-	vim_vis_mode="%{[01;38;5;057;48;5;015m%} VISUAL %k%{[00;38;5;015m%}%k%f"
+	vim_cmd_mode="%B%F{015}%K{012}%B%F{012}%K{015} NORMAL %k%F{015}%k%f"
+	vim_ins_mode="%F{015}%K{022}%B%F{022}%K{015} INSERT %k%F{015}%k%f"
+	vim_vis_mode="%B%F{057}%K{015} VISUAL %k%F{015}%k%f"
 
 	# Deus colors
-	vim_cmd_mode="%{[00;38;5;114m%}%{[01;38;5;232;48;5;114m%} NORMAL %k%{[00;38;5;114m%}%k%f"
-	vim_ins_mode="%{[00;38;5;039m%}%{[01;38;5;232;48;5;039m%} INSERT %k%{[00;38;5;039m%}%k%f"
-	vim_vis_mode="%{[01;38;5;232;48;5;170m%} VISUAL %k%{[00;38;5;170m%}%k%f"
+	vim_cmd_mode="%F{114}%B%F{232}%K{114} NORMAL %k%F{114}%k%f"
+	vim_ins_mode="%F{039}%B%F{232}%K{039} INSERT %k%F{039}%k%f"
+	vim_vis_mode="%B%F{232}%K{170} VISUAL %k%F{170}%k%f"
 
 
 	vim_mode=$vim_ins_mode
@@ -84,11 +84,11 @@ else  # Not Ubuntu
 	zle -N zle-line-finish
 
 	# Check the UID
-	if [[ $UID -ne 0 ]]; then # normal user
-		PR_USER="%{[00;38;5;022m%}%{[00;38;5;000;48;5;022m%} %n "	# HOST corrects colors
+	if [[ $UID -ne 0 ]]; then  # normal user
+		PR_USER="%F{022}%{[00;38;5;232;48;5;022m%} %n "  # HOST corrects colors
 		PR_USER_OP='%F{green}%#%f'
 		PR_PROMPT='${vim_mode} '
-	else # root
+	else  # root
 		PR_USER='%F{blue} %n %f '
 		PR_USER_OP='%F{blue}%#%f'
 		PR_PROMPT='${vim_mode} '
@@ -96,12 +96,12 @@ else  # Not Ubuntu
 
 	# Check if we are on SSH or not
 	if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then
-		PR_HOST="%{[00;38;5;036;48;5;022m%}%{[00;38;5;032;48;5;036m%} %{[00;38;5;000;48;5;032m%} %M %k%{[00;38;5;032m%}%k%f" # SSH
+		PR_HOST="%F{036}%K{022}%F{032}%K{036} %F{232}%K{032} %M %k%F{032}%k%f"  # SSH
 	else
-		PR_HOST="%{[00;38;5;107;48;5;022m%}%{[00;38;5;148;48;5;107m%} %{[00;38;5;000;48;5;148m%} %M %k%{[00;38;5;148m%}%k%f" # no SSH
+		PR_HOST="%F{107}%K{022}%F{148}%K{107} %F{232}%K{148} %M %k%F{148}%k%f"  # no SSH
 	fi
 
-	local display_time="%{[00;38;5;204m%}%{[00;38;5;000;48;5;204m%}%*%{[01;38;5;204;48;5;170m%} %k%f"
+	local display_time="%F{204}%F{232}%K{204}%*%B%F{204}%K{170} %k%f"
 
 	# Directory expansion for showing only the last 2 directories, if too long
 	local current_dir='%(4~|%-1~/…/%2~|%3~)'
@@ -109,12 +109,12 @@ else  # Not Ubuntu
 	#local current_dir="%50<…<%~%<<"
 
 	# Version control colorized
-	local formatted_vcs_info="%{[00;38;5;232;48;5;170m%}\${vcs_info_msg_0_}%{[01;38;5;170;48;5;097m%}%k%f"
+	local formatted_vcs_info="%F{232}%K{170}\${vcs_info_msg_0_}%B%F{170}%K{097}%k%f"
 
-	local formatted_current_dir="%{[01;38;5;232;48;5;097m%} ${current_dir}%k%f%{[01;38;5;097m%}%k%f"
+	local formatted_current_dir="%B%F{232}%K{097} ${current_dir}%k%f%B%F{097}%k%f"
 
 	# aka exit code
-	local return_code="%(?..%{[00;38;5;088m%}%{[00;38;5;000;48;5;088m%} %? %{[00;38;5;088m%}%k%f)"	# U+F112
+	local return_code="%(?..%F{088}%F{232}%K{088} %? %{[00;38;5;088m%}%k%f)"  # U+F112
 	local user_host="${PR_USER}${PR_HOST}"
 
 	# TWO LINE PROMPT
