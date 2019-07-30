@@ -6,26 +6,22 @@ Read over the `Makefile` and use it.
 1. `.bashrc` (unused for a long time)
 2. `.zshrc`
 	+ `.prompt.zsh`
+	+ `.common.rc.sh`
 3. `.tmux.conf` and `.tmux.conf.local` from [Oh My Tmux!](https://github.com/gpakosz/.tmux "gpakosz GitHub Repository")
-5. `.Xdefaults`
-7. `.dircolors` (requires 256 colors)
-8. `i3.config`, the i3gaps fork
+4. `.Xdefaults`, only for the urxvt terminal
+5. `.dircolors` (requires 256 colors)
+6. `i3.config`, the i3gaps fork
 
 	+ $Mod + Ctrl + Esc:				Lock screen
 	+ $Mod + Ctrl + Alt + Esc:	 		Suspend
 	+ $Mod + Ctrl + Shift + Alt + Esc:	Hibernate
 
-9. `termite/.config`; See an answer [here](https://askubuntu.com/questions/739163/how-to-install-termite) on how to install.
+7. `termite/.config`; Installation of this terminal varies very widely between distributions.
 
+
+## "Required" Software
 [Nerd Fonts](http://nerdfonts.com/) are used a lot for vim (see note below about vim) and the zsh prompt.
-Alter the font in the `.Xdefaults` or `termite/.config` to avoid using them, depending on which terminal you use.
-
-
-### VIM Files and Plugins
-**NOTE!** Vim files have moved!
-It has been moved to its own repository, partially because I dropped [Vundle](https://github.com/VundleVim/Vundle.vim).
-Now, Vim 8's built-in functionality is used.
-Look at [my other repository](https://github.com/kablondino/.vim) to implement it.
+Alter the font choice in the `.Xdefaults` or `termite/.config`, depending on which terminal you use.
 
 ### ZSH / BASH
 + Fortune
@@ -36,9 +32,16 @@ Look at [my other repository](https://github.com/kablondino/.vim) to implement i
 + Main terminal: Termite
 + rofi
 + bumblebee-status
-+ xscreensaver
++ i3ipc
++ redshift (with gtk)
 + [light](https://github.com/haikarainen/light)
 + pactl
 + xfce4-power-manager
 + nm-applet
+
+### VIM Files and Plugins
+**NOTE!** Vim files have moved!
+It has been moved to its own repository, partially because I dropped [Vundle](https://github.com/VundleVim/Vundle.vim).
+Now, Vim 8's built-in functionality is used.
+Look at [my other repository](https://github.com/kablondino/.vim) to implement it.
 

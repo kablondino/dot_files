@@ -11,7 +11,7 @@ export KEYTIMEOUT=1
 # Set the TERM so that italics and color are available, even in TMUX
 export TERM=xterm-256color
 
-export LESS="-M -I -R"
+export LESS="--tabs=4 --LONG-PROMPT --ignore-case --RAW-CONTROL-CHARS --quit-if-one-screen"
 
 # Add conda path (DEPRICATED). Conda has claimed to have updated to not require this.
 #export PATH="$HOME/miniconda2/bin:$HOME/miniconda3/bin:$PATH"
@@ -36,6 +36,7 @@ alias quit='exit'
 alias tmux='tmux -2'
 alias less='less -R'
 alias mv='mv -i'				# Confirm move if overwriting
+alias ncdu='ncdu --color=dark --confirm-quit'
 
 
 ## FUNCTIONS and procedures!
