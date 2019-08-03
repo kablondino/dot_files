@@ -44,7 +44,7 @@ if [[ "$os_var" == "Ubuntu" ]]; then
 
 	# Directory expansion for showing only the last 2 directories, if too long
 	local current_dir="%(4~|%-1~/…/%2~|%3~)"
-	local formatted_current_dir=" %B%F{232}%K{097} ${current_dir} %k%f "
+	local formatted_current_dir=" %B%F{232}%K{097} ${current_dir} %b%k%f "
 
 	# aka exit code
 	local return_code="%(?..%F{232}%K{088} %? %k%f)"
@@ -60,14 +60,14 @@ else  # Not Ubuntu
 	#vim_vis_mode="%{[01;38;5;088;48;5;208m%} VISUAL %{[00;38;5;208m%}%k%f"
 
 	# Landscape colors
-	vim_cmd_mode="%B%F{015}%K{012}%B%F{012}%K{015} NORMAL %k%F{015}%k%f"
-	vim_ins_mode="%F{015}%K{022}%B%F{022}%K{015} INSERT %k%F{015}%k%f"
-	vim_vis_mode="%B%F{057}%K{015} VISUAL %k%F{015}%k%f"
+	vim_cmd_mode="%B%F{015}%K{012}%F{012}%K{015} NORMAL %k%F{015}%b%k%f"
+	vim_ins_mode="%F{015}%K{022}%B%F{022}%K{015} INSERT %k%F{015}%b%k%f"
+	vim_vis_mode="%B%F{057}%K{015} VISUAL %k%F{015}%b%k%f"
 
 	# Deus colors
-	vim_cmd_mode="%F{114}%B%F{232}%K{114} NORMAL %k%F{114}%k%f"
-	vim_ins_mode="%F{039}%B%F{232}%K{039} INSERT %k%F{039}%k%f"
-	vim_vis_mode="%B%F{232}%K{170} VISUAL %k%F{170}%k%f"
+	vim_cmd_mode="%F{114}%B%F{232}%K{114} NORMAL %k%F{114}%b%f"
+	vim_ins_mode="%F{039}%B%F{232}%K{039} INSERT %k%F{039}%b%f"
+	vim_vis_mode="%B%F{232}%K{170} VISUAL %k%F{170}%b%f"
 
 
 	vim_mode=$vim_ins_mode
@@ -101,7 +101,7 @@ else  # Not Ubuntu
 		PR_HOST="%F{107}%K{022}%F{148}%K{107} %F{232}%K{148} %M %k%F{148}%k%f"  # no SSH
 	fi
 
-	local display_time="%F{204}%F{232}%K{204}%*%B%F{204}%K{170} %k%f"
+	local display_time="%F{204}%F{232}%K{204}%*%B%F{204}%K{170} %b%k%f"
 
 	# Directory expansion for showing only the last 2 directories, if too long
 	local current_dir='%(4~|%-1~/…/%2~|%3~)'
@@ -109,9 +109,9 @@ else  # Not Ubuntu
 	#local current_dir="%50<…<%~%<<"
 
 	# Version control colorized
-	local formatted_vcs_info="%F{232}%K{170}\${vcs_info_msg_0_}%B%F{170}%K{097}%k%f"
+	local formatted_vcs_info="%F{232}%K{170}\${vcs_info_msg_0_}%B%F{170}%K{097}%b%k%f"
 
-	local formatted_current_dir="%B%F{232}%K{097} ${current_dir}%k%f%B%F{097}%k%f"
+	local formatted_current_dir="%B%F{232}%K{097} ${current_dir}%k%F{097}%b%k%f"
 
 	# aka exit code
 	local return_code="%(?..%F{088}%F{232}%K{088} %? %{[00;38;5;088m%}%k%f)"  # U+F112
