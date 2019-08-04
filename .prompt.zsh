@@ -61,13 +61,13 @@ else  # Not Ubuntu
 
 	# Landscape colors
 	vim_cmd_mode="%B%F{015}%K{012}%F{012}%K{015} NORMAL %k%F{015}%b%k%f"
-	vim_ins_mode="%F{015}%K{022}%B%F{022}%K{015} INSERT %k%F{015}%b%k%f"
-	vim_vis_mode="%B%F{057}%K{015} VISUAL %k%F{015}%b%k%f"
+	vim_ins_mode="%B%F{015}%K{022}%F{022}%K{015} INSERT %k%F{015}%b%k%f"
+	vim_vis_mode="%B%F{057}%K{015}%F{015}%K{057} VISUAL %k%F{015}%b%k%f"
 
 	# Deus colors
-	vim_cmd_mode="%F{114}%B%F{232}%K{114} NORMAL %k%F{114}%b%f"
-	vim_ins_mode="%F{039}%B%F{232}%K{039} INSERT %k%F{039}%b%f"
-	vim_vis_mode="%B%F{232}%K{170} VISUAL %k%F{170}%b%f"
+	vim_cmd_mode="%B%F{114}%F{232}%K{114} NORMAL %k%F{114}%b%f"
+	vim_ins_mode="%B%F{039}%F{232}%K{039} INSERT %k%F{039}%b%f"
+	vim_vis_mode="%B%F{232}%F{232}%K{170} VISUAL %k%F{170}%b%f"
 
 
 	vim_mode=$vim_ins_mode
