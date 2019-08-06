@@ -12,11 +12,6 @@
 #  ███████╗███████║██║  ██║██║  ██║╚██████╗                         
 #  ╚══════╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝                         
 
-
-# HOW TO RUN ZSH SETUP AGAIN!
-#	autoload -Uz zsh-newuser-install
-#	zsh-newuser-install -f
-
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
