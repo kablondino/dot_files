@@ -63,6 +63,8 @@ if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] || [ -f
 	. /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
-# Print current shell version
-echo -n "Current Shell: "; echo -n "ZSH "; echo $ZSH_VERSION
+# Print current shell version, if using SUSE
+if [ "$(uname -r)" == "*suse*" ]; then
+	echo -n "Current Shell: "; echo -n "ZSH "; echo $ZSH_VERSION
+fi
 

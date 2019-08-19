@@ -117,6 +117,11 @@ if [ -x "$(command -v thefuck)" ]; then
 	eval $(thefuck --alias)
 fi
 
+# Neofetch (does not run if if SUSE is the distro, since it's slow)
+if [ -x "$(command -v neofetch)" ] && [ "$(uname -r)" != "*suse*" ]; then
+	neofetch
+fi
+
 # Fortune check install and run
 if [ -x "$(command -v fortune)" ]; then
 	fortune
