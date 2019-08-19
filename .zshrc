@@ -59,12 +59,14 @@ function google {
 
 
 # Syntax highlighting
-if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] || [ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+if [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] \
+	|| [ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]
+then
 	. /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
 # Print current shell version, if using SUSE
-if [ "$(uname -r)" == "*suse*" ]; then
-	echo -n "Current Shell: "; echo -n "ZSH "; echo $ZSH_VERSION
+if [ "$(uname -r)" = "*suse*" ]; then
+	printf "Current Shell: ZSH %s\n" $ZSH_VERSION
 fi
 
