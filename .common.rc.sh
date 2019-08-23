@@ -112,14 +112,21 @@ function timer () {
 	fi
 }
 
+
+# Get the OS name (ID), for checking to run neofetch
+osrel=$(sed -n '/^ID=/s/^.*=//p' /usr/lib/os-release);
+
 # thefuck alias
 if [ -x "$(command -v thefuck)" ]; then
 	eval $(thefuck --alias)
 fi
 
-# Neofetch (does not run if if SUSE is the distro, since it's slow)
-if [ -x "$(command -v neofetch)" ] && [ "$(uname -r)" != "*suse*" ]; then
-	neofetch
+# Neofetch (does not run if SUSE is the distro, since it's slow)
+if [ -x "$(command -v neofetch)" ]; then
+	case $osrel in
+		*suse* ) true;;
+		* ) neofetch;;
+esac
 fi
 
 # Fortune check install and run
