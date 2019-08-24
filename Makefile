@@ -114,7 +114,7 @@ ifneq ($(wildcard ~/.config/rofi/config),)
 else
 	$(info Linking rofi.conf)
 endif
-	@ln ./rofi.conf ~/.config/rofi/config
+	@ln ./rofi/rofi.conf ~/.config/rofi/config
 
 # =============================================================================
 
