@@ -38,13 +38,15 @@ alias less='less -R'
 alias mv='mv -i'				# Confirm move if overwriting
 
 # Check the NCDU version, for color options
-ncdu_version="$(ncdu -v | cut -d" " -f2)"
-ncdu_color=1.13
-ncdu_var=$(awk -v a="$ncdu_version" -v b="$ncdu_color" 'BEGIN{ print(a>=b) }')
-if [ "$ncdu_var" -eq 1 ]; then
-	alias ncdu='ncdu --confirm-quit --color=dark'
-else
-	alias ncdu='ncdu --confirm-quit'
+if [ -x "$(command -v ncdu)" ]; then
+	ncdu_version="$(ncdu -v | cut -d" " -f2)"
+	ncdu_color=1.13
+	ncdu_var=$(awk -v a="$ncdu_version" -v b="$ncdu_color" 'BEGIN{ print(a>=b) }')
+	if [ "$ncdu_var" -eq 1 ]; then
+		alias ncdu='ncdu --confirm-quit --color=dark'
+	else
+		alias ncdu='ncdu --confirm-quit'
+	fi
 fi
 
 
