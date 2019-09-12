@@ -126,7 +126,7 @@ fi
 # Neofetch (does not run if SUSE is the distro, since it's slow)
 if [ -x "$(command -v neofetch)" ]; then
 	case $osrel in
-		*suse* ) true;;
+		*suse* ) printf "Current Shell: %s\n" "$($SHELL --version)";;
 		* ) neofetch;;
 esac
 fi
@@ -134,5 +134,10 @@ fi
 # Fortune check install and run
 if [ -x "$(command -v fortune)" ]; then
 	fortune
+fi
+
+# Note: WSL does not currently apply umask properly; this line fixes that
+if [ "$(umask)" = "000" ]; then
+  umask 022
 fi
 

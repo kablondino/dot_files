@@ -67,13 +67,3 @@ then
 	. /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
-# Print current shell version, if using SUSE
-if [ "$(uname -r)" = "*suse*" ]; then
-	printf "Current Shell: ZSH %s\n" $ZSH_VERSION
-fi
-
-# Note: WSL does not currently apply umask properly; this line fixes that
-if [ "$(umask)" = "0000" ]; then
-  umask 0022
-fi
-
