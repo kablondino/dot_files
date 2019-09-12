@@ -51,21 +51,21 @@ ifneq ($(wildcard ~/.zshrc),)
 else
 	$(info Linking .zshrc)
 endif
-	@ln ./.zshrc ~/.zshrc
+	@ln ./shell/.zshrc ~/.zshrc
 ifneq ($(wildcard ~/.prompt.zsh),)
 	$(info Replacing previous .prompt.zsh)
 	@rm ~/.prompt.zsh
 else
 	$(info Linking .prompt.zsh)
 endif
-	@ln ./.prompt.zsh ~/.prompt.zsh
+	@ln ./shell/.prompt.zsh ~/.prompt.zsh
 ifneq ($(wildcard ~/.common.rc.sh),)
 	$(info Replacing previous .common.rc.sh)
 	@rm ~/.common.rc.sh
 else
 	$(info Linking .common.rc.sh)
 endif
-	@ln ./.common.rc.sh ~/.common.rc.sh
+	@ln ./shell/.common.rc.sh ~/.common.rc.sh
 #	Check what the default shell is
 ifeq ($(which $SHELL), $(which zsh))
 	$(info ZSH is already set to the default shell.)
