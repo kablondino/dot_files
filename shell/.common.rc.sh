@@ -121,6 +121,9 @@ timer() {
 
 # Get the OS name (ID), for checking to run neofetch
 osrel=$(sed -n '/^ID=/s/^.*=//p' /usr/lib/os-release);
+bold=$(tput bold)
+normal=$(tput sgr0)
+green=$(tput setaf 2)
 
 # thefuck alias
 if [ -x "$(command -v thefuck)" ]; then
@@ -131,9 +134,11 @@ fi
 # Or print out the current shell version
 if [ -x "$(command -v neofetch)" ]; then
 	case $osrel in
-		*suse* ) printf "╔═══════════════╤═════════════════════╗\n"
-			printf "║ Current Shell │ %19s ║\n" $SHELL
-			printf "╚═══════════════╧═════════════════════╝\n";;
+		*suse* ) printf "╔═════════════════╤"
+			printf "══════════════════════════════════╗\n"
+			printf "║  ${bold}Current Shell${normal}  │"
+			printf "${green}%32s${normal}  ║\n" $SHELL
+			printf "╚═════════════════╧══════════════════════════════════╝\n";;
 		* ) neofetch;;
 esac
 fi
