@@ -13,12 +13,12 @@ export TERM=xterm-256color
 
 export LESS="--tabs=4 --LONG-PROMPT --ignore-case --RAW-CONTROL-CHARS"
 
-# Add conda path (DEPRICATED). Conda has claimed to have updated to not require this.
+# Add conda path (DEPRICATED)
 #export PATH="$HOME/miniconda2/bin:$HOME/miniconda3/bin:$PATH"
 
 # Uses this one instead
-if [ -s "$HOME/miniconda3/etc/profile.d/conda.sh" ] ||
-	[ -s "$HOME/miniconda2/etc/profile.d/conda.sh" ]; then
+if [ -s "$HOME/miniconda3/etc/profile.d/conda.sh" \
+	-o -s "$HOME/miniconda2/etc/profile.d/conda.sh" ]; then
 	. "$HOME/miniconda3/etc/profile.d/conda.sh"
 fi
 
@@ -41,23 +41,25 @@ alias mv='mv -i'				# Confirm move if overwriting
 if [ -x "$(command -v ncdu)" ]; then
 	ncdu_version="$(ncdu -v | cut -d" " -f2)"
 	ncdu_color=1.13
-	ncdu_var=$(awk -v a="$ncdu_version" -v b="$ncdu_color" 'BEGIN{ print(a>=b) }')
+	ncdu_var=$(awk -v a="$ncdu_version" -v b="$ncdu_color" \
+		'BEGIN{ print(a>=b) }')
 	if [ "$ncdu_var" -eq 1 ]; then
-		alias ncdu='ncdu --confirm-quit --color=dark'
+		alias ncdu="ncdu --confirm-quit --color=dark"
 	else
-		alias ncdu='ncdu --confirm-quit'
+		alias ncdu="ncdu --confirm-quit"
 	fi
 fi
 
 
 ## FUNCTIONS and procedures!
 # Alias to cd and list files at once
-function cs () {
-	cd "$@" && ls
+cs() {
+	cd "$@"
+	ls
 }
 
 # print a separator banner as wide as the terminal
-function hr {
+hr() {
 	k=0
 	while [ $k -lt $COLUMNS ]; do
 		echo -ne "="
@@ -66,7 +68,7 @@ function hr {
 }
 
 # display a list of supported colors
-function lscolors {
+lscolors() {
 	((cols = $COLUMNS - 4))
 	s=$(printf %${cols}s)
 	color_list=$(tput colors)
@@ -78,15 +80,17 @@ function lscolors {
 }
 
 # Explain command, requires curl and internet
-explain () {
+explain() {
 	if [ "$#" -eq 0 ]; then
 		while read  -p "Command: " cmd; do
-			curl -Gs "https://www.mankier.com/api/explain/?cols="$(tput cols) --data-urlencode "q=$cmd"
+			curl -Gs "https://www.mankier.com/api/explain/?cols="$(tput cols) \
+				--data-urlencode "q=$cmd"
 		done
 		echo "Bye!"
 
 	elif [ "$#" -eq 1 ]; then
-		curl -Gs "https://www.mankier.com/api/explain/?cols="$(tput cols) --data-urlencode "q=$1"
+		curl -Gs "https://www.mankier.com/api/explain/?cols="$(tput cols) \
+			--data-urlencode "q=$1"
 
 	else
 		echo "Usage"
@@ -96,12 +100,12 @@ explain () {
 }
 
 # Run matlab script (no JVM)
-function matlab_run () {
+matlab_run() {
 	matlab -nodesktop -nosplash -nojvm -r "run('$@'); exit;" | tail -n +11
 }
 
 # Timer
-function timer () {
+timer() {
 	seconds=$1
 
 	if [ -z "$seconds" ]; then
@@ -124,9 +128,12 @@ if [ -x "$(command -v thefuck)" ]; then
 fi
 
 # Neofetch (does not run if SUSE is the distro, since it's slow)
+# Or print out the current shell version
 if [ -x "$(command -v neofetch)" ]; then
 	case $osrel in
-		*suse* ) printf "Current Shell: %s\n" "$($SHELL --version)";;
+		*suse* ) printf "╔═══════════════╤═════════════════════╗\n"
+			printf "║ Current Shell │ %19s ║\n" $SHELL
+			printf "╚═══════════════╧═════════════════════╝\n";;
 		* ) neofetch;;
 esac
 fi
