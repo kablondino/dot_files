@@ -27,7 +27,7 @@ ifneq ($(wildcard ~/.dircolors),)
 else
 	$(info Linking .dircolors)
 endif
-	@ln ./.dircolors ~/.dircolors
+	@ln ./shell/.dircolors ~/.dircolors
 
 # =============================================================================
 
