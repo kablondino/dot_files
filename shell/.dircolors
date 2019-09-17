@@ -139,7 +139,8 @@ STICKY 37;44 # dir with the sticky bit set (+t) and not other-writable
 
 .py 04;38;5;227
 .sage 04;38;5;227
-.jl 04;38;5;211
+.yml 04;38;5;211
+.yaml 04;38;5;211
 
 .cpp 04;38;5;027
 .cc 04;38;5;027
@@ -152,6 +153,7 @@ STICKY 37;44 # dir with the sticky bit set (+t) and not other-writable
 .rb 04;38;5;160
 .m 04;38;5;202
 .js 04;38;5;82
+.jl 04;38;5;211
 
 .tex 04;38;5;057
 .bib 03;38;5;054
@@ -169,8 +171,9 @@ STICKY 37;44 # dir with the sticky bit set (+t) and not other-writable
 .sobj 38;5;000;48;5;14
 
 # Configuration files
-.vimrc 38;5;70;48;5;236
+.cfg 38;5;70;48;5;236
 .conf 38;5;70;48;5;236
+.vimrc 38;5;70;48;5;236
 .bashrc 38;5;70;48;5;236
 .zshrc 38;5;70;48;5;236
 .prompt.zsh 38;5;70;48;5;236
