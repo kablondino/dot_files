@@ -125,23 +125,27 @@ bold=$(tput bold)
 normal=$(tput sgr0)
 green=$(tput setaf 2)
 
+# Print shell information
+the_shell() {
+	printf "╔═════════════════╤══════════════════════════════════╗\n"
+	printf "║  ${bold}Current Shell${normal}  │${green}%32s${normal}  ║\n" $SHELL
+	printf "╚═════════════════╧══════════════════════════════════╝\n"
+}
+
 # thefuck alias
 if [ -x "$(command -v thefuck)" ]; then
 	eval $(thefuck --alias)
 fi
 
+
 # Neofetch (does not run if SUSE is the distro, since it's slow)
 # Or print out the current shell version
-if [ -x "$(command -v neofetch)" ]; then
-	case $osrel in
-		*suse* ) printf "╔═════════════════╤"
-			printf "══════════════════════════════════╗\n"
-			printf "║  ${bold}Current Shell${normal}  │"
-			printf "${green}%32s${normal}  ║\n" $SHELL
-			printf "╚═════════════════╧══════════════════════════════════╝\n";;
-		* ) neofetch;;
+case $osrel in
+	*suse* ) the_shell ;;
+	* ) if [ -x "$(command -v neofetch)" ]; then neofetch;
+		else the_shell; fi;;
 esac
-fi
+
 
 # Fortune check install and run
 if [ -x "$(command -v fortune)" ]; then
