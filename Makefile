@@ -1,4 +1,4 @@
-default: link-tmux link-dircolors link-termite link-Xdefaults zsh-shell
+default: link-tmux link-dircolors link-termite zsh-shell
 
 # =============================================================================
 
@@ -13,19 +13,6 @@ link-tmux:
 link-dircolors:
 	$(info Linking .dircolors)
 	@ln -f ./shell/.dircolors ~/.dircolors
-
-# =============================================================================
-
-link-Xdefaults:
-ifneq ($(wildcard ~/.Xdefaults),)
-	$(info Replacing previous .Xdefaults file)
-	@rm ~/.Xdefaults
-else
-	$(info Linking .Xdefaults file)
-endif
-	@ln ./.Xdefaults ~/.Xdefaults
-	$(info Reloading X server utility services.)
-	@xrdb ~/.Xdefaults
 
 # =============================================================================
 
