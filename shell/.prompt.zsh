@@ -6,7 +6,7 @@ precmd() { vcs_info }
 
 # Format the vcs_info_msg_0_ variable
 #zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:git:*' formats " %b"
+zstyle ':vcs_info:git:*' formats " %0.24b"
 
 promptinit
 
