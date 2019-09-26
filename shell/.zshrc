@@ -21,6 +21,9 @@ setopt appendhistory autocd notify
 # Vim mode!
 bindkey -v
 
+# Key timeout
+KEYTIMEOUT=1
+
 # Proper backspace and delete keys
 bindkey "^?" backward-delete-char
 bindkey "[3~" delete-char
