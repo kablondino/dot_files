@@ -1,5 +1,7 @@
 # https://github.com/gpakosz/.tmux
-# (‑●‑●)> released under the WTFPL v2 license, by Gregory Pakosz (@gpakosz)
+# (‑●‑●)> dual licensed under the WTFPL v2 license and the MIT license,
+#         without any warranty.
+#         Copyright 2012— Gregory Pakosz (@gpakosz).
 
 
 # -- navigation ----------------------------------------------------------------
@@ -91,9 +93,24 @@ tmux_conf_theme_status_fg='#8a8a8a'                     # light gray
 tmux_conf_theme_status_bg='default'                     # default
 tmux_conf_theme_status_attr='none'
 
+# terminal title
+#   - built-in variables are:
+#     - #{circled_window_index}
+#     - #{circled_session_name}
+#     - #{hostname}
+#     - #{hostname_ssh}
+#     - #{username}
+#     - #{username_ssh}
+tmux_conf_theme_terminal_title='#h ❐ #S ● #I #W'
+
 # window status style
 #   - built-in variables are:
 #     - #{circled_window_index}
+#     - #{circled_session_name}
+#     - #{hostname}
+#     - #{hostname_ssh}
+#     - #{username}
+#     - #{username_ssh}
 #tmux_conf_theme_window_status_fg='#005f00'         # dark green, Xterm 22
 #tmux_conf_theme_window_status_bg='#afd700'         # dark yellow, Xterm 148
 tmux_conf_theme_window_status_fg='#000000'
@@ -106,6 +123,11 @@ tmux_conf_theme_window_status_format=' #I #W '
 # window current status style
 #   - built-in variables are:
 #     - #{circled_window_index}
+#     - #{circled_session_name}
+#     - #{hostname}
+#     - #{hostname_ssh}
+#     - #{username}
+#     - #{username_ssh}
 #tmux_conf_theme_window_status_current_fg='#0037af'   # dark cyan, Xterm 31
 #tmux_conf_theme_window_status_current_bg='#ffffff'   # white, Xterm 15
 tmux_conf_theme_window_status_fg='#000000'
@@ -121,7 +143,7 @@ tmux_conf_theme_window_status_activity_bg='default'
 tmux_conf_theme_window_status_activity_attr='underscore'
 
 # window bell status style
-tmux_conf_theme_window_status_bell_fg='#ffff00'       # yellow
+tmux_conf_theme_window_status_bell_fg='#ffff00'         # yellow
 tmux_conf_theme_window_status_bell_bg='default'
 tmux_conf_theme_window_status_bell_attr='blink,bold'
 
@@ -135,10 +157,10 @@ tmux_conf_theme_left_separator_main=''
 tmux_conf_theme_left_separator_sub='|'
 tmux_conf_theme_right_separator_main=''
 tmux_conf_theme_right_separator_sub='|'
-#tmux_conf_theme_left_separator_main=''  # /!\ you don't need to install Powerline
-#tmux_conf_theme_left_separator_sub=''   #   you only need fonts patched with
-#tmux_conf_theme_right_separator_main='' #   Powerline symbols or the standalone
-#tmux_conf_theme_right_separator_sub=''  #   PowerlineSymbols.otf font
+#tmux_conf_theme_left_separator_main='\uE0B0'  # /!\ you don't need to install Powerline
+#tmux_conf_theme_left_separator_sub='\uE0B1'   #   you only need fonts patched with
+#tmux_conf_theme_right_separator_main='\uE0B2' #   Powerline symbols or the standalone
+#tmux_conf_theme_right_separator_sub='\uE0B3'  #   PowerlineSymbols.otf font, see README.md
 
 # status left/right content:
 #   - separate main sections with '|'
@@ -156,7 +178,9 @@ tmux_conf_theme_right_separator_sub='|'
 #     - #{pairing}
 #     - #{prefix}
 #     - #{root}
-#     - #{uptime_d}
+#     - #{synchronized}
+#     - #{uptime_y}
+#     - #{uptime_d} (modulo 365 when #{uptime_y} is used)
 #     - #{uptime_h}
 #     - #{uptime_m}
 #     - #{uptime_s}
@@ -166,8 +190,7 @@ tmux_conf_theme_status_left=  # EMPTY
 tmux_conf_theme_status_right='#{prefix}#{pairing}#{?battery_status, #{battery_status},} #{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage} ,}, #{?uptime_d, #{uptime_d}d,} #{?uptime_h,#{uptime_h}h,}#{?uptime_m,#{uptime_m}m,} | #{username}#{root} | #{hostname}'
 
 # status left style
-tmux_conf_theme_status_left_fg='#000000,#e4e4e4,#e4e4e4'
-#tmux_conf_theme_status_left_fg='#005f00,#e4e4e4,#e4e4e4'
+tmux_conf_theme_status_left_fg='#000000,#e4e4e4,#e4e4e4'  # black, white , white
 tmux_conf_theme_status_left_bg='#ff5f87,#e4e4e4,#00afff' # 204, white,...
 #tmux_conf_theme_status_left_bg='#afd700,#ff00af,#0087af'
 tmux_conf_theme_status_left_attr='bold,none,none'
@@ -178,26 +201,32 @@ tmux_conf_theme_status_right_bg='default,#ff5f87,#e4e4e4' # default, 204, white
 tmux_conf_theme_status_right_attr='none,none,bold'
 
 # pairing indicator
-tmux_conf_theme_pairing='👓'          # U+1F453
+tmux_conf_theme_pairing='👓 '          # U+1F453
 tmux_conf_theme_pairing_fg='none'
 tmux_conf_theme_pairing_bg='none'
 tmux_conf_theme_pairing_attr='none'
 
 # prefix indicator
-tmux_conf_theme_prefix=''			# U+F11C, ⌨ U+2328
+tmux_conf_theme_prefix='⌨ '            # U+2328,  U+F11C
 tmux_conf_theme_prefix_fg='none'
 tmux_conf_theme_prefix_bg='none'
 tmux_conf_theme_prefix_attr='none'
 
 # root indicator
-tmux_conf_theme_root=''			# U+E231
+tmux_conf_theme_root=''               # U+E231
 tmux_conf_theme_root_fg='none'
 tmux_conf_theme_root_bg='none'
 tmux_conf_theme_root_attr='bold,blink'
 
+# synchronized indicator
+tmux_conf_theme_synchronized='🔒'     # U+1F512
+tmux_conf_theme_synchronized_fg='none'
+tmux_conf_theme_synchronized_bg='none'
+tmux_conf_theme_synchronized_attr='none'
+
 # battery bar symbols
-tmux_conf_battery_bar_symbol_full='■'
-tmux_conf_battery_bar_symbol_empty='□'
+tmux_conf_battery_bar_symbol_full='◼'
+tmux_conf_battery_bar_symbol_empty='◻'
 #tmux_conf_battery_bar_symbol_full='♥'
 #tmux_conf_battery_bar_symbol_empty='·'
 
@@ -230,10 +259,12 @@ tmux_conf_battery_vbar_palette='heat'
 # symbols used to indicate whether battery is charging or discharging
 #tmux_conf_battery_status_charging='↑'       # U+2191
 #tmux_conf_battery_status_discharging='↓'    # U+2193
-tmux_conf_battery_status_charging=''		# U+F1E6,  U+F492, ⚡ U+26A1 
-tmux_conf_battery_status_discharging=''	# U+F240 - F244, ↯ U+21AF
+tmux_conf_battery_status_charging=''        # U+F1E6,  U+F492, ⚡ U+26A1 
+tmux_conf_battery_status_discharging=''     # U+F240 - F244, ↯ U+21AF
 
-# clock style
+
+# clock style (when you hit <prefix> + t)
+# you may want to use %I:%M %p in place of %R in tmux_conf_theme_status_right
 tmux_conf_theme_clock_colour='#00ff00'  # light green
 tmux_conf_theme_clock_style='24'
 
@@ -248,23 +279,32 @@ tmux_conf_theme_clock_style='24'
 tmux_conf_copy_to_os_clipboard=true
 
 
-# ------------------------------------------------------------------------------
+# -- user customizations -------------------------------------------------------
 # this is the place to override or undo settings
 
 # increase history size
 #set -g history-limit 10000
+
+# start with mouse mode enabled
+#set -g mouse on
 
 # force Vi mode
 #   really you should export VISUAL or EDITOR environment variable, see manual
 #set -g status-keys vi
 #set -g mode-keys vi
 
+# replace C-b by C-a instead of using both prefixes
+# set -gu prefix2
+# unbind C-a
+# unbind C-b
+# set -g prefix C-a
+# bind C-a send-prefix
+
 # move status line to top
 #set -g status-position top
-#
+
 ####### EXTRA STUFF FROM SUBMODULE MERGE!
 #set -as terminal-overrides ',xterm*:sitm=\E[3m'
-#set -g set-titles-string '#h ❐ #S ● #I #W'
 
 # Break and join panes in windows
 bind -r C-j command-prompt -p "Join pane from " "join-pane -s '%%'"
