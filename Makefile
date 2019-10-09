@@ -4,9 +4,9 @@ default: link-tmux link-dircolors link-termite zsh-shell
 
 link-tmux:
 	$(info Linking .tmux.conf)
-	@ln -f ./tmux/.tmux.conf ~/
+	@ln -f ./.tmux/.tmux.conf ~/
 	$(info Linking .tmux.conf.local)
-	@ln -f ./tmux/.tmux.conf.local ~/
+	@ln -f ./tmux_old/.tmux.conf.local ~/
 
 # =============================================================================
 
