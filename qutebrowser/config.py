@@ -26,7 +26,7 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 
 # Show a scrollbar.
 # Type: Bool
-c.scrolling.bar = True
+c.scrolling.bar = "when-searching"
 
 # Enable smooth scrolling for web pages. Note smooth scrolling does not
 # work with the `:scroll-px` command.
@@ -123,8 +123,8 @@ config.unbind('<Ctrl-Shift-w>', mode='normal')
 
 # Unbind Ctrl+v and bind Alt+v to passthrough mode
 # Suggestion for new binding still needed
-config.unbind('<Ctrl-v>', mode='normal')
-config.unbind('<Ctrl-v>', mode='passthrough')
+#config.unbind('<Ctrl-v>', mode='normal')
+#config.unbind('<Ctrl-v>', mode='passthrough')
 config.bind('<Alt-v>', 'enter-mode passthrough', mode='normal')
 config.bind('<Alt-v>', 'leave-mode', mode='passthrough')
 
