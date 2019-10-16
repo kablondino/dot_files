@@ -37,7 +37,7 @@ zstyle ':completion:*' menu select
 #zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
 
 # Load the aliases and exported variables set by .common.rc.sh
-. ~/.common.rc.sh
+. ~/dot_files/shell/.common.rc.sh
 
 # Directory and file colors
 test -r ~/.dircolors && eval "$(dircolors $HOME/.dircolors)"
@@ -79,5 +79,5 @@ if [ -f '/home/kablondino/google-cloud-sdk/completion.zsh.inc' ]; then
 fi
 
 # Load the prompt (for gcloud, to be loaded AFTER the $PATH and completion)
-. ~/.prompt.zsh
+. ~/dot_files/shell/.prompt.zsh
 

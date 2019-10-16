@@ -19,13 +19,9 @@ link-dircolors:
 zsh-shell:
 	$(info Linking .zshrc)
 	@ln -f ./shell/.zshrc ~/.zshrc
-	$(info Linking .prompt.zsh)
-	@ln -f ./shell/.prompt.zsh ~/.prompt.zsh
-	$(info Linking .common.rc.sh)
-	@ln -f ./shell/.common.rc.sh ~/.common.rc.sh
 #	Check what the default shell is
 	$(info Enter password to change the default shell to zsh.)
-	@chsh -s `which zsh`
+	@chsh -s $(command -v zsh)
 	$(info ======================================)
 	$(info Log out and back in to apply new shell)
 	$(info ======================================)
