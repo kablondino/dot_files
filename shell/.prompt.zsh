@@ -11,7 +11,7 @@ zstyle ':vcs_info:git:*' formats " %0.24b"
 promptinit
 
 # Set some variables for right side
-local PR_USER PR_USER_OP PR_PROMPT PR_HOST
+local PR_USER PR_USER_OP PR_PROMPT PR_GCLOUD_PROJ PR_HOST
 
 setopt PROMPT_SUBST
 
@@ -21,6 +21,9 @@ if fc-list | grep -i "nerd" > /dev/null; then
 else
 	nerd_chars=("" "" "" "")
 fi
+
+# Load gcloud's project prompt
+. ~/dot_files/shell/zsh-gcloud-prompt/gcloud.zsh
 
 # Landscape colors
 vim_cmd_mode="%B%F{015}%K{012}${nerd_chars[1]}%F{012}%K{015} NORMAL %k%F{015}${nerd_chars[2]}%b%k%f"
@@ -46,6 +49,7 @@ function zle-line-finish {
 }
 zle -N zle-line-finish
 
+
 # Check the UID
 if [[ $UID -ne 0 ]]; then  # normal user
 	PR_USER="%F{022}${nerd_chars[3]}%F{232}%K{022} %n "  # HOST corrects colors
@@ -57,11 +61,14 @@ else  # root
 	PR_PROMPT='${vim_mode} '
 fi
 
+
 # Check if we are on SSH or not
-if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then
-	PR_HOST="%F{036}%K{022}${nerd_chars[3]}%F{032}%K{036} ${nerd_chars[3]}%F{232}%K{032} %M %k%F{032}${nerd_chars[4]}%k%f"  # SSH
-else
-	PR_HOST="%F{107}%K{022}${nerd_chars[3]}%F{148}%K{107} ${nerd_chars[3]}%F{232}%K{148} %M %k%F{148}${nerd_chars[4]}%k%f"  # no SSH
+if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then  # SSH
+	PR_GCLOUD_PROJ="%F{036}%K{022}${nerd_chars[3]}%F{032}%K{036} $ZSH_GCLOUD_PROMPT "
+	PR_HOST="%F{032}${nerd_chars[3]}%F{232}%K{032} %M %k%F{032}${nerd_chars[4]}%k%f"
+else  # no SSH
+	PR_GCLOUD_PROJ="%F{107}%K{022}${nerd_chars[3]}%F{232}%K{107} $ZSH_GCLOUD_PROMPT "
+	PR_HOST="%F{148}${nerd_chars[3]}%F{232}%K{148} %M %k%F{148}${nerd_chars[4]}%k%f"
 fi
 
 local display_time="%F{204}${nerd_chars[1]}%F{232}%K{204}%*%B%F{204}%K{170}${nerd_chars[2]} %b%k%f"
@@ -76,9 +83,9 @@ local formatted_vcs_info="%F{232}%K{170}\${vcs_info_msg_0_}%B%F{170}%K{097}${ner
 
 local formatted_current_dir="%B%F{232}%K{097} ${current_dir}%k%F{097}${nerd_chars[2]}%b%k%f"
 
-# aka exit code
-local return_code="%(?..%F{088}${nerd_chars[3]}%F{232}%K{088} %? %{[00;38;5;088m%}${nerd_chars[4]}%k%f)"  # U+F112
-local user_host="${PR_USER}${PR_HOST}"
+# aka exit code, U+F112
+local return_code="%(?..%F{088}${nerd_chars[3]}%F{232}%K{088} %? %{[00;38;5;088m%}${nerd_chars[4]}%k%f)"
+local user_host="${PR_USER}${PR_GCLOUD_PROJ}${PR_HOST}"
 
 # TWO LINE PROMPT
 PROMPT="${display_time}${formatted_vcs_info}${formatted_current_dir}
