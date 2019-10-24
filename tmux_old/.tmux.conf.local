@@ -40,7 +40,8 @@ tmux_conf_new_session_prompt=false
 # -- display -------------------------------------------------------------------
 
 set -g default-terminal "xterm-256color" # colors!
-set -g status-interval 2     # redraw status line every 2 seconds
+set -sg escape-time 0                    # faster command sequences
+set -g status-interval 1     # redraw status line every 1 second
 
 # RGB 24-bit colour support (tmux >= 2.2), possible values are:
 #  - true

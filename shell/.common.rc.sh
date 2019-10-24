@@ -119,6 +119,23 @@ timer() {
 	fi
 }
 
+# Function to remove redundant entries in PATH
+unique_PATH() {
+	if [ -n "$PATH" ]; then
+		old_PATH=$PATH:; PATH=
+		while [ -n "$old_PATH" ]; do
+			x=${old_PATH%%:*}         # the first remaining entry
+			case $PATH: in
+				*:"$x":*) ;;          # already there
+				*) PATH=$PATH:$x;;    # not there yet
+			esac
+			old_PATH=${old_PATH#*:}
+		done
+		PATH=${PATH#:}
+		unset old_PATH x
+	fi
+}
+
 
 # Get the OS name (ID), for checking to run neofetch
 osrel=$(sed -n '/^ID=/s/^.*=//p' /usr/lib/os-release);
