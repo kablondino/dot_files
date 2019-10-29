@@ -137,11 +137,6 @@ STICKY 37;44 # dir with the sticky bit set (+t) and not other-writable
 .source 04;38;5;039
 .mod 00;38;5;51 # Fortran module file
 
-.py 04;38;5;227
-.sage 04;38;5;227
-.yml 04;38;5;211
-.yaml 04;38;5;211
-
 .cpp 04;38;5;027
 .cc 04;38;5;027
 .c++ 04;38;5;027
@@ -154,6 +149,14 @@ STICKY 37;44 # dir with the sticky bit set (+t) and not other-writable
 .m 04;38;5;202
 .js 04;38;5;82
 .jl 04;38;5;211
+
+.py 04;38;5;227
+.sage 04;38;5;227
+.yml 04;38;5;211
+.yaml 04;38;5;211
+.jinja 04;38;5;223
+.jinja2 04;38;5;223
+.html 38;5;214
 
 .tex 04;38;5;057
 .bib 03;38;5;054
@@ -176,13 +179,11 @@ STICKY 37;44 # dir with the sticky bit set (+t) and not other-writable
 .vimrc 38;5;70;48;5;236
 .bashrc 38;5;70;48;5;236
 .zshrc 38;5;70;48;5;236
-.prompt.zsh 38;5;70;48;5;236
-.common.rc.sh 38;5;70;48;5;236
+.dircolors 38;5;70;48;5;236
 
 # Misc
 .gpi 04;38;5;104
 .pdf 01;31
-.html 38;5;214
 .log 03;38;5;090
 
 # This is for files with execute permission:
