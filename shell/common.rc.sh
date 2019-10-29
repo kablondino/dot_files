@@ -28,14 +28,14 @@ if [ -d "$HOME/go" ]; then
 fi
 
 ## Aliases
-alias ls='ls --color=auto'		# Always use color
-alias ll='ls -lh'				# Human-readable for detailed list
+alias ls='ls --color=auto'	# Always use color
+alias ll='ls -lh'			# Human-readable for detailed list
 alias la='ls -A'
 alias sl='sl -e'
 alias quit='exit'
 alias tmux='tmux -2'
 alias less='less -R'
-alias mv='mv -i'				# Confirm move if overwriting
+alias mv='mv -i'			# Confirm move if overwriting
 alias ':q'='exit'
 
 # Check the NCDU version, for color options
@@ -117,6 +117,7 @@ timer() {
 			echo -ne "$(date -u --date @$(($date1 - `date +%s` )) +%H:%M:%S)\r"
 		done
 	fi
+	echo "$1 seconds have passed."
 }
 
 # Function to remove redundant entries in PATH
