@@ -116,8 +116,8 @@ timer() {
 		while [ "$date1" -ge `date +%s` ]; do
 			echo -ne "$(date -u --date @$(($date1 - `date +%s` )) +%H:%M:%S)\r"
 		done
+		echo "$1 seconds have passed."
 	fi
-	echo "$1 seconds have passed."
 }
 
 # Function to remove redundant entries in PATH
