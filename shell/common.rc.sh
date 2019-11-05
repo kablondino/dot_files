@@ -13,8 +13,6 @@ export TERM=xterm-256color
 
 export LESS="--tabs=4 --LONG-PROMPT --ignore-case --RAW-CONTROL-CHARS"
 
-# Add conda path (DEPRICATED)
-#export PATH="$HOME/miniconda2/bin:$HOME/miniconda3/bin:$PATH"
 
 # Uses this one instead
 if [ -s "$HOME/miniconda3/etc/profile.d/conda.sh" \
@@ -31,12 +29,18 @@ fi
 alias ls='ls --color=auto'	# Always use color
 alias ll='ls -lh'			# Human-readable for detailed list
 alias la='ls -A'
-alias sl='sl -e'
 alias quit='exit'
 alias tmux='tmux -2'
 alias less='less -R'
 alias mv='mv -i'			# Confirm move if overwriting
 alias ':q'='exit'
+
+# If lsd is installed, alias those instead
+if [ -x "$(command -v lsd)" ]; then
+	alias ll='lsd -lh'
+	alias la='lsd -A'
+	alias lr='lsd -R'
+fi
 
 # Check the NCDU version, for color options
 if [ -x "$(command -v ncdu)" ]; then
@@ -56,7 +60,11 @@ fi
 # Alias to cd and list files at once
 cs() {
 	cd "$@"
-	ls
+	if [ -x "$(command -v lsd)" ]; then
+		lsd
+	else
+		ls
+	fi
 }
 
 # print a separator banner as wide as the terminal
