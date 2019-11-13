@@ -40,6 +40,7 @@ if [ -x "$(command -v lsd)" ]; then
 	alias ll='lsd -lh'
 	alias la='lsd -A'
 	alias lr='lsd -R'
+	alias tree='lsd --tree'
 fi
 
 # Check the NCDU version, for color options
