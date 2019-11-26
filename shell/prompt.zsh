@@ -11,7 +11,7 @@ zstyle ':vcs_info:git:*' formats " %0.24b"
 promptinit
 
 # Set some variables for right side
-local PR_USER PR_USER_OP PR_PROMPT PR_GCLOUD_PROJ PR_HOST
+local PR_USER PR_USER_OP PR_PROMPT MIDDLE_R_ENTRY PR_HOST
 
 setopt PROMPT_SUBST
 
@@ -67,10 +67,16 @@ fi
 
 # Check if we are on SSH or not
 if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then  # SSH
-	PR_GCLOUD_PROJ="%F{036}%K{022}${nerd_chars[6]}%F{032}%K{036} $ZSH_GCLOUD_PROMPT "
+	MIDDLE_R_ENTRY="%F{036}%K{022}${nerd_chars[6]}%F{032}%K{036} "
+	if [ -x "$(command -v gcloud)" ]; then  # Check for Google Cloud SDK
+		MIDDLE_R_ENTRY="${MIDDLE_R_ENTRY}${ZSH_GCLOUD_PROMPT} "
+	fi
 	PR_HOST="%F{032}${nerd_chars[6]}%F{232}%K{032} %M %k%F{032}${nerd_chars[2]}%k%f"
 else  # no SSH
-	PR_GCLOUD_PROJ="%F{107}%K{022}${nerd_chars[6]}%F{232}%K{107} $ZSH_GCLOUD_PROMPT "
+	MIDDLE_R_ENTRY="%F{107}%K{022}${nerd_chars[6]}%F{232}%K{107} "
+	if [ -x "$(command -v gcloud)" ]; then  # Check for Google Cloud SDK
+		MIDDLE_R_ENTRY="${MIDDLE_R_ENTRY}${ZSH_GCLOUD_PROMPT} "
+	fi
 	PR_HOST="%F{148}${nerd_chars[6]}%F{232}%K{148} %M %k%F{148}${nerd_chars[2]}%k%f"
 fi
 
@@ -88,7 +94,7 @@ local formatted_current_dir="%B%F{232}%K{097} ${current_dir}%k%F{097}${nerd_char
 
 # aka exit code, U+F112
 local return_code="%(?..%F{088}${nerd_chars[6]}%F{232}%K{088} %? %{[00;38;5;088m%}${nerd_chars[2]}%k%f)"
-local user_host="${PR_USER}${PR_GCLOUD_PROJ}${PR_HOST}"
+local user_host="${PR_USER}${MIDDLE_R_ENTRY}${PR_HOST}"
 
 # TWO LINE PROMPT
 PROMPT="${display_time}${formatted_vcs_info}${formatted_current_dir}
