@@ -6,7 +6,7 @@ link-tmux:
 	$(info Linking .tmux.conf)
 	@ln -f ./.tmux/.tmux.conf ~/
 	$(info Linking .tmux.conf.local)
-	@ln -f ./tmux_old/.tmux.conf.local ~/
+	@ln -f ./my_tmux/.tmux.conf.local ~/
 
 # =============================================================================
 
