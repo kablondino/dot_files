@@ -149,9 +149,12 @@ STICKY 37;44 # dir with the sticky bit set (+t) and not other-writable
 .m 04;38;5;202
 .js 04;38;5;82
 .jl 04;38;5;213
+.java 04;38;5;209
+.groovy 04;38;5;209
 
 .py 04;38;5;227
 .sage 04;38;5;227
+
 .yml 00;38;5;211
 .yaml 00;38;5;211
 .jinja 00;38;5;223
