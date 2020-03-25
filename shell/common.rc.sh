@@ -26,21 +26,23 @@ if [ -d "$HOME/go" ]; then
 fi
 
 ## Aliases
-alias ls='ls --color=auto'	# Always use color
-alias ll='ls -lh'			# Human-readable for detailed list
-alias la='ls -A'
 alias quit='exit'
 alias tmux='tmux -2'
 alias less='less -R'
-alias mv='mv -i'			# Confirm move if overwriting
+alias mv='mv -i'				# Confirm move if overwriting
 alias ':q'='exit'
 
 # If lsd is installed, alias those instead
 if [ -x "$(command -v lsd)" ]; then
-	alias ll='lsd -lh'
+	alias ls='lsd'
+	alias ll='lsd -lhF'
 	alias la='lsd -A'
 	alias lr='lsd -R'
 	alias tree='lsd --tree'
+else
+	alias ls='ls --color=auto'	# Always use color
+	alias ll='ls -lh'			# Human-readable for detailed list
+	alias la='ls -A'
 fi
 
 # Check the NCDU version, for color options
