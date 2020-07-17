@@ -3,8 +3,23 @@
 [merge]
 	tool = vimdiff
 [color]
-	ui = true
+	ui = auto
+[color "branch"]
+	current = yellow
+	local = green
+	remote = red
+[color "diff"]
+	meta = cyan
+	frag = magenta
+	old = red
+	new = green
+	whitespace = red reverse
+[color "status"]
+	added = green
+	changed = yellow
+	untracked = red
 [alias]
 	logadog = log --all --decorate --oneline --graph
 [core]
-	pager = less -FXR
+	pager = less -FR
+

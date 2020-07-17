@@ -1,5 +1,11 @@
 default: link-tmux link-dircolors link-termite zsh-shell
 
+# ============================================================================
+
+link-git:
+	$(info Linking .gitconfig)
+	@ln -f ./.gitconfig ~/
+
 # =============================================================================
 
 link-tmux:
