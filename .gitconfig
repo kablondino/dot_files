@@ -1,0 +1,10 @@
+[diff]
+	tool = vimdiff
+[merge]
+	tool = vimdiff
+[color]
+	ui = true
+[alias]
+	logadog = log --all --decorate --oneline --graph
+[core]
+	pager = less -FXR
