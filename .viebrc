@@ -8,6 +8,11 @@ set permissionnotifications=block
 set norestoretabs
 set firefoxmode=google
 
+" Favorites
+set suggesttopsites=0
+set favoritepages=https://www.youtube.com/feed/subscriptions
+set favoritepages+=https://mail.google.com/mail/u/0/#inbox
+
 " General (all mode) Mappings
 map <C-1> <:b 0>
 map <C-2> <:b 1>
@@ -31,8 +36,8 @@ nunmap w
 nmap o <action.toExploreMode>
 nmap J <action.previousTab>
 nmap K <action.nextTab>
-nmap <C-j> <action.moveTabForward>
-nmap <C-k> <action.moveTabBackward>
+nmap <C-j> <action.moveTabBackward>
+nmap <C-k> <action.moveTabForward>
 nmap <F3> <action.emptySearch>
 nmap <C-T> <action.reopenTab>
 
