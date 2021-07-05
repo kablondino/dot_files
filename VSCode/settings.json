@@ -1,0 +1,26 @@
+{
+    "workbench.iconTheme": "material-icon-theme",
+    "vim.vimrc.enable": true,
+    "editor.fontSize": 12,
+    "editor.fontFamily": "'mononoki Nerd Font', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "editor.inlayHints.fontFamily": "'mononoki Nerd Font', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "debug.console.fontSize": 12,
+    "editor.codeLensFontFamily": "'mononoki Nerd Font'",
+    "scm.inputFontFamily": "editor",
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "vim.foldfix": true,
+    "julia.NumThreads": 4,
+    "julia.persistentSession.shell": "/bin/zsh",
+    "files.exclude": {
+        "**/.vscode": true
+    },
+    "workbench.colorTheme": "Monokai Dimmed",
+    "editor.rulers": [
+        { "column": 80, "color": "#3a3a3a" },
+        { "column": 100, "color": "#767676" }
+    ],
+    "terminal.integrated.commandsToSkipShell": [
+        "language-julia.interrupt"
+    ]
+}
