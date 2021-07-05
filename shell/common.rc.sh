@@ -45,6 +45,9 @@ else
 	alias la='ls -A'
 fi
 
+# sudo to please
+alias please='sudo'
+
 # Check the NCDU version, for color options
 if [ -x "$(command -v ncdu)" ]; then
 	ncdu_version="$(ncdu -v | cut -d" " -f2)"
