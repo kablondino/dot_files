@@ -46,7 +46,7 @@ imap <C-e> <action.scrollDown>
 imap <C-y> <action.scrollUp>
 
 " Command mode mappings
-cmap bd<CR> <action.closeTab>
+cmap bd<CR> <:close>
 cmap bn<CR> <action.nextTab>
 cmap bp<CR> <action.previousTab>
 
