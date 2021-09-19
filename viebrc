@@ -2,10 +2,10 @@
 set favicons=30day
 set ignorecase
 set keeprecentlyclosed
-set mouse
+" set mouse
 set permissionmediadevices=allow
 set permissionnotifications=block
-set norestoretabs
+set restoretabs=false
 set firefoxmode=google
 
 " Favorites
