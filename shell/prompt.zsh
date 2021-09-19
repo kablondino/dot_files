@@ -25,8 +25,8 @@ else
 	nerd_chars=("" "" "" "" "" "")
 fi
 
-# Load gcloud's project prompt
-. ~/dot_files/shell/zsh-gcloud-prompt/gcloud.zsh
+# Load gcloud's project prompt, if it's available
+command -v gcloud > /dev/null && . ~/dot_files/shell/zsh-gcloud-prompt/gcloud.zsh
 
 # Landscape colors
 vim_cmd_mode="%B%F{015}%K{012}${nerd_chars[1]}%F{012}%K{015} NORMAL %k%F{015}${nerd_chars[3]}%b%k%f"
