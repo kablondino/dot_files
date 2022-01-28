@@ -14,11 +14,21 @@ export TERM=xterm-256color
 export LESS="--tabs=4 --LONG-PROMPT --ignore-case --RAW-CONTROL-CHARS"
 
 
-# Uses this one instead
-if [ -s "$HOME/miniconda3/etc/profile.d/conda.sh" \
-	-o -s "$HOME/miniconda2/etc/profile.d/conda.sh" ]; then
-	. "$HOME/miniconda3/etc/profile.d/conda.sh"
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/kablondino/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/kablondino/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/kablondino/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/kablondino/miniconda3/bin:$PATH"
+    fi
 fi
+unset __conda_setup
+# <<< conda initialize <<<
+
 
 # Set the Go path
 if [ -d "$HOME/go" ]; then
@@ -189,4 +199,10 @@ fi
 if [ "$(umask)" = "000" ]; then
   umask 022
 fi
+
+# Redshift
+run_redshift() {
+	nohup redshift-gtk -l 51.5:5.5 -b 1.0:0.7 &
+	disown %1
+}
 
