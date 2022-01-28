@@ -6,7 +6,7 @@ precmd() { vcs_info }
 
 # Format the vcs_info_msg_0_ variable
 #zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:git:*' formats " %0.24b"
+zstyle ':vcs_info:git:*' formats " %0.32b"
 
 promptinit
 
@@ -29,14 +29,14 @@ fi
 command -v gcloud > /dev/null && . ~/dot_files/shell/zsh-gcloud-prompt/gcloud.zsh
 
 # Landscape colors
-vim_cmd_mode="%B%F{015}%K{012}${nerd_chars[1]}%F{012}%K{015} NORMAL %k%F{015}${nerd_chars[3]}%b%k%f"
-vim_ins_mode="%B%F{015}%K{022}${nerd_chars[1]}%F{022}%K{015} INSERT %k%F{015}${nerd_chars[3]}%b%k%f"
-vim_vis_mode="%B%F{057}%K{015}${nerd_chars[1]}%F{015}%K{057} VISUAL %k%F{015}${nerd_chars[3]}%b%k%f"
+vim_cmd_mode="%B%F{015}%K{012}${nerd_chars[1]}%F{012}%K{015} N %k%F{015}${nerd_chars[3]}%b%k%f"
+vim_ins_mode="%B%F{015}%K{022}${nerd_chars[1]}%F{022}%K{015} I %k%F{015}${nerd_chars[3]}%b%k%f"
+vim_vis_mode="%B%F{057}%K{015}${nerd_chars[1]}%F{015}%K{057} V %k%F{015}${nerd_chars[3]}%b%k%f"
 
 # Deus colors
-vim_cmd_mode="%B%F{114}${nerd_chars[1]}%F{232}%K{114} NORMAL %k%F{114}${nerd_chars[3]}%b%f"
-vim_ins_mode="%B%F{039}${nerd_chars[1]}%F{232}%K{039} INSERT %k%F{039}${nerd_chars[3]}%b%f"
-vim_vis_mode="%B%F{232}${nerd_chars[1]}%F{232}%K{170} VISUAL %k%F{170}${nerd_chars[3]}%b%f"
+vim_cmd_mode="%B%F{114}${nerd_chars[1]}%F{232}%K{114} N %k%F{114}${nerd_chars[3]}%b%f"
+vim_ins_mode="%B%F{039}${nerd_chars[1]}%F{232}%K{039} I %k%F{039}${nerd_chars[3]}%b%f"
+vim_vis_mode="%B%F{232}${nerd_chars[1]}%F{232}%K{170} V %k%F{170}${nerd_chars[3]}%b%f"
 
 
 vim_mode=$vim_ins_mode
