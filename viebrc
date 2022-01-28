@@ -11,7 +11,14 @@ set firefoxmode=google
 " Favorites
 set suggesttopsites=0
 set favoritepages=https://www.youtube.com/feed/subscriptions
+set favoritepages+=https://www.twitch.tv
 set favoritepages+=https://mail.google.com/mail/u/0/#inbox
+set favoritepages+=https://www.wikipedia.org
+
+" Search words
+set searchwords=yt~youtube.com/results?search_query=%s
+set searchwords+=wiki~https://en.wikipedia.org/wiki/Special:Search/%s
+set searchwords+=poe~https://www.poewiki.net/w/index.php?search=%s
 
 " General (all mode) Mappings
 map <C-1> <:b 0>
