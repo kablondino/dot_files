@@ -30,7 +30,8 @@ map <C-6> <:b 5>
 map <C-7> <:b 6>
 map <C-8> <:b 7>
 map <C-9> <:b 8>
-map <F5> <action.reload>
+map <F5> <action.refreshTab>
+map <S-F5> <action.refreshTabWithoutCache>
 map <F12> <:devtools>
 map <PageUp> <action.scrollPageUp>
 map <PageDown> <action.scrollPageDown>
