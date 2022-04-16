@@ -23,6 +23,7 @@ alias quit='exit'
 alias tmux='tmux -2'
 alias less='less -R'
 alias mv='mv -i'				# Confirm move if overwriting
+alias please='sudo'
 alias ':q'='exit'
 
 # If lsd is installed, alias those instead
@@ -37,9 +38,6 @@ else
 	alias ll='ls -lh'			# Human-readable for detailed list
 	alias la='ls -A'
 fi
-
-# sudo to please
-alias please='sudo'
 
 # Check the NCDU version, for color options
 if [ -x "$(command -v ncdu)" ]; then
@@ -66,13 +64,14 @@ cs() {
 	fi
 }
 
-# print a separator banner as wide as the terminal
+# Print a separator banner as wide as the terminal
 hr() {
 	k=0
 	while [ $k -lt $COLUMNS ]; do
-		echo -ne "="
+		printf "\u2501"  # Character: ━
 		k=$((k + 1))
 	done
+	echo ''  # New line after final character
 }
 
 # display a list of supported colors
@@ -163,11 +162,11 @@ if [ -x "$(command -v thefuck)" ]; then
 	eval $(thefuck --alias)
 fi
 
-
-# Neofetch (does not run if SUSE is the distro, since it's slow)
-# Or print out the current shell version
+# Neofetch and the_shell
 case $osrel in
-	*suse* ) the_shell ;;
+	*suse* ) if [ -x "$(command -v neofetch)" ]; then
+		neofetch --disable packages WM Theme Icons --color_blocks off
+		else the_shell; fi ;;
 	* ) if [ -x "$(command -v neofetch)" ]; then neofetch;
 		else the_shell; fi;;
 esac
