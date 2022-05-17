@@ -143,6 +143,8 @@ unique_PATH() {
 	fi
 }
 
+# Run the function
+unique_PATH
 
 # Get the OS name (ID), for checking to run neofetch
 osrel=$(sed -n '/^ID=/s/^.*=//p' /usr/lib/os-release);
