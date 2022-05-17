@@ -13,7 +13,6 @@ set suggesttopsites=0
 set favoritepages=https://www.youtube.com/feed/subscriptions
 set favoritepages+=https://www.twitch.tv
 set favoritepages+=https://mail.google.com/mail/u/0/#inbox
-set favoritepages+=https://www.wikipedia.org
 
 " Search words
 set searchwords=yt~youtube.com/results?search_query=%s
@@ -42,10 +41,6 @@ map <End> <action.scrollBottom>
 nunmap b
 nunmap w
 nmap o <action.toExploreMode>
-nmap J <action.previousTab>
-nmap K <action.nextTab>
-nmap <C-j> <action.moveTabBackward>
-nmap <C-k> <action.moveTabForward>
 nmap <F3> <action.emptySearch>
 nmap <C-T> <action.reopenTab>
 
