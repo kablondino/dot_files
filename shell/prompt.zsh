@@ -98,14 +98,14 @@ local current_dir='%(4~|%-1~/…/%2~|%3~)'
 #local current_dir="%50<…<%~%<<"
 
 # TODO: Fill in and figure out prompt
-local history_prompt="%B%F{}%K{} %! %b%k%f{}"
+local history_prompt="%F{232}%K{170}%!${nerd_chars[3]} %b%k%f"
 
 # Version control colorized
-local formatted_vcs_info="%F{232}%K{170}\${vcs_info_msg_0_}"
-formatted_vcs_info+="%B%F{170}%K{097}${nerd_chars[3]}%b%k%f"
+local formatted_vcs_info="%F{232}%K{097}\${vcs_info_msg_0_}"
+formatted_vcs_info+="%B%F{097}%K{061}${nerd_chars[3]}%b%k%f"
 
-local formatted_current_dir="%B%F{232}%K{097} ${current_dir}"
-formatted_current_dir+="%k%F{097}${nerd_chars[3]}%b%k%f"
+local formatted_current_dir="%B%F{232}%K{061} ${current_dir}"
+formatted_current_dir+="%k%F{061}${nerd_chars[3]}%b%k%f"
 
 # aka exit code, U+F112
 local return_code="%(?..%F{088}${nerd_chars[6]}%F{232}%K{088} %?"
@@ -113,7 +113,8 @@ return_code+="${nerd_chars[7]} %{[00;38;5;088m%}${nerd_chars[2]}%k%f)"
 local user_host="${PR_USER}${MIDDLE_R_ENTRY}${PR_HOST}"
 
 # TWO LINE PROMPT
-PROMPT="${display_time} %! ${formatted_vcs_info}${formatted_current_dir}
+PROMPT="${display_time}${history_prompt}${formatted_vcs_info}"
+PROMPT+="${formatted_current_dir}
 $PR_PROMPT"
 RPROMPT="${return_code}${user_host}"
 
