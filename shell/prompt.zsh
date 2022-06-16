@@ -97,8 +97,7 @@ local current_dir='%(4~|%-1~/…/%2~|%3~)'
 # Directory expansion for showing only set amount of characters in prompt
 #local current_dir="%50<…<%~%<<"
 
-# TODO: Fill in and figure out prompt
-local history_prompt="%F{232}%K{170}%!${nerd_chars[3]} %b%k%f"
+local history_prompt="%F{232}%K{170}%! %B%F{170}%K{097}${nerd_chars[3]}%b%k%f"
 
 # Version control colorized
 local formatted_vcs_info="%F{232}%K{097}\${vcs_info_msg_0_}"
@@ -117,4 +116,3 @@ PROMPT="${display_time}${history_prompt}${formatted_vcs_info}"
 PROMPT+="${formatted_current_dir}
 $PR_PROMPT"
 RPROMPT="${return_code}${user_host}"
-
