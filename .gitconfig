@@ -22,4 +22,6 @@
 	logadog = log --all --decorate --oneline --graph
 [core]
 	pager = less -FR
+[pull]
+	rebase = false
 
