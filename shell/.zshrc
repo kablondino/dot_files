@@ -31,7 +31,7 @@ zstyle :compinstall filename '$HOME/.zshrc'
 # Autocomplete
 autoload -Uz compinit && compinit
 zstyle ':completion:*' menu select
-#zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
+zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
 
 # Load the aliases and exported variables set by common.rc.sh
 . ~/dot_files/shell/common.rc.sh
@@ -79,4 +79,3 @@ fi
 
 # Load the prompt (for gcloud, to be loaded AFTER the $PATH and completion)
 . ~/dot_files/shell/prompt.zsh
-

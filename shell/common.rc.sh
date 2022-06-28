@@ -189,4 +189,3 @@ run_redshift() {
 	nohup redshift-gtk -l 51.5:5.5 -b 1.0:0.7 &
 	disown %1
 }
-
