@@ -1,3 +1,5 @@
+" VIEBRC for version 9.0.0
+
 " Options
 set favicons=30day
 set ignorecase
@@ -6,7 +8,7 @@ set keeprecentlyclosed
 set permissionmediadevices=allow
 set permissionnotifications=block
 set restoretabs=false
-set firefoxmode=google
+" set useragent=Chrome/%version
 
 " Favorites
 set suggesttopsites=0
@@ -17,7 +19,8 @@ set favoritepages+=https://mail.google.com/mail/u/0/#inbox
 " Search words
 set searchwords=yt~youtube.com/results?search_query=%s
 set searchwords+=wiki~https://en.wikipedia.org/wiki/Special:Search/%s
-set searchwords+=poe~https://www.poewiki.net/w/index.php?search=%s
+set searchwords+=poew~https://www.poewiki.net/w/index.php?search=%s
+set searchwords+=google~https://www.google.com/search?q=%s
 
 " General (all mode) Mappings
 map <C-1> <:b 0>
