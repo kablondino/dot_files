@@ -164,14 +164,25 @@ if [ -x "$(command -v thefuck)" ]; then
 	eval $(thefuck --alias)
 fi
 
-# Neofetch and the_shell
-case $osrel in
-	*suse* ) if [ -x "$(command -v neofetch)" ]; then
-		neofetch --disable packages WM Theme Icons --color_blocks off
-		else the_shell; fi ;;
-	* ) if [ -x "$(command -v neofetch)" ]; then neofetch;
-		else the_shell; fi;;
-esac
+# Neofetch, fastfetch, and the_shell
+# If fastfetch exists, then use it instead of neofetch
+if [ -x "$(command -v fastfetch)" ]; then
+	fastfetch
+else
+	# If using SUSE, trim down the neofetch items returned
+	case $osrel in
+		*suse* ) if [ -x "$(command -v neofetch)" ]; then
+				neofetch --disable packages WM Theme Icons --color_blocks off
+			else
+				the_shell;
+			fi;;
+		* ) if [ -x "$(command -v neofetch)" ]; then
+				neofetch;
+			else
+				the_shell;
+			fi;;
+	esac
+fi
 
 
 # Fortune check install and run
