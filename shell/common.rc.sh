@@ -155,7 +155,8 @@ green=$(tput setaf 2)
 # Print shell information
 the_shell() {
 	printf "╔═════════════════╤══════════════════════════════════╗\n"
-	printf "║  ${bold}Current Shell${normal}  │${green}%32s${normal}  ║\n" $SHELL
+	printf "║  ${bold}Current Shell${normal}  "
+	printf "│${green}%32s${normal}  ║\n" $SHELL
 	printf "╚═════════════════╧══════════════════════════════════╝\n"
 }
 
@@ -185,7 +186,7 @@ else
 fi
 
 
-# Fortune check install and run
+# Fortune check install and run on terminal start
 if [ -x "$(command -v fortune)" ]; then
 	fortune
 fi

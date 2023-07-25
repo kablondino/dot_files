@@ -89,7 +89,7 @@ else  # no SSH
 	PR_HOST+="%k%F{148}${nerd_chars[2]}%k%f"
 fi
 
-local display_time="%F{204}${nerd_chars[1]}%F{232}%K{204}%8<..<%*%<<"
+local display_time="%F{204}${nerd_chars[1]}%F{232}%K{204}%8<..<%D{%T}%<<"
 display_time+="%B%F{204}%K{170}${nerd_chars[3]} %b%k%f"
 
 # Directory expansion for showing only the last 2 directories, if too long
@@ -109,6 +109,7 @@ formatted_current_dir+="%k%F{061}${nerd_chars[3]}%b%k%f"
 # aka exit code, U+F112
 local return_code="%(?..%F{088}${nerd_chars[6]}%F{232}%K{088} %?"
 return_code+="${nerd_chars[7]} %{[00;38;5;088m%}${nerd_chars[2]}%k%f)"
+
 local user_host="${PR_USER}${MIDDLE_R_ENTRY}${PR_HOST}"
 
 # TWO LINE PROMPT
