@@ -7,7 +7,8 @@ Read over the `Makefile` and use it.
 2. `.zshrc`
 	+ `.prompt.zsh`
 	+ `.common.rc.sh`
-3. `.tmux.conf` and `.tmux.conf.local` from [Oh My Tmux!](https://github.com/gpakosz/.tmux "gpakosz GitHub Repository")
+3. `.tmux.conf` and `.tmux.conf.local` from [Oh My Tmux!](https://github.com/gpakosz/.tmux "gpakosz
+   GitHub Repository")
 4. `.Xdefaults`, only for the urxvt terminal
 5. `.dircolors` (requires 256 colors)
 6. `i3.config`, the i3gaps fork
@@ -20,8 +21,9 @@ Read over the `Makefile` and use it.
 
 
 ## "Required" Software
-[Nerd Fonts](http://nerdfonts.com/) are used a lot for vim (see note below about vim) and the zsh prompt.
-Alter the font choice in the `.Xdefaults` or `termite/.config`, depending on which terminal you use.
+[Nerd Fonts](http://nerdfonts.com/) are used a lot for vim (see note below about vim) and the zsh
+prompt. Alter the font choice in the `.Xdefaults` or `termite/.config`, depending on which
+terminal you use.
 
 ### ZSH / BASH
 + Fortune
@@ -40,8 +42,7 @@ Alter the font choice in the `.Xdefaults` or `termite/.config`, depending on whi
 + nm-applet
 
 ### VIM Files and Plugins
-**NOTE!** Vim files have moved!
-It has been moved to its own repository, partially because I dropped [Vundle](https://github.com/VundleVim/Vundle.vim).
-Now, Vim 8's built-in functionality is used.
-Look at [my other repository](https://github.com/kablondino/.vim) to implement it.
+**NOTE!** Vim files have moved! It has been moved to its own repository, partially because I
+dropped [Vundle](https://github.com/VundleVim/Vundle.vim).  Now, Vim 8's built-in functionality is
+used.  Look at [my other repository](https://github.com/kablondino/.vim) to implement it.
 
