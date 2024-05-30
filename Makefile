@@ -1,4 +1,4 @@
-default: link-tmux link-dircolors link-termite zsh-shell
+default: link-git link-tmux link-dircolors zsh-shell link-fastfetch
 
 # ============================================================================
 
@@ -19,6 +19,13 @@ link-tmux:
 link-dircolors:
 	$(info Linking .dircolors)
 	@ln -f ./shell/.dircolors ~/.dircolors
+
+# =============================================================================
+
+link-fastfetch:
+	$(info Linking fastfetch)
+	@mkdir -p ~/.config/fastfetch
+	@ln -f ./shell/fastfetch_config.jsonc ~/.config/fastfetch/config.jsonc
 
 # =============================================================================
 
