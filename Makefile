@@ -32,12 +32,7 @@ link-fastfetch:
 zsh-shell:
 	$(info Linking .zshrc)
 	@ln -f ./shell/.zshrc ~/.zshrc
-#	Check what the default shell is
-	$(info Enter password to change the default shell to zsh.)
-	@chsh -s $(command -v zsh)
-	$(info ======================================)
-	$(info Log out and back in to apply new shell)
-	$(info ======================================)
+	$(info run chsh -s $(command -v zsh) to make zsh the default shell.)
 
 # =============================================================================
 
