@@ -17,8 +17,6 @@ Read over the `Makefile` and use it.
 	+ $Mod + Ctrl + Alt + Esc:	 		Suspend
 	+ $Mod + Ctrl + Shift + Alt + Esc:	Hibernate
 
-7. `termite/.config`; Installation of this terminal varies very widely between distributions.
-
 
 ## "Required" Software
 [Nerd Fonts](http://nerdfonts.com/) are used a lot for vim (see note below about vim) and the zsh
@@ -31,7 +29,7 @@ terminal you use.
 + A certain python3 application that can suggest corrected commands
 
 ### i3
-+ Main terminal: Termite
++ Main terminal: TBD
 + rofi
 + bumblebee-status
 + i3ipc

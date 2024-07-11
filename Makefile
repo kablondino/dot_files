@@ -41,13 +41,6 @@ zsh-shell:
 
 # =============================================================================
 
-link-termite:
-	$(info Linking termite configuration file)
-	@mkdir -p ~/.config/termite/
-	@ln -f ./termite/config ~/.config/termite/config
-
-# =============================================================================
-
 link-i3:
 	$(info Linking i3wm configuration file)
 	@mkdir -p ~/.config/i3/
