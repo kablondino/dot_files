@@ -26,6 +26,9 @@ autoload -U edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd '^x^e' edit-command-line  # Same bindings as in bash default
 
+# Reverse search, just like bash
+bindkey '^R' history-incremental-search-backward
+
 zstyle :compinstall filename '$HOME/.zshrc'
 
 # Autocomplete
