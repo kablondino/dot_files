@@ -2,7 +2,12 @@
 #emulate -LR bash 2>/dev/null
 
 # Default text editor
-export VISUAL=vim
+if command -v nvim &> /dev/null; then
+	export VISUAL=nvim
+	alias vim='nvim'
+else
+	export VISUAL=vim
+fi
 export EDITOR="$VISUAL"
 
 # Timeout for keyboard
@@ -25,6 +30,7 @@ alias less='less -R'
 alias mv='mv -i'				# Confirm move if overwriting
 alias please='sudo'
 alias ':q'='exit'
+alias status='git status'
 
 # If lsd is installed, alias those instead
 if [ -x "$(command -v lsd)" ]; then
@@ -159,11 +165,6 @@ the_shell() {
 	printf "│${green}%32s${normal}  ║\n" $SHELL
 	printf "╚═════════════════╧══════════════════════════════════╝\n"
 }
-
-# thefuck alias
-if [ -x "$(command -v thefuck)" ]; then
-	eval $(thefuck --alias)
-fi
 
 # Neofetch, fastfetch, and the_shell
 # If fastfetch exists, then use it instead of neofetch
